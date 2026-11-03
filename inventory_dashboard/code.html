@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+
+<html lang="km"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Kantumruy+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"outline":"#787680","primary":"#070235","tertiary-fixed-dim":"#c3c0ff","on-surface-variant":"#47464f","on-tertiary-fixed":"#100069","on-secondary":"#ffffff","tertiary-fixed":"#e3dfff","surface-bright":"#faf8ff","inverse-surface":"#283044","on-primary":"#ffffff","surface-tint":"#5b598c","surface-dim":"#d2d9f4","secondary":"#00687a","surface-container-high":"#e2e7ff","on-primary-fixed-variant":"#444173","on-tertiary":"#ffffff","surface-container-low":"#f2f3ff","error":"#ba1a1a","background":"#faf8ff","secondary-fixed":"#acedff","on-secondary-container":"#006172","primary-fixed-dim":"#c4c1fb","outline-variant":"#c8c5d0","surface-container-highest":"#dae2fd","surface-container":"#eaedff","on-surface":"#131b2e","error-container":"#ffdad6","surface-container-lowest":"#ffffff","tertiary":"#050039","inverse-primary":"#c4c1fb","on-secondary-fixed-variant":"#004e5c","secondary-container":"#57dffe","tertiary-container":"#14007a","on-error":"#ffffff","on-background":"#131b2e","on-error-container":"#93000a","secondary-fixed-dim":"#4cd7f6","on-secondary-fixed":"#001f26","surface":"#faf8ff","on-tertiary-container":"#7d77ff","surface-variant":"#dae2fd","on-tertiary-fixed-variant":"#372abf","primary-container":"#1e1b4b","on-primary-fixed":"#181445","on-primary-container":"#8683ba","inverse-on-surface":"#eef0ff","primary-fixed":"#e3dfff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"1rem","gutter-mobile":"0.75rem","gutter":"1.5rem","space-sm":"0.5rem","space-xs":"0.25rem","space-lg":"1.5rem","space-xl":"2rem","margin":"2rem","margin-mobile":"1rem","space-2xl":"3rem"},fontFamily:{"label-md":['Kantumruy Pro', 'Inter', sans-serif],"headline-md":['Kantumruy Pro', 'Inter', sans-serif],"title-md":['Kantumruy Pro', 'Inter', sans-serif],"body-lg":['Kantumruy Pro', 'Inter', sans-serif],"body-md":['Kantumruy Pro', 'Inter', sans-serif],"table-data":['Kantumruy Pro', 'Inter', sans-serif],"display-lg-mobile":['Kantumruy Pro', 'Inter', sans-serif],"label-sm":['Kantumruy Pro', 'Inter', sans-serif],"headline-lg":['Kantumruy Pro', 'Inter', sans-serif],"metric-number":["\"Inter, sans-serif\""],"body-sm":['Kantumruy Pro', 'Inter', sans-serif],"title-lg":['Kantumruy Pro', 'Inter', sans-serif],"display-lg":['Kantumruy Pro', 'Inter', sans-serif]},fontSize:{"label-md":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"500"}],"headline-md":["22px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"title-md":["16px",{lineHeight:"24px",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"22px",fontWeight:"400"}],"table-data":["13px",{lineHeight:"20px",fontWeight:"400"}],"display-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"700"}],"label-sm":["11px",{lineHeight:"16px",letterSpacing:"0.03em",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"600"}],"metric-number":["30px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"title-lg":["18px",{lineHeight:"26px",fontWeight:"600"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script><link rel="stylesheet" href="../khmer-font.css"/>
+</head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center gap-space-sm bg-surface-container-lowest/60 backdrop-blur-md"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[22px]">inventory_2</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-primary leading-tight tracking-tight">ស្តុកវៃឆ្លាត</span><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">SmartStock ERP</span></div></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-on-surface-variant/80 uppercase">ម៉ឺនុយប្រតិបត្តិការ (Navigation)</div></div><nav class="flex flex-col gap-1 px-space-md" data-active-classes="bg-primary-container text-on-primary font-title-md rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 transition-all bg-primary-container text-on-primary font-title-md rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><div class="flex flex-col text-left"><span>ផ្ទាំងគ្រប់គ្រងទូទៅ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Dashboard</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="inventory-items" href="#"><span class="material-symbols-outlined text-[20px]">warehouse</span><div class="flex flex-col text-left"><span>ទំនិញក្នុងស្តុក</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Inventory Items</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="stock-movements" href="#"><span class="material-symbols-outlined text-[20px]">sync_alt</span><div class="flex flex-col text-left"><span>ចរន្តស្តុក នាំចូល/បញ្ចេញ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Stock Movements</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="excel-import" href="#"><span class="material-symbols-outlined text-[20px]">upload_file</span><div class="flex flex-col text-left"><span>នាំចូលទិន្នន័យ Excel</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Excel Bulk Import</span></div></a><div class="my-space-xs px-space-sm py-space-xs font-label-sm text-label-sm text-on-surface-variant/80 uppercase">ប្រព័ន្ធគ្រប់គ្រង (Admin)</div><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="roles-and-permissions" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><div class="flex flex-col text-left"><span>ការកំណត់តួនាទី &amp; សិទ្ធិ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Roles &amp; Permissions</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><div class="flex flex-col text-left"><span>ការកំណត់ប្រព័ន្ធ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">System Settings</span></div></a></nav></div><div class="p-space-md bg-surface-container-lowest/80 mx-space-md mb-space-md rounded-lg flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Hub: Phnom Penh Depot A</span></div><span class="font-label-sm text-label-sm text-secondary font-semibold">v2.4</span></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span><input class="w-full h-[38px] pl-10 pr-space-md bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 font-body-sm text-body-sm rounded-lg border-0 shadow-[0_1px_8px_rgba(0,0,0,0.04)] focus:outline-none focus:ring-1 focus:ring-secondary" placeholder="ស្វែងរកកូដទំនិញ SKU, ឈ្មោះ ឬទីតាំង... (Search SKU or item)" type="text"/></div></div><div class="flex items-center gap-space-lg"><button class="flex items-center gap-space-xs px-space-md py-2 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] hover:bg-secondary/90 transition-all" type="button"><span class="material-symbols-outlined text-[18px]">file_upload</span><span>នាំចូល Excel</span></button><div class="relative flex items-center"><button aria-label="Notifications" class="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-on-surface shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span></button></div><div class="flex items-center gap-space-sm pl-space-sm bg-surface-container-lowest py-1 px-space-sm rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] cursor-pointer hover:bg-surface-container-low transition-colors"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><div class="flex items-center gap-space-xs"><span class="font-title-md text-[13px] text-on-surface font-semibold">Sokha Chan</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container-high text-on-primary-fixed-variant">ADMIN</span></div><span class="font-label-sm text-[11px] text-on-surface-variant">អ្នកគ្រប់គ្រងជាន់ខ្ពស់</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="px-margin py-space-lg flex flex-col gap-space-xl">
+<!-- Header Command Band & Quick Operational Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<span>ឃ្លាំងកណ្តាល ភ្នំពេញ (Phnom Penh Hub Terminal 01)</span>
+<span class="text-outline">/</span>
+<span class="text-primary font-medium">បច្ចុប្បន្នភាពទិន្នន័យផ្ទាល់ (Live Sync)</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-1">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">ផ្ទាំងគ្រប់គ្រងស្តុកទូទៅ</h1>
+<span class="font-title-md text-title-md text-on-surface-variant font-normal tracking-normal">(Executive Inventory Dashboard)</span>
+</div>
+</div>
+<!-- Quick Action Buttons -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<button class="flex items-center gap-space-xs px-space-md py-2.5 bg-surface-container-lowest hover:bg-surface-container-low text-primary rounded-lg shadow-sm font-label-md text-label-md transition-all" id="open-import-modal">
+<span class="material-symbols-outlined text-[19px] text-secondary">upload_file</span>
+<span>នាំចូល Excel ភ្លាមៗ (Quick Import)</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2.5 bg-secondary hover:bg-secondary/90 text-on-secondary rounded-lg shadow-sm font-label-md text-label-md transition-all">
+<span class="material-symbols-outlined text-[19px]">add_box</span>
+<span>កត់ត្រាទំនិញចូល (Stock In)</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2.5 bg-primary-container hover:bg-primary-container/85 text-on-primary rounded-lg shadow-sm font-label-md text-label-md transition-all">
+<span class="material-symbols-outlined text-[19px] text-secondary-container">indeterminate_check_box</span>
+<span>កត់ត្រាទំនិញចេញ (Stock Out)</span>
+</button>
+</div>
+</div>
+<!-- Top KPI Metric Cards (4 Pillars) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1: Total SKU -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">ទំនិញសរុប (Total SKU)</span>
+<span class="font-label-sm text-[10px] text-outline uppercase tracking-wider">Catalog Inventory</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[22px]">category</span>
+</div>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-xs">
+<span class="font-metric-number text-metric-number text-primary">1,248</span>
+<span class="font-label-md text-label-md text-on-surface-variant">មុខ (SKUs)</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-low text-secondary text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+12% ធៀបខែមុន</span>
+</div>
+<span class="font-label-sm text-[11px] text-outline">98.4% ពេញលេញ</span>
+</div>
+</div>
+<!-- Card 2: Total Inventory Value -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">តម្លៃស្តុកសរុប (Total Value)</span>
+<span class="font-label-sm text-[10px] text-outline uppercase tracking-wider">Estimated Asset Valuation</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[22px]">payments</span>
+</div>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-xs">
+<span class="font-metric-number text-metric-number text-primary">$148,920.00</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-low text-secondary text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+<span>+$14.2k សប្តាហ៍នេះ</span>
+</div>
+<span class="font-label-sm text-[11px] text-outline">USD / KHR Indexed</span>
+</div>
+</div>
+<!-- Card 3: Low Stock Alert -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">ទំនិញជិតអស់ (Low Stock Alert)</span>
+<span class="font-label-sm text-[10px] text-outline uppercase tracking-wider">Below Safety Reorder Point</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[22px]">warning</span>
+</div>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-xs">
+<span class="font-metric-number text-metric-number text-on-surface">14</span>
+<span class="font-label-md text-label-md text-on-surface-variant">មុខ (Reorder Needed)</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary text-[11px] font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>បន្ទាន់ (Action Required)</span>
+</div>
+<a class="font-label-sm text-[11px] text-secondary hover:underline" href="#low-stock-panel">ពិនិត្យបញ្ជី →</a>
+</div>
+</div>
+<!-- Card 4: Out of Stock -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">ទំនិញដាច់ស្តុក (Out of Stock)</span>
+<span class="font-label-sm text-[10px] text-error uppercase tracking-wider">Zero Stock Remaining</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-error-container flex items-center justify-center text-error group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[22px]">remove_shopping_cart</span>
+</div>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-xs">
+<span class="font-metric-number text-metric-number text-error">3</span>
+<span class="font-label-md text-label-md text-error">មុខ (Critical Empty)</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container text-on-error-container text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>ប៉ះពាល់ការលក់ (Block PO)</span>
+</div>
+<span class="font-label-sm text-[11px] text-outline">3 SKU ស្នើសុំរួច</span>
+</div>
+</div>
+</div>
+<!-- Center Section: Operational Analytics & Visual Telemetry -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Stock Movement Chart Component (8 cols) -->
+<div class="xl:col-span-8 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">ssid_chart</span>
+<h2 class="font-title-lg text-title-lg text-primary tracking-tight">ក្រាហ្វចរន្តស្តុក នាំចូល vs នាំចេញ</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Weekly Stock Movement Telemetry (Inflow vs Outflow comparison)</p>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-space-xs text-[12px] font-medium text-on-surface-variant">
+<span class="w-3 h-3 rounded-sm bg-secondary"></span>
+<span>នាំចូល (Stock In)</span>
+</div>
+<div class="flex items-center gap-space-xs text-[12px] font-medium text-on-surface-variant">
+<span class="w-3 h-3 rounded-sm bg-primary-container"></span>
+<span>បញ្ចេញ (Stock Out)</span>
+</div>
+<div class="px-2 py-1 bg-surface-container rounded font-label-sm text-label-sm text-on-surface-variant">
+              ៧ ថ្ងៃចុងក្រោយ
+            </div>
+</div>
+</div>
+<!-- Inline High Fidelity SVG Vector Chart Simulation -->
+<div class="w-full h-64 relative flex flex-col justify-end pt-space-sm">
+<svg class="w-full h-full overflow-visible" fill="none" preserveaspectratio="none" viewbox="0 0 700 210">
+<!-- Gridlines -->
+<line stroke="#dae2fd" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="700" y1="30" y2="30"></line>
+<line stroke="#dae2fd" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="700" y1="80" y2="80"></line>
+<line stroke="#dae2fd" stroke-dasharray="3 3" stroke-width="1" x1="0" x2="700" y1="130" y2="130"></line>
+<line stroke="#dae2fd" stroke-width="1" x1="0" x2="700" y1="180" y2="180"></line>
+<!-- Stock In Bars (Cyan / Secondary) -->
+<rect fill="#00687a" height="120" opacity="0.85" rx="4" width="22" x="35" y="60"></rect>
+<rect fill="#00687a" height="140" opacity="0.85" rx="4" width="22" x="135" y="40"></rect>
+<rect fill="#00687a" height="95" opacity="0.85" rx="4" width="22" x="235" y="85"></rect>
+<rect fill="#00687a" height="150" opacity="0.85" rx="4" width="22" x="335" y="30"></rect>
+<rect fill="#00687a" height="110" opacity="0.85" rx="4" width="22" x="435" y="70"></rect>
+<rect fill="#00687a" height="130" opacity="0.85" rx="4" width="22" x="535" y="50"></rect>
+<rect fill="#00687a" height="135" opacity="0.85" rx="4" width="22" x="635" y="45"></rect>
+<!-- Stock Out Bars (Midnight Indigo / Primary Container) -->
+<rect fill="#1e1b4b" height="90" opacity="0.9" rx="4" width="22" x="62" y="90"></rect>
+<rect fill="#1e1b4b" height="105" opacity="0.9" rx="4" width="22" x="162" y="75"></rect>
+<rect fill="#1e1b4b" height="70" opacity="0.9" rx="4" width="22" x="262" y="110"></rect>
+<rect fill="#1e1b4b" height="115" opacity="0.9" rx="4" width="22" x="362" y="65"></rect>
+<rect fill="#1e1b4b" height="80" opacity="0.9" rx="4" width="22" x="462" y="100"></rect>
+<rect fill="#1e1b4b" height="100" opacity="0.9" rx="4" width="22" x="562" y="80"></rect>
+<rect fill="#1e1b4b" height="85" opacity="0.9" rx="4" width="22" x="662" y="95"></rect>
+<!-- Smooth Trend Inflow Spline -->
+<path d="M46 60 Q 146 30, 246 85 T 346 30 T 446 70 T 546 50 T 646 45" fill="none" stroke="#57dffe" stroke-width="2.5"></path>
+</svg>
+<!-- Day Labels under bars -->
+<div class="grid grid-cols-7 text-center pt-space-xs font-label-sm text-[11px] text-on-surface-variant font-medium">
+<div>ច័ន្ទ (Mon)</div>
+<div>អង្គារ (Tue)</div>
+<div>ពុធ (Wed)</div>
+<div>ព្រហ (Thu)</div>
+<div>សុក្រ (Fri)</div>
+<div>សៅរ៍ (Sat)</div>
+<div>អាទិត្យ (Sun)</div>
+</div>
+</div>
+<!-- Weekly Summary Footer Metric Band -->
+<div class="grid grid-cols-3 gap-space-sm pt-space-md mt-space-md bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex flex-col px-space-xs">
+<span class="font-label-sm text-[11px] text-on-surface-variant">នាំចូលសរុប (Total In)</span>
+<span class="font-title-md text-title-md text-secondary">+1,420 ឯកតា</span>
+</div>
+<div class="flex flex-col px-space-xs">
+<span class="font-label-sm text-[11px] text-on-surface-variant">បញ្ចេញសរុប (Total Out)</span>
+<span class="font-title-md text-title-md text-primary">-984 ឯកតា</span>
+</div>
+<div class="flex flex-col px-space-xs">
+<span class="font-label-sm text-[11px] text-on-surface-variant">សមតុល្យចរន្ត (Net Flux)</span>
+<span class="font-title-md text-title-md text-secondary">+436 ឯកតា (Surplus)</span>
+</div>
+</div>
+</div>
+<!-- Warehouse Storage Capacity & Depot Snapshot (4 cols) -->
+<div class="xl:col-span-4 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h2 class="font-title-lg text-title-lg text-primary tracking-tight">សមត្ថភាពស្តុកឃ្លាំង</h2>
+<span class="material-symbols-outlined text-secondary">hub</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Warehouse Spatial Capacity Utilization</span>
+</div>
+<!-- Visual Ring Breakdown -->
+<div class="flex items-center justify-center py-space-md relative">
+<svg class="w-40 h-40 transform -rotate-90" viewbox="0 0 120 120">
+<circle cx="60" cy="60" fill="transparent" r="50" stroke="#eaedff" stroke-width="12"></circle>
+<circle cx="60" cy="60" fill="transparent" r="50" stroke="#00687a" stroke-dasharray="314.15" stroke-dashoffset="85" stroke-linecap="round" stroke-width="12"></circle>
+<circle cx="60" cy="60" fill="transparent" r="50" stroke="#1e1b4b" stroke-dasharray="314.15" stroke-dashoffset="260" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute flex flex-col items-center justify-center text-center">
+<span class="font-metric-number text-[26px] text-primary">76.8%</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant uppercase tracking-wider">ចំណុះប្រើប្រាស់</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="p-space-xs bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded bg-secondary"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Depot A (សម្ភារៈសំណង់ធ្ងន់)</span>
+</div>
+<span class="font-label-md text-label-md font-semibold text-primary">82%</span>
+</div>
+<div class="p-space-xs bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded bg-primary-container"></span>
+<span class="font-body-sm text-body-sm text-on-surface">Depot B (គ្រឿងបរិក្ខារ &amp; ថ្នាំពណ៌)</span>
+</div>
+<span class="font-label-md text-label-md font-semibold text-primary">64%</span>
+</div>
+</div>
+<!-- Quick Inspection Trigger -->
+<button class="w-full mt-space-md py-2 bg-surface-container hover:bg-surface-container-high text-primary rounded-lg font-label-md text-label-md transition-colors flex items-center justify-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px]">rule</span>
+<span>ពិនិត្យផែនទីទីតាំងធ្នើរ (Shelf Audit Map)</span>
+</button>
+</div>
+</div>
+<!-- Bottom Split View: Activity Log & Critical Low Stock Alert -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Recent Stock Activity Table (8 cols) -->
+<div class="xl:col-span-8 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-md">
+<div class="flex flex-col">
+<h2 class="font-title-lg text-title-lg text-primary tracking-tight">សកម្មភាពចរន្តស្តុកចុងក្រោយ (Recent Activity)</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Real-time Inbound &amp; Outbound Transaction Ledger</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-1 rounded bg-surface-container-high text-primary font-label-sm text-[11px] font-semibold">ទិន្នន័យជាក់ស្តែង (LIVE)</span>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" title="ទាញយករបាយការណ៍">
+<span class="material-symbols-outlined text-[19px]">file_download</span>
+</button>
+</div>
+</div>
+<!-- Modern Data Table -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left font-table-data text-table-data">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-[11px] uppercase tracking-wider">
+<th class="py-2.5 px-space-sm rounded-l-md">កូដ SKU</th>
+<th class="py-2.5 px-space-sm">ឈ្មោះទំនិញ (Item Name)</th>
+<th class="py-2.5 px-space-sm">ប្រតិបត្តិការ (Type)</th>
+<th class="py-2.5 px-space-sm text-right">បរិមាណ (Qty)</th>
+<th class="py-2.5 px-space-sm">អ្នកទទួលខុសត្រូវ (Staff)</th>
+<th class="py-2.5 px-space-sm rounded-r-md">កាលបរិច្ឆេទ (Timestamp)</th>
+</tr>
+</thead>
+<tbody class="text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-space-sm font-semibold text-primary font-mono text-xs">SKU-ST-1209</td>
+<td class="py-3 px-space-sm">
+<div class="flex flex-col">
+<span class="font-medium text-primary">ដែកថែប Deformed Bar 12mm</span>
+<span class="text-[11px] text-outline">High Tensile Gr 460 / Lot: 881</span>
+</div>
+</td>
+<td class="py-3 px-space-sm">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-[13px]">arrow_downward</span>
+<span>នាំចូល (In)</span>
+</span>
+</td>
+<td class="py-3 px-space-sm text-right font-semibold text-secondary font-mono">+450 ប្លោក</td>
+<td class="py-3 px-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-primary-container text-on-primary">ADMIN</span>
+<span class="font-body-sm text-body-sm text-on-surface">Sokha C.</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-on-surface-variant font-body-sm text-xs">ថ្ងៃនេះ, 09:42 AM</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-space-sm font-semibold text-primary font-mono text-xs">SKU-RF-4412</td>
+<td class="py-3 px-space-sm">
+<div class="flex flex-col">
+<span class="font-medium text-primary">ក្បឿងប្រក់ដំបូល SCG ពណ៌ប្រផេះ</span>
+<span class="text-[11px] text-outline">CPAC Smooth Grey Tile</span>
+</div>
+</td>
+<td class="py-3 px-space-sm">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-[13px]">arrow_upward</span>
+<span>បញ្ចេញ (Out)</span>
+</span>
+</td>
+<td class="py-3 px-space-sm text-right font-semibold text-primary font-mono">-1,200 សន្លឹក</td>
+<td class="py-3 px-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-secondary text-on-secondary">MANAGER</span>
+<span class="font-body-sm text-body-sm text-on-surface">Vannak P.</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-on-surface-variant font-body-sm text-xs">ថ្ងៃនេះ, 08:15 AM</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-space-sm font-semibold text-primary font-mono text-xs">SKU-CM-0034</td>
+<td class="py-3 px-space-sm">
+<div class="flex flex-col">
+<span class="font-medium text-primary">ស៊ីម៉ងត៍ Camel Portland 50kg</span>
+<span class="text-[11px] text-outline">Camel Brand Premium Structural</span>
+</div>
+</td>
+<td class="py-3 px-space-sm">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-[13px]">arrow_downward</span>
+<span>នាំចូល (In)</span>
+</span>
+</td>
+<td class="py-3 px-space-sm text-right font-semibold text-secondary font-mono">+200 បាវ</td>
+<td class="py-3 px-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-secondary text-on-secondary">MANAGER</span>
+<span class="font-body-sm text-body-sm text-on-surface">Vannak P.</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-on-surface-variant font-body-sm text-xs">ម្សិលមិញ, 04:30 PM</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-space-sm font-semibold text-primary font-mono text-xs">SKU-PT-8991</td>
+<td class="py-3 px-space-sm">
+<div class="flex flex-col">
+<span class="font-medium text-primary">ថ្នាំលាបជញ្ជាំង TOA Nanoshield 18L</span>
+<span class="text-[11px] text-outline">Exterior Acrylic Base #812</span>
+</div>
+</td>
+<td class="py-3 px-space-sm">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-[13px]">arrow_upward</span>
+<span>បញ្ចេញ (Out)</span>
+</span>
+</td>
+<td class="py-3 px-space-sm text-right font-semibold text-primary font-mono">-45 ធុង</td>
+<td class="py-3 px-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-primary-container text-on-primary">ADMIN</span>
+<span class="font-body-sm text-body-sm text-on-surface">Sokha C.</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-on-surface-variant font-body-sm text-xs">ម្សិលមិញ, 02:10 PM</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-3 px-space-sm font-semibold text-primary font-mono text-xs">SKU-PP-5112</td>
+<td class="py-3 px-space-sm">
+<div class="flex flex-col">
+<span class="font-medium text-primary">បំពង់ទឹក PVC 4 Inch Blue SCG</span>
+<span class="text-[11px] text-outline">Class 8.5 Pressure Pipe</span>
+</div>
+</td>
+<td class="py-3 px-space-sm">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-[13px]">arrow_downward</span>
+<span>នាំចូល (In)</span>
+</span>
+</td>
+<td class="py-3 px-space-sm text-right font-semibold text-secondary font-mono">+120 ដើម</td>
+<td class="py-3 px-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-variant text-on-surface">STAFF</span>
+<span class="font-body-sm text-body-sm text-on-surface">Bopha K.</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-on-surface-variant font-body-sm text-xs">ម្សិលមិញ, 11:05 AM</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-sm text-on-surface-variant text-xs">
+<span>បង្ហាញ 5 នៃ 240 ប្រតិបត្តិការចុងក្រោយ</span>
+<a class="font-label-md text-label-md text-secondary hover:underline flex items-center gap-1" href="#">
+<span>មើលកំណត់ត្រាទាំងអស់ (View Full Logs)</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Critical Low Stock Alerts List (4 cols) -->
+<div class="xl:col-span-4 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md" id="low-stock-panel">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-error text-[20px]">notifications_active</span>
+<h2 class="font-title-lg text-title-lg text-primary tracking-tight">ទំនិញត្រូវបញ្ជាទិញបន្ទាន់</h2>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Low Stock &amp; Out of Stock Trigger (17 SKU)</span>
+</div>
+<span class="px-2 py-0.5 bg-error-container text-on-error-container font-label-sm text-[11px] rounded font-bold">17 មុខ</span>
+</div>
+<!-- Alert Cards Stack -->
+<div class="flex flex-col gap-space-sm">
+<!-- Alert Item 1: Out of Stock -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs transition-all hover:bg-surface-container">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-error text-on-error">OUT OF STOCK</span>
+<span class="font-label-sm text-[11px] text-outline font-mono">SKU-WD-0920</span>
+</div>
+<span class="font-title-md text-[14px] text-primary mt-1 font-semibold">ក្តារបន្ទះ Marine Plywood 18mm</span>
+</div>
+<span class="font-metric-number text-[18px] text-error">0 សន្លឹក</span>
+</div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant pt-1">
+<span>ស្តុកអប្បបរមា (Safety Stock): 50 សន្លឹក</span>
+</div>
+<!-- Reorder Button -->
+<button class="mt-2 w-full py-2 bg-error text-on-error hover:bg-error/90 rounded-lg font-label-md text-[12px] flex items-center justify-center gap-1 shadow-sm transition-all">
+<span class="material-symbols-outlined text-[16px]">shopping_cart_checkout</span>
+<span>បញ្ជាទិញស្តុកបំពេញភ្លាមៗ (Reorder Now)</span>
+</button>
+</div>
+<!-- Alert Item 2: Low Stock Amber -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs transition-all hover:bg-surface-container">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-secondary text-on-secondary">LOW STOCK</span>
+<span class="font-label-sm text-[11px] text-outline font-mono">SKU-EL-7102</span>
+</div>
+<span class="font-title-md text-[14px] text-primary mt-1 font-semibold">ខ្សែភ្លើង Cu/PVC 2.5mm² (100m Roll)</span>
+</div>
+<span class="font-metric-number text-[18px] text-primary">6 ដុំ</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-secondary h-full rounded-full" style="width: 15%"></div>
+</div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant pt-1">
+<span>សល់ 6 / អប្បបរមា 40 ដុំ</span>
+<span class="text-secondary font-medium">ផ្គត់ផ្គង់: Schneider CAM</span>
+</div>
+<button class="mt-2 w-full py-1.5 bg-primary-container text-on-primary hover:bg-primary-container/85 rounded-lg font-label-md text-[12px] flex items-center justify-center gap-1 transition-all">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+<span>បង្កើតប័ណ្ណស្នើទិញ (Issue PO)</span>
+</button>
+</div>
+<!-- Alert Item 3: Low Stock Amber -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-space-xs transition-all hover:bg-surface-container">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-secondary text-on-secondary">LOW STOCK</span>
+<span class="font-label-sm text-[11px] text-outline font-mono">SKU-IR-3310</span>
+</div>
+<span class="font-title-md text-[14px] text-primary mt-1 font-semibold">ដែកប្រអប់ស Galvanized 50x50mm</span>
+</div>
+<span class="font-metric-number text-[18px] text-primary">12 ដើម</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-secondary h-full rounded-full" style="width: 24%"></div>
+</div>
+<div class="flex items-center justify-between text-xs text-on-surface-variant pt-1">
+<span>សល់ 12 / អប្បបរមា 50 ដើម</span>
+<span class="text-secondary font-medium">ឃ្លាំង: Phnom Penh Bay 2</span>
+</div>
+<button class="mt-2 w-full py-1.5 bg-primary-container text-on-primary hover:bg-primary-container/85 rounded-lg font-label-md text-[12px] flex items-center justify-center gap-1 transition-all">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+<span>បង្កើតប័ណ្ណស្នើទិញ (Issue PO)</span>
+</button>
+</div>
+</div>
+<div class="pt-space-xs text-center">
+<a class="font-label-md text-label-md text-secondary hover:underline" href="#">
+            + មើលទំនិញជិតអស់ ១៤ មុខទៀត (View All Warnings)
+          </a>
+</div>
+</div>
+</div>
+<!-- Quick Warehouse Inspection Carousel (Photo-rich depot anchors) -->
+<div class="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h2 class="font-title-lg text-title-lg text-primary tracking-tight">ទិដ្ឋភាពឃ្លាំងផ្ទុកជាក់ស្តែង (Depot Zones Monitoring)</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Live visual feed and sector inspection status</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">CCTV Live Sync</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Depot Zone 1 -->
+<div class="relative rounded-xl overflow-hidden shadow-sm group">
+<img class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A modern industrial warehouse interior with towering metal racks stacked neatly with pallets and construction materials, ambient cool blue and cyan LED lighting, ultra crisp resolution" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYcp-gro41Kr6Ug818PbkJo5yk2dehkypw0VmWBGIzf6xFvbIQqmCHKK2ctv7OznAkFs6hUjQzdoquIq9w5rpGvLOGv_7KwES3IvVHa015Ps0Z9uBOskUSvhMx-SVRFY2fc23DPeViIUadxSspLseEXaOJ9gafYqcjMxv6Z3J97kFCATRqOQC4x3N9EDsaF76ExgsWYXRTF2bfU79SSdGkWbsKt3kw2F-ZRGLORVY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent p-space-md flex flex-col justify-end text-on-primary">
+<span class="font-label-sm text-[10px] text-secondary-container uppercase tracking-wider font-semibold">ZONE A-01</span>
+<span class="font-title-md text-title-md font-semibold">ឃ្លាំងដែក និងសំណង់ធ្ងន់ (Heavy Steel Bay)</span>
+<span class="font-body-sm text-[12px] text-on-surface-variant/90 text-inverse-on-surface">ស្តុកផ្ទុក 82% • ស្កេនចុងក្រោយ: 10 នាទីមុន</span>
+</div>
+</div>
+<!-- Depot Zone 2 -->
+<div class="relative rounded-xl overflow-hidden shadow-sm group">
+<img class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Organized warehouse aisles with clean concrete flooring and stacked containers of paints, industrial chemicals, clean architectural lighting with indigo and neutral tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXVJ4lyMIscfpmLpcmAMBZN6N-mMk1Tbo282WC1NB6K2IG8R2EPzd7guk75RubRUT1DT1vvH1knzguhlko6BH1wRuHPqYUqrKkF5xN5mI1uMNPZiCa3oVlKlhcdhCSh7edx3HSuv__TP5Qr_0Ug2pXED82jklRnTMBmmTiwxaTBuV9x5b3RsnymrgkvxduRbHabkFJkECUWJHdZKfodwuNANbWXQsOj0h6ZoSrXbs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent p-space-md flex flex-col justify-end text-on-primary">
+<span class="font-label-sm text-[10px] text-secondary-container uppercase tracking-wider font-semibold">ZONE B-04</span>
+<span class="font-title-md text-title-md font-semibold">ឃ្លាំងថ្នាំពណ៌ និងគីមី (Paints &amp; Coatings)</span>
+<span class="font-body-sm text-[12px] text-inverse-on-surface">ស្តុកផ្ទុក 64% • សីតុណ្ហភាព: 24°C</span>
+</div>
+</div>
+<!-- Depot Zone 3 -->
+<div class="relative rounded-xl overflow-hidden shadow-sm group">
+<img class="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-300" data-alt="High tech logistics loading dock with industrial forklifts, organized packaging boxes, smart barcode tracking displays in background with cool modern tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv5S30ZGnITbLEu-qYrkH_0RUNUjTQUgvfhL7uZl5PSHX3q6vcx6PEfHfj8bfCUaKiLZ8XBfOYhv_DJscgSLjJUYAyDdYWvCYpbX3QR53MWgcp8Ra_uttIbh9E_VoajteKgSPkxijLbpTjy4mu8CTOrlNvjP0wygIgGgtdXyGTCaCVJ4xhm94WYc0ZnNYmAIgegx79xMMx8D9tGqWNq8VbdjPe0ACoIXP9aOSVTbM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent p-space-md flex flex-col justify-end text-on-primary">
+<span class="font-label-sm text-[10px] text-secondary-container uppercase tracking-wider font-semibold">GATE C-02</span>
+<span class="font-title-md text-title-md font-semibold">ចំណតផ្ទុកផ្ទេរទំនិញចេញ (Dispatch Staging)</span>
+<span class="font-body-sm text-[12px] text-inverse-on-surface">កំពុងផ្ទុកឡានដឹកទំនិញ 3 គ្រឿង</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Excel Bulk Import Interactive Modal Dialog (Surface Tier 3) -->
+<div class="fixed inset-0 bg-primary/45 backdrop-blur-sm z-50 hidden flex items-center justify-center p-space-md" id="import-modal-backdrop">
+<div class="bg-surface-container-lowest rounded-xl max-w-xl w-full p-space-xl shadow-xl flex flex-col gap-space-lg relative animate-in fade-in zoom-in-95 duration-200">
+<!-- Modal Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">cloud_upload</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary tracking-tight">នាំចូលទិន្នន័យ Excel / CSV</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Bulk Inventory Import &amp; SKU Synchronizer</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-on-surface-variant flex items-center justify-center transition-colors" id="close-import-modal">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Drag & Drop Zone -->
+<div class="p-space-xl rounded-xl bg-surface-container-low hover:bg-surface-container-high transition-colors flex flex-col items-center justify-center text-center cursor-pointer" id="drop-zone">
+<div class="w-14 h-14 rounded-full bg-surface-container-lowest flex items-center justify-center text-secondary mb-space-sm shadow-sm">
+<span class="material-symbols-outlined text-[32px]">upload_file</span>
+</div>
+<p class="font-title-md text-title-md text-primary">ទម្លាក់ឯកសារ Excel ទីនេះ ឬចុចដើម្បីជ្រើសរើស</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Drop CSV or XLSX file here or browse from computer</p>
+<span class="mt-space-md px-3 py-1 rounded-full bg-surface-container-lowest text-outline font-label-sm text-[11px] shadow-sm">
+          គាំទ្រទម្រង់ .XLSX, .CSV (ទំហំធំបំផុត 25MB)
+        </span>
+<input accept=".xlsx, .xls, .csv" class="hidden" id="file-input" type="file"/>
+</div>
+<!-- Template Download Helper Band -->
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[20px]">description</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold">ទម្រង់គំរូទិន្នន័យ (Excel Template)</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">ស្តង់ដារជួរឈរ SKU, Name, Stock, Cost, Hub</span>
+</div>
+</div>
+<a class="px-space-sm py-1.5 bg-surface-container-lowest hover:bg-surface-container text-primary font-label-md text-label-md rounded shadow-sm transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>ទាញយកទម្រង់</span>
+</a>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center justify-end gap-space-xs pt-space-xs">
+<button class="px-space-md py-2.5 bg-surface-container hover:bg-surface-container-high text-primary rounded-lg font-label-md text-label-md transition-all" id="cancel-import-btn">
+          បោះបង់ (Cancel)
+        </button>
+<button class="px-space-lg py-2.5 bg-secondary hover:bg-secondary/90 text-on-secondary rounded-lg font-label-md text-label-md shadow-sm transition-all flex items-center gap-space-xs" id="confirm-upload-btn">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>ចាប់ផ្តើមវិភាគទិន្នន័យ (Start Import)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Modal Trigger Script -->
+<script>
+  (function() {
+    const openBtn = document.getElementById('open-import-modal');
+    const closeBtn = document.getElementById('close-import-modal');
+    const cancelBtn = document.getElementById('cancel-import-btn');
+    const backdrop = document.getElementById('import-modal-backdrop');
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const confirmBtn = document.getElementById('confirm-upload-btn');
+
+    if (openBtn && backdrop) {
+      openBtn.addEventListener('click', () => backdrop.classList.remove('hidden'));
+    }
+
+    const closeModal = () => {
+      if (backdrop) backdrop.classList.add('hidden');
+    };
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+
+    if (dropZone && fileInput) {
+      dropZone.addEventListener('click', () => fileInput.click());
+      
+      fileInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files[0]) {
+          const fileName = e.target.files[0].name;
+          dropZone.querySelector('p.font-title-md').innerText = 'បានជ្រើសរើស: ' + fileName;
+        }
+      });
+
+      dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('bg-surface-container-highest');
+      });
+
+      dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('bg-surface-container-highest');
+      });
+
+      dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('bg-surface-container-highest');
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+          const fileName = e.dataTransfer.files[0].name;
+          dropZone.querySelector('p.font-title-md').innerText = 'បានជ្រើសរើស: ' + fileName;
+        }
+      });
+    }
+
+    if (confirmBtn) {
+      confirmBtn.addEventListener('click', () => {
+        confirmBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span><span>កំពុងនាំចូល...</span>';
+        setTimeout(() => {
+          closeModal();
+          confirmBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">play_arrow</span><span>ចាប់ផ្តើមវិភាគទិន្នន័យ (Start Import)</span>';
+        }, 800);
+      });
+    }
+  })();
+</script></main></div><script src="../khema-core.js"></script>
+</body></html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>ស្តុកវៃឆ្លាត Khema · SmartStock ERP Portal</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  
+  <link rel="stylesheet" href="./khmer-font.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#070235",
+            "primary-container": "#1e1b4b",
+            "on-primary": "#ffffff",
+            secondary: "#00687a",
+            "secondary-container": "#57dffe",
+            "on-secondary": "#ffffff",
+            surface: "#faf8ff",
+            "surface-dim": "#d2d9f4",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f2f3ff",
+            "surface-container": "#eaedff",
+            "surface-container-high": "#e2e7ff",
+            "on-surface": "#131b2e",
+            "on-surface-variant": "#47464f"
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-[#faf8ff] text-[#131b2e] antialiased min-h-screen flex flex-col">
+  <!-- Top Navigation Header -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-md">
+          <span class="material-symbols-outlined text-[24px]">inventory_2</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-lg text-primary tracking-tight">ស្តុកវៃឆ្លាត Khema</span>
+            <span class="px-2 py-0.5 text-[11px] font-bold rounded bg-secondary/10 text-secondary border border-secondary/20">v2.5 Enterprise</span>
+          </div>
+          <p class="text-xs text-slate-500 font-medium">SmartStock ERP · Central Warehouse Management System</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span class="text-xs text-slate-600 font-medium">Hub: Phnom Penh Depot A · Online</span>
+        </div>
+        <a href="./role_login_switch_account/code.html" class="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-lg bg-slate-100 hover:bg-slate-200 text-primary transition-all">
+          <span class="material-symbols-outlined text-[18px]">switch_account</span>
+          <span>ប្តូរគណនី (Switch Role)</span>
+        </a>
+        <a href="./inventory_dashboard/code.html" class="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-lg bg-primary hover:bg-primary-container text-on-primary shadow-sm transition-all">
+          <span class="material-symbols-outlined text-[18px]">dashboard</span>
+          <span>ផ្ទាំងគ្រប់គ្រង (Launch Dashboard)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-gradient-to-b from-white via-slate-50/50 to-[#faf8ff] border-b border-slate-200 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 text-teal-800 border border-teal-200 text-xs font-bold uppercase tracking-wider mb-3">
+          <span class="material-symbols-outlined text-[16px]">verified</span>
+          <span>Role-Based Multi-Warehouse Stock Management Suite</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight leading-tight mb-4">
+          ប្រព័ន្ធគ្រប់គ្រងស្តុក និងឃ្លាំងទំនិញវៃឆ្លាត
+        </h1>
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed mb-6">
+          ដំណើរការប្រព័ន្ធពេញលេញចំនួន <strong>12 ម៉ូឌុល</strong> សម្រាប់គ្រប់គ្រងទំនិញ ចរន្តនាំចូល/បញ្ចេញ ការអនុម័តប័ណ្ណដកទំនិញ នាំចូល Excel ដោយស្វ័យប្រវត្តិ និងសវនកម្មសុវត្ថិភាពកម្រិតខ្ពស់។
+        </p>
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="./inventory_dashboard/code.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-bold text-sm shadow-lg shadow-primary/20 transition-all hover:scale-[1.02]">
+            <span class="material-symbols-outlined text-[20px]">launch</span>
+            <span>បើកដំណើរការផ្ទាំងគ្រប់គ្រងទូទៅ (Dashboard)</span>
+          </a>
+          <a href="./role_login_switch_account/code.html" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-slate-50 text-primary font-bold text-sm border border-slate-200 shadow-sm transition-all">
+            <span class="material-symbols-outlined text-[20px] text-secondary">badge</span>
+            <span>សាកល្បង 4 តួនាទីអ្នកប្រើ (Role Switcher)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick KPI Badges -->
+      <div class="grid grid-cols-2 gap-4 w-full lg:w-auto">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-slate-500 mb-2">
+            <span class="text-xs font-bold">ទំនិញសរុប (SKUs)</span>
+            <span class="material-symbols-outlined text-primary text-[20px]">category</span>
+          </div>
+          <div class="text-3xl font-extrabold text-primary">1,248</div>
+          <span class="text-[11px] text-emerald-600 font-bold mt-1 flex items-center gap-1">
+            <span class="material-symbols-outlined text-[14px]">trending_up</span> +12% ខែនេះ
+          </span>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-slate-500 mb-2">
+            <span class="text-xs font-bold">តម្លៃស្តុកសរុប</span>
+            <span class="material-symbols-outlined text-secondary text-[20px]">payments</span>
+          </div>
+          <div class="text-3xl font-extrabold text-primary">$2.84M</div>
+          <span class="text-[11px] text-secondary font-bold mt-1">98.4% ពេញលេញ</span>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-slate-500 mb-2">
+            <span class="text-xs font-bold">ម៉ូឌុលរួមបញ្ចូល</span>
+            <span class="material-symbols-outlined text-primary text-[20px]">apps</span>
+          </div>
+          <div class="text-3xl font-extrabold text-primary">12 / 12</div>
+          <span class="text-[11px] text-emerald-600 font-bold mt-1">Active Modules</span>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between text-slate-500 mb-2">
+            <span class="text-xs font-bold">តួនាទីគណនី</span>
+            <span class="material-symbols-outlined text-secondary text-[20px]">security</span>
+          </div>
+          <div class="text-3xl font-extrabold text-primary">4 Roles</div>
+          <span class="text-[11px] text-primary font-bold mt-1">RBAC Active</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module Filter & Search Bar -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+      <div>
+        <h2 class="text-2xl font-bold text-primary">ម៉ូឌុលប្រព័ន្ធទាំងអស់ (System Modules Catalog)</h2>
+        <p class="text-xs text-slate-500">ចុចលើម៉ូឌុលណាមួយ ដើម្បីចូលទៅកាន់ផ្ទាំងគ្រប់គ្រងផ្ទាល់</p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+        <div class="relative flex-1 md:w-72">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-[18px]">search</span>
+          <input id="search-input" type="text" placeholder="ស្វែងរកម៉ូឌុល (Search module)..." class="w-full pl-9 pr-3 py-2 bg-white rounded-lg border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-secondary text-slate-800"/>
+        </div>
+        <button onclick="filterCat('all')" class="filter-btn px-3 py-2 rounded-lg text-xs font-bold bg-primary text-on-primary transition-all">ទាំងអស់ (12)</button>
+        <button onclick="filterCat('operations')" class="filter-btn px-3 py-2 rounded-lg text-xs font-medium bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all">ប្រតិបត្តិការ (6)</button>
+        <button onclick="filterCat('tools')" class="filter-btn px-3 py-2 rounded-lg text-xs font-medium bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all">ឧបករណ៍ (1)</button>
+        <button onclick="filterCat('admin')" class="filter-btn px-3 py-2 rounded-lg text-xs font-medium bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all">រដ្ឋបាល & សវនកម្ម (5)</button>
+      </div>
+    </div>
+
+    <!-- Modules Grid -->
+    <div id="modules-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Module 1: Dashboard -->
+      <div class="module-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md hover:border-secondary/30 transition-all flex flex-col group" data-category="operations" data-keywords="dashboard ផ្ទាំងគ្រប់គ្រងទូទៅ kpi overview stock">
+        <div class="h-44 bg-slate-50 overflow-hidden relative border-b border-slate-100">
+          <img src="./inventory_dashboard/screen.png" alt="Inventory Dashboard Screen" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+          <div class="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-primary text-on-primary">Core Module</div>
+        </div>
+        <div class="p-5 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">grid_view</span>
+              <h3 class="font-bold text-base text-primary">ផ្ទាំងគ្រប់គ្រងស្តុកទូទៅ</h3>
+            </div>
+            <p class="text-xs font-bold text-secondary mb-2">Executive Inventory Dashboard</p>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              តាមដានសូចនាករស្តុកសំខាន់ៗ (KPIs) តម្លៃទ្រព្យសរុប ទំនិញជិតអស់ពីស្តុក និងក្រាហ្វវិភាគចរន្តប្រចាំខែ។
+            </p>
+          </div>
+          <a href="./inventory_dashboard/code.html" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-on-primary text-primary font-bold text-xs transition-all">
+            <span>បើកផ្ទាំងគ្រប់គ្រង (Launch)</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Module 2: Inventory Items -->
+      <div class="module-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md hover:border-secondary/30 transition-all flex flex-col group" data-category="operations" data-keywords="inventory items catalog sku ទំនិញក្នុងស្តុក បញ្ជី master">
+        <div class="h-44 bg-slate-50 overflow-hidden relative border-b border-slate-100">
+          <img src="./inventory_items/screen.png" alt="Inventory Items Screen" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+          <div class="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-secondary text-on-secondary">Catalog</div>
+        </div>
+        <div class="p-5 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">warehouse</span>
+              <h3 class="font-bold text-base text-primary">បញ្ជីទំនិញក្នុងស្តុក</h3>
+            </div>
+            <p class="text-xs font-bold text-secondary mb-2">Inventory Items & Master Catalog</p>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              គ្រប់គ្រងទិន្នន័យ 1,248 មុខទំនិញ កូដ SKU កម្រិតស្តុកសុវត្ថិភាព ទីតាំងធ្នើ និងការកែប្រែតម្លៃ។
+            </p>
+          </div>
+          <a href="./inventory_items/code.html" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-on-primary text-primary font-bold text-xs transition-all">
+            <span>បើកទំនិញក្នុងស្តុក (Launch)</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Module 3: Stock Movements -->
+      <div class="module-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md hover:border-secondary/30 transition-all flex flex-col group" data-category="operations" data-keywords="stock movements in out ចរន្តស្តុក នាំចូល បញ្ចេញ">
+        <div class="h-44 bg-slate-50 overflow-hidden relative border-b border-slate-100">
+          <img src="./stock_movements/screen.png" alt="Stock Movements Screen" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+          <div class="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-700 text-white">Logistics</div>
+        </div>
+        <div class="p-5 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">sync_alt</span>
+              <h3 class="font-bold text-base text-primary">ចរន្តស្តុក នាំចូល និងបញ្ចេញ</h3>
+            </div>
+            <p class="text-xs font-bold text-secondary mb-2">Stock Movements (Inbound / Outbound)</p>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              កត់ត្រាប្រតិបត្តិការចរន្តទំនិញចូលឃ្លាំង ការបញ្ចេញតាមប័ណ្ណ និងប្រវត្តិប្រតិបត្តិការតាមពេលវេលាជាក់ស្តែង។
+            </p>
+          </div>
+          <a href="./stock_movements/code.html" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-on-primary text-primary font-bold text-xs transition-all">
+            <span>បើកចរន្តស្តុក (Launch)</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Module 4: Stock Adjustment -->
+      <div class="module-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md hover:border-secondary/30 transition-all flex flex-col group" data-category="operations" data-keywords="stock adjustment count reconciliation ការកែតម្រូវ រាប់ស្តុក ជាក់ស្តែង">
+        <div class="h-44 bg-slate-50 overflow-hidden relative border-b border-slate-100">
+          <img src="./stock_adjustment/screen.png" alt="Stock Adjustment Screen" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+          <div class="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-600 text-white">Audit & Count</div>
+        </div>
+        <div class="p-5 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">fact_check</span>
+              <h3 class="font-bold text-base text-primary">ការកែតម្រូវ និងរាប់ស្តុកជាក់ស្តែង</h3>
+            </div>
+            <p class="text-xs font-bold text-secondary mb-2">Stock Adjustment & Physical Reconciliation</p>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              ផ្ទៀងផ្ទាត់ចំនួនទំនិញជាក់ស្តែងធៀបនឹងប្រព័ន្ធ កត់ត្រាមូលហេតុបាត់បង់/ខូចខាត និងអនុម័តបម្រែបម្រួល។
+            </p>
+          </div>
+          <a href="./stock_adjustment/code.html" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-on-primary text-primary font-bold text-xs transition-all">
+            <span>បើករាប់ស្តុក (Launch)</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Module 5: Material Requisition -->
+      <div class="module-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md hover:border-secondary/30 transition-all flex flex-col group" data-category="operations" data-keywords="requisition material approval ដកទំនិញ ស្នើសុំ អនុម័ត multi-level">
+        <div class="h-44 bg-slate-50 overflow-hidden relative border-b border-slate-100">
+          <img src="./material_requisition_multi_level_approval/screen.png" alt="Requisition Screen" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+          <div class="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-indigo-600 text-white">Workflow</div>
+        </div>
+        <div class="p-5 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">assignment_turned_in</span>
+              <h3 class="font-bold text-base text-primary">ការស្នើសុំដកទំនិញ និងលំហូរអនុម័ត</h3>
+            </div>
+            <p class="text-xs font-bold text-secondary mb-2">Material Requisition & Multi-level Approval</p>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              បង្កើតប័ណ្ណស្នើសុំដកសម្ភារៈតាមដេប៉ាតឺម៉ង់ លំហូរត្រួតពិនិត្យ 2 ដំណាក់កាល និងការចុះហត្ថលេខាឌីជីថល។
+            </p>
+          </div>
+          <a href="./material_requisition_multi_level_approval/code.html" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-on-primary text-primary font-bold text-xs transition-all">
+            <span>បើកប័ណ្ណស្នើសុំ (Launch)</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Module 6: Suppliers & Purchase Orders -->
+      <div class="module-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md hover:border-secondary/30 transition-all flex flex-col group" data-category="operations" data-keywords="suppliers purchase orders po អ្នកផ្គត់ផ្គង់ បញ្ជាទិញ">
+        <div class="h-44 bg-slate-50 overflow-hidden relative border-b border-slate-100">
+          <img src="./suppliers_purchase_orders/screen.png" alt="Suppliers Screen" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+          <div class="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-sky-700 text-white">Procurement</div>
+        </div>
+        <div class="p-5 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">local_shipping</span>
+              <h3 class="font-bold text-base text-primary">អ្នកផ្គត់ផ្គង់ និងការបញ្ជាទិញ (PO)</h3>
+            </div>
+            <p class="text-xs font-bold text-secondary mb-2">Suppliers & Purchase Orders Management</p>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              គ្រប់គ្រងបញ្ជីអ្នកផ្គត់ផ្គង់ បង្កើតប័ណ្ណ PO តាមដានស្ថានភាពដឹកជញ្ជូន និងការទូទាត់ប្រាក់។
+            </p>
+          </div>
+          <a href="./suppliers_purchase_orders/code.html" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-on-primary text-primary font-bold text-xs transition-all">
+            <span>បើកអ្នកផ្គត់ផ្គង់ (Launch)</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Module 7: Excel Bulk Import -->
+      <div class="module-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md hover:border-secondary/30 transition-all flex flex-col group" data-category="tools" data-keywords="excel import bulk mapping នាំចូល ទិន្នន័យ xlsx csv">
+        <div class="h-44 bg-slate-50 overflow-hidden relative border-b border-slate-100">
+          <img src="./excel_excel_import/screen.png" alt="Excel Import Screen" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+          <div class="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-600 text-white">Excel Integration</div>
+        </div>
+        <div class="p-5 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">upload_file</span>
+              <h3 class="font-bold text-base text-primary">នាំចូលទិន្នន័យពី Excel</h3>
+            </div>
+            <p class="text-xs font-bold text-secondary mb-2">Excel Stock Import & Column Mapping</p>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              នាំចូលទិន្នន័យទំនិញរាប់ពាន់ជួរដោយស្វ័យប្រវត្តិ ផ្ទៀងផ្ទាត់ជួរឈរ (Mapping) និងត្រួតពិនិត្យភាពមិនប្រក្រតី។
+            </p>
+          </div>
+          <a href="./excel_excel_import/code.html" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-on-primary text-primary font-bold text-xs transition-all">
+            <span>បើកការនាំចូល Excel (Launch)</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Module 8: Roles & Permissions -->
+      <div class="module-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md hover:border-secondary/30 transition-all flex flex-col group" data-category="admin" data-keywords="roles permissions access rbac សិទ្ធិ តួនាទី កំណត់">
+        <div class="h-44 bg-slate-50 overflow-hidden relative border-b border-slate-100">
+          <img src="./roles_permissions/screen.png" alt="Roles & Permissions Screen" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+          <div class="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-purple-700 text-white">Security</div>
+        </div>
+        <div class="p-5 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">admin_panel_settings</span>
+              <h3 class="font-bold text-base text-primary">ការគ្រប់គ្រងតួនាទី និងសិទ្ធិ</h3>
+            </div>
+            <p class="text-xs font-bold text-secondary mb-2">Roles & Permissions (RBAC)</p>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              កំណត់សិទ្ធិលម្អិតតាមតួនាទី (មើល បន្ថែម កែប្រែ លុប អនុម័ត) សម្រាប់គណនីបុគ្គលិក និងអ្នកគ្រប់គ្រង។
+            </p>
+          </div>
+          <a href="./roles_permissions/code.html" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-on-primary text-primary font-bold text-xs transition-all">
+            <span>បើកកំណត់សិទ្ធិ (Launch)</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Module 9: Audit & Login Logs -->
+      <div class="module-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md hover:border-secondary/30 transition-all flex flex-col group" data-category="admin" data-keywords="audit login logs history កំណត់ត្រាសវនកម្ម ប្រវត្តិ ចូល">
+        <div class="h-44 bg-slate-50 overflow-hidden relative border-b border-slate-100">
+          <img src="./audit_login_logs/screen.png" alt="Audit Logs Screen" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+          <div class="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-slate-700 text-white">Compliance</div>
+        </div>
+        <div class="p-5 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">history</span>
+              <h3 class="font-bold text-base text-primary">កំណត់ត្រាសវនកម្ម និងការចូលប្រើ</h3>
+            </div>
+            <p class="text-xs font-bold text-secondary mb-2">Audit Trails & Login Activity Logs</p>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              តាមដានរាល់សកម្មភាពចូលប្រព័ន្ធ អាសយដ្ឋាន IP ឧបករណ៍ និងការផ្លាស់ប្តូរទិន្នន័យដោយមិនអាចកែប្រែបាន។
+            </p>
+          </div>
+          <a href="./audit_login_logs/code.html" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-on-primary text-primary font-bold text-xs transition-all">
+            <span>បើកសវនកម្ម (Launch)</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Module 10: Monthly Security Audit Report -->
+      <div class="module-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md hover:border-secondary/30 transition-all flex flex-col group" data-category="admin" data-keywords="security audit report monthly របាយការណ៍ សង្ខេប សវនកម្ម សុវត្ថិភាព">
+        <div class="h-44 bg-slate-50 overflow-hidden relative border-b border-slate-100">
+          <img src="./monthly_security_audit_report/screen.png" alt="Security Report Screen" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+          <div class="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-rose-700 text-white">Reporting</div>
+        </div>
+        <div class="p-5 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">security</span>
+              <h3 class="font-bold text-base text-primary">របាយការណ៍សវនកម្មសុវត្ថិភាពប្រចាំខែ</h3>
+            </div>
+            <p class="text-xs font-bold text-secondary mb-2">Monthly Security Audit Report</p>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              របាយការណ៍វាយតម្លៃសុវត្ថិភាពទិន្នន័យ ការព្យាយាមចូលប្រព័ន្ធបរាជ័យ និងអនុលោមភាពតាមស្តង់ដារ។
+            </p>
+          </div>
+          <a href="./monthly_security_audit_report/code.html" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-on-primary text-primary font-bold text-xs transition-all">
+            <span>បើករបាយការណ៍ (Launch)</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Module 11: System & Warehouse Settings -->
+      <div class="module-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md hover:border-secondary/30 transition-all flex flex-col group" data-category="admin" data-keywords="settings warehouse system ការកំណត់ ប្រព័ន្ធ ឃ្លាំង">
+        <div class="h-44 bg-slate-50 overflow-hidden relative border-b border-slate-100">
+          <img src="./system_warehouse_settings/screen.png" alt="System Settings Screen" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+          <div class="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-gray-700 text-white">Configuration</div>
+        </div>
+        <div class="p-5 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">settings</span>
+              <h3 class="font-bold text-base text-primary">ការកំណត់ប្រព័ន្ធ និងឃ្លាំងស្តុក</h3>
+            </div>
+            <p class="text-xs font-bold text-secondary mb-2">System & Warehouse Settings</p>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              កំណត់រចនាសម្ព័ន្ធឃ្លាំងកណ្តាល និងសាខា ឯកតារង្វាស់ (UOM) អត្រាប្តូរប្រាក់ និងការជូនដំណឹងស្វ័យប្រវត្ត។
+            </p>
+          </div>
+          <a href="./system_warehouse_settings/code.html" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-on-primary text-primary font-bold text-xs transition-all">
+            <span>បើកការកំណត់ (Launch)</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Module 12: Role Login & Switch Account -->
+      <div class="module-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md hover:border-secondary/30 transition-all flex flex-col group" data-category="admin" data-keywords="login role switch account authentication ចូលប្រព័ន្ធ ប្តូរគណនី">
+        <div class="h-44 bg-slate-50 overflow-hidden relative border-b border-slate-100">
+          <img src="./role_login_switch_account/screen.png" alt="Login & Switch Account Screen" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"/>
+          <div class="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-blue-700 text-white">Auth Hub</div>
+        </div>
+        <div class="p-5 flex flex-col justify-between flex-1">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5">
+              <span class="material-symbols-outlined text-primary text-[20px]">switch_account</span>
+              <h3 class="font-bold text-base text-primary">ចូលប្រព័ន្ធ ឬផ្លាស់ប្តូរតួនាទីគណនី</h3>
+            </div>
+            <p class="text-xs font-bold text-secondary mb-2">Enterprise Role Login & Switch</p>
+            <p class="text-xs text-slate-600 leading-relaxed mb-4">
+              ច្រកចូលប្រើប្រាស់ប្រព័ន្ធសុវត្ថិភាព ផ្លាស់ប្តូររវាង 4 តួនាទីគំរូ (Admin, Manager, Staff, Auditor) ដោយចុចតែម្តង។
+            </p>
+          </div>
+          <a href="./role_login_switch_account/code.html" class="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl bg-slate-100 hover:bg-primary hover:text-on-primary text-primary font-bold text-xs transition-all">
+            <span>បើកទំព័រចូលប្រព័ន្ធ (Launch)</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Role Showcase Band -->
+  <section class="bg-slate-100/70 border-t border-slate-200 py-10 px-4 sm:px-6 lg:px-8 mt-12">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <h3 class="text-lg font-bold text-primary">តួនាទីសកម្មក្នុងប្រព័ន្ធ (Pre-configured Role Profiles)</h3>
+          <p class="text-xs text-slate-500">ជ្រើសរើសដើម្បីសាកល្បងមុខងារតាមទិដ្ឋភាពតួនាទីនីមួយៗ</p>
+        </div>
+        <a href="./role_login_switch_account/code.html" class="text-xs font-bold text-secondary flex items-center gap-1 hover:underline">
+          <span>មើលព័ត៌មានលម្អិតទាំងអស់</span>
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <a href="./role_login_switch_account/code.html" class="p-4 rounded-xl bg-white border border-slate-200 hover:shadow-sm transition-all flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm">SC</div>
+          <div>
+            <div class="text-xs font-bold text-primary">Sokha Chan</div>
+            <div class="text-[11px] text-slate-500">អ្នកគ្រប់គ្រងជាន់ខ្ពស់ (Admin)</div>
+            <span class="text-[10px] text-emerald-600 font-bold">Full Access</span>
+          </div>
+        </a>
+        <a href="./role_login_switch_account/code.html" class="p-4 rounded-xl bg-white border border-slate-200 hover:shadow-sm transition-all flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-sm">VR</div>
+          <div>
+            <div class="text-xs font-bold text-primary">Vireak Rith</div>
+            <div class="text-[11px] text-slate-500">ប្រធានឃ្លាំងកណ្តាល (Manager)</div>
+            <span class="text-[10px] text-secondary font-bold">Approval & Excel</span>
+          </div>
+        </a>
+        <a href="./role_login_switch_account/code.html" class="p-4 rounded-xl bg-white border border-slate-200 hover:shadow-sm transition-all flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-indigo-700 text-white flex items-center justify-center font-bold text-sm">TM</div>
+          <div>
+            <div class="text-xs font-bold text-primary">Thida Mao</div>
+            <div class="text-[11px] text-slate-500">បុគ្គលិកប្រតិបត្តិការ (Staff)</div>
+            <span class="text-[10px] text-indigo-600 font-bold">Stock In / Out</span>
+          </div>
+        </a>
+        <a href="./role_login_switch_account/code.html" class="p-4 rounded-xl bg-white border border-slate-200 hover:shadow-sm transition-all flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-slate-700 text-white flex items-center justify-center font-bold text-sm">KA</div>
+          <div>
+            <div class="text-xs font-bold text-primary">Kosal An</div>
+            <div class="text-[11px] text-slate-500">សវនករខាងក្រៅ (Auditor)</div>
+            <span class="text-[10px] text-slate-600 font-bold">Read Only & Audit</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>
+        <span class="font-bold text-primary">Khema Stock Management System</span> · SmartStock ERP Enterprise Edition
+      </div>
+      <div class="text-[11px]">
+        Phnom Penh Central Hub Depot A · Running on GitHub Pages
+      </div>
+    </div>
+  </footer>
+
+  <script src="./khema-core.js"></script>
+  <script>
+    function filterCat(cat) {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.className = 'filter-btn px-3 py-2 rounded-lg text-xs font-medium bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 transition-all';
+      });
+      event.target.className = 'filter-btn px-3 py-2 rounded-lg text-xs font-bold bg-primary text-on-primary transition-all';
+
+      const cards = document.querySelectorAll('.module-card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.module-card');
+      cards.forEach(card => {
+        const text = (card.innerText + ' ' + (card.getAttribute('data-keywords') || '')).toLowerCase();
+        if (text.includes(q)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

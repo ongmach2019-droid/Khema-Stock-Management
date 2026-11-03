@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+
+<html lang="km"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Kantumruy+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"outline":"#787680","primary":"#070235","tertiary-fixed-dim":"#c3c0ff","on-surface-variant":"#47464f","on-tertiary-fixed":"#100069","on-secondary":"#ffffff","tertiary-fixed":"#e3dfff","surface-bright":"#faf8ff","inverse-surface":"#283044","on-primary":"#ffffff","surface-tint":"#5b598c","surface-dim":"#d2d9f4","secondary":"#00687a","surface-container-high":"#e2e7ff","on-primary-fixed-variant":"#444173","on-tertiary":"#ffffff","surface-container-low":"#f2f3ff","error":"#ba1a1a","background":"#faf8ff","secondary-fixed":"#acedff","on-secondary-container":"#006172","primary-fixed-dim":"#c4c1fb","outline-variant":"#c8c5d0","surface-container-highest":"#dae2fd","surface-container":"#eaedff","on-surface":"#131b2e","error-container":"#ffdad6","surface-container-lowest":"#ffffff","tertiary":"#050039","inverse-primary":"#c4c1fb","on-secondary-fixed-variant":"#004e5c","secondary-container":"#57dffe","tertiary-container":"#14007a","on-error":"#ffffff","on-background":"#131b2e","on-error-container":"#93000a","secondary-fixed-dim":"#4cd7f6","on-secondary-fixed":"#001f26","surface":"#faf8ff","on-tertiary-container":"#7d77ff","surface-variant":"#dae2fd","on-tertiary-fixed-variant":"#372abf","primary-container":"#1e1b4b","on-primary-fixed":"#181445","on-primary-container":"#8683ba","inverse-on-surface":"#eef0ff","primary-fixed":"#e3dfff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"1rem","gutter-mobile":"0.75rem","gutter":"1.5rem","space-sm":"0.5rem","space-xs":"0.25rem","space-lg":"1.5rem","space-xl":"2rem","margin":"2rem","margin-mobile":"1rem","space-2xl":"3rem"},fontFamily:{"label-md":['Kantumruy Pro', 'Inter', sans-serif],"headline-md":['Kantumruy Pro', 'Inter', sans-serif],"title-md":['Kantumruy Pro', 'Inter', sans-serif],"body-lg":['Kantumruy Pro', 'Inter', sans-serif],"body-md":['Kantumruy Pro', 'Inter', sans-serif],"table-data":['Kantumruy Pro', 'Inter', sans-serif],"display-lg-mobile":['Kantumruy Pro', 'Inter', sans-serif],"label-sm":['Kantumruy Pro', 'Inter', sans-serif],"headline-lg":['Kantumruy Pro', 'Inter', sans-serif],"metric-number":["\"Inter, sans-serif\""],"body-sm":['Kantumruy Pro', 'Inter', sans-serif],"title-lg":['Kantumruy Pro', 'Inter', sans-serif],"display-lg":['Kantumruy Pro', 'Inter', sans-serif]},fontSize:{"label-md":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"500"}],"headline-md":["22px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"title-md":["16px",{lineHeight:"24px",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"22px",fontWeight:"400"}],"table-data":["13px",{lineHeight:"20px",fontWeight:"400"}],"display-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"700"}],"label-sm":["11px",{lineHeight:"16px",letterSpacing:"0.03em",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"600"}],"metric-number":["30px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"title-lg":["18px",{lineHeight:"26px",fontWeight:"600"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script><link rel="stylesheet" href="../khmer-font.css"/>
+</head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center gap-space-sm bg-surface-container-lowest/60 backdrop-blur-md"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[22px]">inventory_2</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-primary leading-tight tracking-tight">ស្តុកវៃឆ្លាត</span><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">SmartStock ERP</span></div></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-on-surface-variant/80 uppercase">ម៉ឺនុយប្រតិបត្តិការ (Navigation)</div></div><nav class="flex flex-col gap-1 px-space-md" data-active-classes="bg-primary-container text-on-primary font-title-md rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><div class="flex flex-col text-left"><span>ផ្ទាំងគ្រប់គ្រងទូទៅ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Dashboard</span></div></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-2.5 transition-all bg-primary-container text-on-primary font-title-md rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-path="inventory-items" href="#"><span class="material-symbols-outlined text-[20px]">warehouse</span><div class="flex flex-col text-left"><span>ទំនិញក្នុងស្តុក</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Inventory Items</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="stock-movements" href="#"><span class="material-symbols-outlined text-[20px]">sync_alt</span><div class="flex flex-col text-left"><span>ចរន្តស្តុក នាំចូល/បញ្ចេញ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Stock Movements</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="excel-import" href="#"><span class="material-symbols-outlined text-[20px]">upload_file</span><div class="flex flex-col text-left"><span>នាំចូលទិន្នន័យ Excel</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Excel Bulk Import</span></div></a><div class="my-space-xs px-space-sm py-space-xs font-label-sm text-label-sm text-on-surface-variant/80 uppercase">ប្រព័ន្ធគ្រប់គ្រង (Admin)</div><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="roles-and-permissions" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><div class="flex flex-col text-left"><span>ការកំណត់តួនាទី &amp; សិទ្ធិ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Roles &amp; Permissions</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><div class="flex flex-col text-left"><span>ការកំណត់ប្រព័ន្ធ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">System Settings</span></div></a></nav></div><div class="p-space-md bg-surface-container-lowest/80 mx-space-md mb-space-md rounded-lg flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Hub: Phnom Penh Depot A</span></div><span class="font-label-sm text-label-sm text-secondary font-semibold">v2.4</span></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span><input class="w-full h-[38px] pl-10 pr-space-md bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 font-body-sm text-body-sm rounded-lg border-0 shadow-[0_1px_8px_rgba(0,0,0,0.04)] focus:outline-none focus:ring-1 focus:ring-secondary" placeholder="ស្វែងរកកូដទំនិញ SKU, ឈ្មោះ ឬទីតាំង... (Search SKU or item)" type="text"/></div></div><div class="flex items-center gap-space-lg"><button class="flex items-center gap-space-xs px-space-md py-2 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] hover:bg-secondary/90 transition-all" type="button"><span class="material-symbols-outlined text-[18px]">file_upload</span><span>នាំចូល Excel</span></button><div class="relative flex items-center"><button aria-label="Notifications" class="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-on-surface shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span></button></div><div class="flex items-center gap-space-sm pl-space-sm bg-surface-container-lowest py-1 px-space-sm rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] cursor-pointer hover:bg-surface-container-low transition-colors"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><div class="flex items-center gap-space-xs"><span class="font-title-md text-[13px] text-on-surface font-semibold">Sokha Chan</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container-high text-on-primary-fixed-variant">ADMIN</span></div><span class="font-label-sm text-[11px] text-on-surface-variant">អ្នកគ្រប់គ្រងជាន់ខ្ពស់</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="p-space-lg flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm text-secondary">
+<span class="material-symbols-outlined text-[18px]">shelves</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Depot A · Warehouse Management</span>
+</div>
+<div class="flex items-baseline gap-space-md flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">បញ្ជីទំនិញក្នុងស្តុក</h1>
+<span class="font-title-md text-title-md text-on-surface-variant font-normal">Inventory Master List</span>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">1,248 Items Total</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          ត្រួតពិនិត្យ គ្រប់គ្រងបរិមាណស្តុក កំណត់កម្រិតសុវត្ថិភាពអប្បបរមា និងតាមដានតម្លៃទំនិញជាក់ស្តែងក្នុងឃ្លាំងកណ្តាល។
+        </p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap self-start md:self-auto">
+<button class="flex items-center gap-space-xs px-space-md py-2 bg-surface-container-lowest text-on-surface shadow-sm rounded-lg hover:bg-surface-container-low transition-colors font-label-md text-label-md" id="openImportModal" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">upload_file</span>
+<span>នាំចូលពី Excel</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2 bg-surface-container-lowest text-on-surface shadow-sm rounded-lg hover:bg-surface-container-low transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">download</span>
+<span>នាំចេញ (CSV/XLSX)</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2 bg-primary text-on-primary rounded-lg shadow-md hover:bg-primary-container transition-all font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>បន្ថែមទំនិញថ្មី</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<div class="p- space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between p-5 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">ទំនិញសរុប (SKUs)</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">category</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="font-metric-number text-metric-number text-on-surface">1,248</div>
+<div class="flex items-center gap-1.5 mt-1 font-body-sm text-body-sm text-secondary">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+24 SKUs ក្នុងខែនេះ</span>
+</div>
+</div>
+<div class="absolute -right-3 -bottom-3 w-16 h-16 rounded-full bg-secondary-fixed/30 pointer-events-none"></div>
+</div>
+<div class="p- space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between p-5 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">មានគ្រប់គ្រាន់ (In Stock)</span>
+<div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="font-metric-number text-metric-number text-on-surface">1,162</div>
+<div class="flex items-center gap-1.5 mt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span>៩៣.១% នៃទំនិញសរុប</span>
+</div>
+</div>
+</div>
+<div class="p- space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between p-5 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">ជិតអស់ពីស្តុក (Low Stock)</span>
+<div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="font-metric-number text-metric-number text-amber-700">64</div>
+<div class="flex items-center gap-1.5 mt-1 font-body-sm text-body-sm text-amber-800">
+<span class="material-symbols-outlined text-[14px]">priority_high</span>
+<span>ត្រូវការបញ្ជាទិញបន្ថែម</span>
+</div>
+</div>
+</div>
+<div class="p- space-md bg-surface-container-lowest rounded-xl shadow-sm flex flex-col justify-between p-5 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">ដាច់ស្តុក (Out of Stock)</span>
+<div class="w-8 h-8 rounded-lg bg-rose-50 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">error</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="font-metric-number text-metric-number text-error">22</div>
+<div class="flex items-center gap-1.5 mt-1 font-body-sm text-body-sm text-error">
+<span>បាត់បង់ឱកាសលក់</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<div class="flex-1 flex flex-col sm:flex-row items-center gap-space-md">
+<div class="relative w-full sm:w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full h-[38px] pl-10 pr-space-md bg-surface-container text-on-surface placeholder:text-on-surface-variant/60 font-body-sm text-body-sm rounded-lg focus:outline-none focus:bg-surface-container-lowest transition-colors" id="searchInput" placeholder="ស្វែងរកតាម SKU, Barcode, ឈ្មោះទំនិញ..." type="text"/>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<div class="relative flex-1 sm:w-56">
+<select class="w-full h-[38px] px-space-md bg-surface-container text-on-surface font-body-sm text-body-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:bg-surface-container-lowest transition-colors pr-8" id="categoryFilter">
+<option value="">គ្រប់ប្រភេទទាំងអស់ (All Categories)</option>
+<option value="construction">សម្ភារសំណង់ (Construction)</option>
+<option value="electronics">គ្រឿងអេឡិចត្រូនិច (Electronics)</option>
+<option value="spareparts">គ្រឿងបន្លាស់ (Spare Parts)</option>
+<option value="tools">ឧបករណ៍ជាង (Hardware &amp; Tools)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+<div class="relative flex-1 sm:w-48">
+<select class="w-full h-[38px] px-space-md bg-surface-container text-on-surface font-body-sm text-body-sm rounded-lg appearance-none cursor-pointer focus:outline-none focus:bg-surface-container-lowest transition-colors pr-8" id="statusFilter">
+<option value="">ស្ថានភាពស្តុកទាំងអស់</option>
+<option value="instock">មានក្នុងស្តុក (In Stock)</option>
+<option value="lowstock">ជិតអស់ (Low Stock)</option>
+<option value="outofstock">ដាច់ស្តុក (Out of Stock)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between sm:justify-end gap-space-sm">
+<button class="px-space-md py-2 text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1" id="resetFilters" type="button">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+<span>សម្អាតតម្រង</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant/40 hidden sm:block"></div>
+<div class="flex items-center gap-1 bg-surface-container p-1 rounded-lg">
+<button aria-label="Table view" class="p-1.5 rounded bg-surface-container-lowest text-primary shadow-xs" type="button">
+<span class="material-symbols-outlined text-[18px]">table_rows</span>
+</button>
+<button aria-label="Grid view" class="p-1.5 rounded text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-space-md w-12 text-center" scope="col">
+<input aria-label="ជ្រើសរើសទាំងអស់" class="rounded accent-primary cursor-pointer w-4 h-4" type="checkbox"/>
+</th>
+<th class="py-3 px-space-md" scope="col">SKU &amp; Barcode</th>
+<th class="py-3 px-space-md" scope="col">ឈ្មោះទំនិញ (Item Name)</th>
+<th class="py-3 px-space-md" scope="col">ប្រភេទ (Category)</th>
+<th class="py-3 px-space-md text-right" scope="col">បរិមាណ (Stock / Min)</th>
+<th class="py-3 px-space-md text-center" scope="col">ខ្នាត (Unit)</th>
+<th class="py-3 px-space-md text-right" scope="col">ថ្លៃដើម / តម្លៃលក់</th>
+<th class="py-3 px-space-md text-center" scope="col">ស្ថានភាព</th>
+<th class="py-3 px-space-md text-center" scope="col">សកម្មភាព</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40 text-on-surface font-table-data text-table-data">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-2.5 px-space-md text-center">
+<input aria-label="ជ្រើសរើសទំនិញ" class="rounded accent-primary cursor-pointer w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-semibold">SKU-10492</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">barcode</span>
+<span>885123456789</span>
+</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex items-center gap-space-sm min-w-[200px]">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container flex-shrink-0" data-alt="High quality close up photograph of bags of Portland cement stacked on wooden pallet in modern industrial warehouse, neutral studio lighting, indigo and clean slate aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeaCtwL-Q7crZmy1h3SL86j7J113ABOoSZrwrgsCUpQqTIJX2CoFwA73GE43ekB0SBvEtS14q23OHbmyea4byUBjxYSeXBaZW_ctskaaoQ7VimGhb_X6rEfZo-Zj2IZH7Qddy-9H_waOw7R9tJ6Ctcv28aAX88CgaxgaFIdgxe22I1qbi_FWnaD6ntFUEH3elfwZcoOhSz4UeCyDzgrsdy3U8TMx6CIhptrILH6gI"/>
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-on-surface font-semibold group-hover:text-secondary transition-colors">ស៊ីម៉ងត៍ កាំម៉ាម៉ាកដំរី (Elephant Cement 50kg)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">SCG Standard Portland Type 1</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">សម្ភារសំណង់</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<div class="flex flex-col items-end">
+<div class="flex items-baseline gap-1">
+<span class="font-title-md text-[14px] font-bold text-on-surface">450</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">/ 100</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="bg-emerald-600 h-full rounded-full w-[80%]"></div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high/60 text-on-surface">បាវ</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-secondary font-bold">$4.80</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$4.20 (Cost)</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>មានគ្រប់គ្រាន់</span>
+</span>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors" title="កែប្រែ (Edit)" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary flex items-center justify-center transition-colors" title="ចរន្តស្តុក (Move Stock)" type="button">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="ប្រវត្តិ (History)" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-2.5 px-space-md text-center">
+<input aria-label="ជ្រើសរើសទំនិញ" class="rounded accent-primary cursor-pointer w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-semibold">SKU-20811</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">barcode</span>
+<span>885994821102</span>
+</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex items-center gap-space-sm min-w-[200px]">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container flex-shrink-0" data-alt="Close up photograph of reinforced steel rebar bundles neatly arranged on industrial racks with cyan identification tags in organized warehouse depot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaESMuFM_EoYujNdpZHqrVsnGUYAfeV3FPyCCC334cRmtvzGoO4MhHp523jU5__c7v9jbPzFsDVA80OGoDhzwgTKGH44wHmC8z7gLWPlLRytlE_Y7QtepTTbia2um47Gw0EHoMPoKhVsp6oKp2iDkSexaxOZcQb5WJFON8bBiMybt5ycEW2if2QIT0OguFIYm87fsmRHKcpFeJdZIeR1tBPA5Ijy0XKigFme8AEus"/>
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-on-surface font-semibold group-hover:text-secondary transition-colors">ដែកសរសៃ ១២លី (Deformed Bar 12mm)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Grade 40 - ប្រវែង 12 ម៉ែត្រ</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">សម្ភារសំណង់</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<div class="flex flex-col items-end">
+<div class="flex items-baseline gap-1">
+<span class="font-title-md text-[14px] font-bold text-amber-700">18</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">/ 50</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="bg-amber-500 h-full rounded-full w-[36%]"></div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high/60 text-on-surface">ដើម</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-secondary font-bold">$7.25</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$6.40 (Cost)</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+<span>ជិតអស់ (Low)</span>
+</span>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors" title="កែប្រែ (Edit)" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary flex items-center justify-center transition-colors" title="ចរន្តស្តុក (Move Stock)" type="button">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="ប្រវត្តិ (History)" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-2.5 px-space-md text-center">
+<input aria-label="ជ្រើសរើសទំនិញ" class="rounded accent-primary cursor-pointer w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-semibold">SKU-33104</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">barcode</span>
+<span>885741029384</span>
+</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex items-center gap-space-sm min-w-[200px]">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container flex-shrink-0" data-alt="Industrial circuit breakers and electronic electrical automation components arranged crisply on clean slate backdrop with indigo studio lighting reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEDBltwPW3WoABZWivSBMxAcgUMTNk7xvkywEJYeaX9SpAe-FjeQIZGESABcJN_nmOXhkla_RSOPUMPfKj42fsGVQ_lsf2LJ91J9oXK1MB6XFhDBYyyvnlCZ0egL49GNrdUHedwXxVXh1DmU7APNHzj92pOmTxnTSN0pTtYC3Qix7UvXRzkm1f8o8RYgd_Ij2mov-IlWvWgFCg1hs_Q01Tvsm2V5BOAhjM5j2k7Iw"/>
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-on-surface font-semibold group-hover:text-secondary transition-colors">ឌីសង់ទ័រ Schneider 32A 2P (Circuit Breaker)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Easy9 MCB 6kA 230V</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">គ្រឿងអេឡិចត្រូនិច</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<div class="flex flex-col items-end">
+<div class="flex items-baseline gap-1">
+<span class="font-title-md text-[14px] font-bold text-error">0</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">/ 20</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="bg-error h-full rounded-full w-[0%]"></div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high/60 text-on-surface">ដុំ</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-secondary font-bold">$12.50</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$9.80 (Cost)</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-rose-50 text-error font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>ដាច់ស្តុក</span>
+</span>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors" title="កែប្រែ (Edit)" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary flex items-center justify-center transition-colors" title="ចរន្តស្តុក (Move Stock)" type="button">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="ប្រវត្តិ (History)" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-2.5 px-space-md text-center">
+<input aria-label="ជ្រើសរើសទំនិញ" class="rounded accent-primary cursor-pointer w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-semibold">SKU-44095</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">barcode</span>
+<span>885918234019</span>
+</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex items-center gap-space-sm min-w-[200px]">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container flex-shrink-0" data-alt="Professional cordless impact drill tool with lithium ion battery package placed on crisp industrial surface with soft ambient blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu3Ljpz0vIphC3vVjgH_Nr50J0xObMP9S6AVfbopg8e_Ei9IX2ZgrEsgpTmDmdsehFlbfe91Qb5N9W32fyjhfEJ45IFsN25fHMJPjtKU1AD_SxEMC2A43yk_MlKaP6SIQHJvhayOuSIJ_djCv8P7hPx7w0wMNYqNfWTCmkA-HHd1WTbfkuyV3u_BjmEa1jKa2m8EXSW5RBB4TjxfiCgV7-7flBvLjbMv7ZJLonUwU"/>
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-on-surface font-semibold group-hover:text-secondary transition-colors">ស្វានអាគុយ Bosch 18V (Cordless Drill)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">GSB 185-LI Brushless Set</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">ឧបករណ៍ជាង</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<div class="flex flex-col items-end">
+<div class="flex items-baseline gap-1">
+<span class="font-title-md text-[14px] font-bold text-on-surface">32</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">/ 10</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="bg-emerald-600 h-full rounded-full w-[100%]"></div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high/60 text-on-surface">កេស</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-secondary font-bold">$115.00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$89.00 (Cost)</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>មានគ្រប់គ្រាន់</span>
+</span>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors" title="កែប្រែ (Edit)" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary flex items-center justify-center transition-colors" title="ចរន្តស្តុក (Move Stock)" type="button">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="ប្រវត្តិ (History)" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-2.5 px-space-md text-center">
+<input aria-label="ជ្រើសរើសទំនិញ" class="rounded accent-primary cursor-pointer w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-semibold">SKU-58293</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">barcode</span>
+<span>885301829471</span>
+</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex items-center gap-space-sm min-w-[200px]">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container flex-shrink-0" data-alt="Mechanical industrial pump spare parts bearings and gasket rings displayed clearly on clean gray slate surface in sharp modern catalog style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaFmSx36Wn-yw84StqH1ttuT7sRMkop3zP6d1GXbZz2j25Ce5gqNQ8QtgsS63yRH7JUOAhA2ezk6rwJ3Th-un253OXSBONsPrXAhejw8I2rIlJhi7mZ2A8iRb2jDbXOd2PDC334gLzEeDxreg9kJ6I281e_aNgorBLAEByhQCWEELBCpuAXui0rMXglLDaFvez-_qBnLHyA5hRwg6LrGo6PcomwOSXDFMWNvtgP2k"/>
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-on-surface font-semibold group-hover:text-secondary transition-colors">បាដាងកង់ឡាន SKF 6205-2RS (Ball Bearing)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Deep groove heavy duty rubber sealed</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">គ្រឿងបន្លាស់</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<div class="flex flex-col items-end">
+<div class="flex items-baseline gap-1">
+<span class="font-title-md text-[14px] font-bold text-amber-700">12</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">/ 30</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="bg-amber-500 h-full rounded-full w-[40%]"></div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high/60 text-on-surface">ដុំ</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-secondary font-bold">$3.50</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$2.10 (Cost)</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-700 font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+<span>ជិតអស់ (Low)</span>
+</span>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors" title="កែប្រែ (Edit)" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary flex items-center justify-center transition-colors" title="ចរន្តស្តុក (Move Stock)" type="button">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="ប្រវត្តិ (History)" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="py-2.5 px-space-md text-center">
+<input aria-label="ជ្រើសរើសទំនិញ" class="rounded accent-primary cursor-pointer w-4 h-4" type="checkbox"/>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-semibold">SKU-61204</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">barcode</span>
+<span>885994200452</span>
+</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<div class="flex items-center gap-space-sm min-w-[200px]">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-container flex-shrink-0" data-alt="Industrial blue rolls of PVC water pressure pipes stored in indoor logistics center with technical label tags and sharp clean illumination" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6otkadIbt9egebUZyDWuPisjiG5anHVsjHkjqSxxGLku4Dt6T6mt42OI3faRDfw7rtR3xr7vpBlzndKUSkf_r-aUVZ7YFP1GkOXI8fW1gB2K5ZNq-91VjmD0AKXLW4oF9kxMfXODWqWcWlysPwf632vNeZyELqQTqoinczgDFEeQc3CLR4ou4nPTFUH3E7wtUsU5W_X_fd9kPm3pN0xaSdBvFU156Jn66qqmDb6c"/>
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-on-surface font-semibold group-hover:text-secondary transition-colors">ទុយោទឹក PVC 27mm x 4m (PVC Pressure Pipe)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Class 8.5 SCG Standard Water Supply</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant">សម្ភារសំណង់</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<div class="flex flex-col items-end">
+<div class="flex items-baseline gap-1">
+<span class="font-title-md text-[14px] font-bold text-on-surface">210</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">/ 80</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full mt-1 overflow-hidden">
+<div class="bg-emerald-600 h-full rounded-full w-[70%]"></div>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high/60 text-on-surface">ដើម</span>
+</td>
+<td class="py-2.5 px-space-md text-right">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-secondary font-bold">$2.80</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$2.15 (Cost)</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+<span>មានគ្រប់គ្រាន់</span>
+</span>
+</td>
+<td class="py-2.5 px-space-md text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors" title="កែប្រែ (Edit)" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-secondary flex items-center justify-center transition-colors" title="ចរន្តស្តុក (Move Stock)" type="button">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" title="ប្រវត្តិ (History)" type="button">
+<span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-space-md bg-surface-container flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md flex-wrap text-on-surface-variant font-body-sm text-body-sm">
+<span>បង្ហាញ <strong class="text-on-surface font-semibold">1-10</strong> នៃ <strong class="text-on-surface font-semibold">1,248</strong> ទំនិញ</span>
+<div class="flex items-center gap-2">
+<span>ជួរក្នុងមួយទំព័រ:</span>
+<select aria-label="Rows per page" class="bg-surface-container-lowest text-on-surface px-2 py-1 rounded text-body-sm focus:outline-none">
+<option selected="" value="10">10 ជួរ</option>
+<option value="25">25 ជួរ</option>
+<option value="50">50 ជួរ</option>
+<option value="100">100 ជួរ</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="font-label-md text-label-md text-on-surface-variant mr-space-sm">
+            ទំព័រទី <span class="text-on-surface font-bold">1</span> នៃ <span class="text-on-surface font-bold">25</span>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="First page" class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant/40 bg-surface-container-lowest/50 cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">first_page</span>
+</button>
+<button aria-label="Previous page" class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant/40 bg-surface-container-lowest/50 cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center shadow-xs" type="button">1</button>
+<button class="w-8 h-8 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md flex items-center justify-center" type="button">2</button>
+<button class="w-8 h-8 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md flex items-center justify-center" type="button">3</button>
+<span class="px-1 text-on-surface-variant">...</span>
+<button class="w-8 h-8 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md flex items-center justify-center" type="button">25</button>
+<button aria-label="Next page" class="w-8 h-8 rounded flex items-center justify-center text-on-surface bg-surface-container-lowest hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button aria-label="Last page" class="w-8 h-8 rounded flex items-center justify-center text-on-surface bg-surface-container-lowest hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined text-[18px]">last_page</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 z-50 flex items-center justify-center p-space-md bg-primary/45 backdrop-blur-sm hidden" id="importModal">
+<div class="bg-surface-container-lowest rounded-xl shadow-2xl w-full max-w-xl flex flex-col overflow-hidden animate-fadeIn">
+<div class="px-space-lg py-space-md bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">upload_file</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-primary">នាំចូលទិន្នន័យពី Excel</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Bulk Inventory Master Import</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high flex items-center justify-center transition-colors" id="closeImportModal" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="p-space-lg flex flex-col gap-space-lg">
+<div class="flex items-center justify-between p-space-md bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">description</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">ទម្រង់គំរូទិន្នន័យ (Excel Template)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ទាញយកឯកសារគំរូ ដើម្បីបំពេញទិន្នន័យឱ្យបានត្រឹមត្រូវ</span>
+</div>
+</div>
+<a class="flex items-center gap-1 font-label-md text-label-md text-secondary hover:underline" href="#">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>ទាញយក .XLSX</span>
+</a>
+</div>
+<div class="p-8 rounded-xl bg-surface-container-low flex flex-col items-center justify-center text-center cursor-pointer transition-colors group" id="dropzone">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest flex items-center justify-center text-secondary mb-3 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[28px]">cloud_upload</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface">ទម្លាក់ឯកសារ Excel នៅទីនេះ ឬ ចុចដើម្បីរុករក</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">គាំទ្រឯកសារ .XLSX, .CSV ទំហំមិនលើសពី 25MB</span>
+<input accept=".xlsx,.xls,.csv" class="hidden" id="fileUploadInput" type="file"/>
+<button class="mt-4 px-space-md py-1.5 bg-surface-container-lowest text-primary font-label-md text-label-md rounded shadow-sm hover:bg-surface-container-high transition-colors" onclick="document.getElementById('fileUploadInput').click()" type="button">
+            ជ្រើសរើសឯកសារ
+          </button>
+</div>
+<div class="flex items-start gap-space-sm p-space-sm bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-[18px] text-secondary mt-0.5">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<strong>ចំណាំ៖</strong> ប្រព័ន្ធនឹងធ្វើបច្ចុប្បន្នភាពទំនិញដោយស្វ័យប្រវត្ត ប្រសិនបើ SKU មានរួចហើយ។ ទំនិញថ្មីនឹងត្រូវបន្ថែមទៅក្នុងបញ្ជី។
+          </p>
+</div>
+</div>
+<div class="px-space-lg py-space-md bg-surface-container flex items-center justify-end gap-space-sm">
+<button class="px-space-md py-2 bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded-lg hover:bg-surface-container transition-colors" id="cancelImport" type="button">
+          បោះបង់ (Cancel)
+        </button>
+<button class="px-space-lg py-2 bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-sm hover:bg-primary-container transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">cloud_sync</span>
+<span>ចាប់ផ្តើមនាំចូល (Start Import)</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+    (function() {
+      const modal = document.getElementById('importModal');
+      const openBtn = document.getElementById('openImportModal');
+      const closeBtn = document.getElementById('closeImportModal');
+      const cancelBtn = document.getElementById('cancelImport');
+      const resetBtn = document.getElementById('resetFilters');
+      const searchInput = document.getElementById('searchInput');
+      const catFilter = document.getElementById('categoryFilter');
+      const statusFilter = document.getElementById('statusFilter');
+
+      if (openBtn && modal) {
+        openBtn.addEventListener('click', () => {
+          modal.classList.remove('hidden');
+        });
+      }
+
+      const hideModal = () => {
+        if (modal) modal.classList.add('hidden');
+      };
+
+      if (closeBtn) closeBtn.addEventListener('click', hideModal);
+      if (cancelBtn) cancelBtn.addEventListener('click', hideModal);
+
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) hideModal();
+        });
+      }
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          if (catFilter) catFilter.selectedIndex = 0;
+          if (statusFilter) statusFilter.selectedIndex = 0;
+        });
+      }
+
+      const dropzone = document.getElementById('dropzone');
+      if (dropzone) {
+        dropzone.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          dropzone.classList.add('bg-secondary-fixed/30');
+        });
+        dropzone.addEventListener('dragleave', () => {
+          dropzone.classList.remove('bg-secondary-fixed/30');
+        });
+        dropzone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          dropzone.classList.remove('bg-secondary-fixed/30');
+          if (e.dataTransfer.files.length) {
+            alert('ឯកសារត្រូវបានទទួល: ' + e.dataTransfer.files[0].name);
+          }
+        });
+      }
+    })();
+  </script>
+</div></main></div><script src="../khema-core.js"></script>
+</body></html>

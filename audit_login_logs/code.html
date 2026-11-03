@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+
+<html lang="km"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Kantumruy+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"outline":"#787680","primary":"#070235","tertiary-fixed-dim":"#c3c0ff","on-surface-variant":"#47464f","on-tertiary-fixed":"#100069","on-secondary":"#ffffff","tertiary-fixed":"#e3dfff","surface-bright":"#faf8ff","inverse-surface":"#283044","on-primary":"#ffffff","surface-tint":"#5b598c","surface-dim":"#d2d9f4","secondary":"#00687a","surface-container-high":"#e2e7ff","on-primary-fixed-variant":"#444173","on-tertiary":"#ffffff","surface-container-low":"#f2f3ff","error":"#ba1a1a","background":"#faf8ff","secondary-fixed":"#acedff","on-secondary-container":"#006172","primary-fixed-dim":"#c4c1fb","outline-variant":"#c8c5d0","surface-container-highest":"#dae2fd","surface-container":"#eaedff","on-surface":"#131b2e","error-container":"#ffdad6","surface-container-lowest":"#ffffff","tertiary":"#050039","inverse-primary":"#c4c1fb","on-secondary-fixed-variant":"#004e5c","secondary-container":"#57dffe","tertiary-container":"#14007a","on-error":"#ffffff","on-background":"#131b2e","on-error-container":"#93000a","secondary-fixed-dim":"#4cd7f6","on-secondary-fixed":"#001f26","surface":"#faf8ff","on-tertiary-container":"#7d77ff","surface-variant":"#dae2fd","on-tertiary-fixed-variant":"#372abf","primary-container":"#1e1b4b","on-primary-fixed":"#181445","on-primary-container":"#8683ba","inverse-on-surface":"#eef0ff","primary-fixed":"#e3dfff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"1rem","gutter-mobile":"0.75rem","gutter":"1.5rem","space-sm":"0.5rem","space-xs":"0.25rem","space-lg":"1.5rem","space-xl":"2rem","margin":"2rem","margin-mobile":"1rem","space-2xl":"3rem"},fontFamily:{"label-md":['Kantumruy Pro', 'Inter', sans-serif],"headline-md":['Kantumruy Pro', 'Inter', sans-serif],"title-md":['Kantumruy Pro', 'Inter', sans-serif],"body-lg":['Kantumruy Pro', 'Inter', sans-serif],"body-md":['Kantumruy Pro', 'Inter', sans-serif],"table-data":['Kantumruy Pro', 'Inter', sans-serif],"display-lg-mobile":['Kantumruy Pro', 'Inter', sans-serif],"label-sm":['Kantumruy Pro', 'Inter', sans-serif],"headline-lg":['Kantumruy Pro', 'Inter', sans-serif],"metric-number":["\"Inter, sans-serif\""],"body-sm":['Kantumruy Pro', 'Inter', sans-serif],"title-lg":['Kantumruy Pro', 'Inter', sans-serif],"display-lg":['Kantumruy Pro', 'Inter', sans-serif]},fontSize:{"label-md":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"500"}],"headline-md":["22px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"title-md":["16px",{lineHeight:"24px",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"22px",fontWeight:"400"}],"table-data":["13px",{lineHeight:"20px",fontWeight:"400"}],"display-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"700"}],"label-sm":["11px",{lineHeight:"16px",letterSpacing:"0.03em",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"600"}],"metric-number":["30px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"title-lg":["18px",{lineHeight:"26px",fontWeight:"600"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script><link rel="stylesheet" href="../khmer-font.css"/>
+</head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center gap-space-sm bg-surface-container-lowest/60 backdrop-blur-md"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[22px]">inventory_2</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-primary leading-tight tracking-tight">ស្តុកវៃឆ្លាត</span><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">SmartStock ERP</span></div></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-on-surface-variant/80 uppercase">ម៉ឺនុយប្រតិបត្តិការ (Navigation)</div></div><nav class="flex flex-col gap-1 px-space-md" data-active-classes="bg-primary-container text-on-primary font-title-md rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><div class="flex flex-col text-left"><span>ផ្ទាំងគ្រប់គ្រងទូទៅ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Dashboard</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="inventory-items" href="#"><span class="material-symbols-outlined text-[20px]">warehouse</span><div class="flex flex-col text-left"><span>ទំនិញក្នុងស្តុក</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Inventory Items</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="stock-movements" href="#"><span class="material-symbols-outlined text-[20px]">sync_alt</span><div class="flex flex-col text-left"><span>ចរន្តស្តុក នាំចូល/បញ្ចេញ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Stock Movements</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="excel-import" href="#"><span class="material-symbols-outlined text-[20px]">upload_file</span><div class="flex flex-col text-left"><span>នាំចូលទិន្នន័យ Excel</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Excel Bulk Import</span></div></a><div class="my-space-xs px-space-sm py-space-xs font-label-sm text-label-sm text-on-surface-variant/80 uppercase">ប្រព័ន្ធគ្រប់គ្រង (Admin)</div><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="roles-and-permissions" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><div class="flex flex-col text-left"><span>ការកំណត់តួនាទី &amp; សិទ្ធិ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Roles &amp; Permissions</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><div class="flex flex-col text-left"><span>ការកំណត់ប្រព័ន្ធ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">System Settings</span></div></a></nav></div><div class="p-space-md bg-surface-container-lowest/80 mx-space-md mb-space-md rounded-lg flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Hub: Phnom Penh Depot A</span></div><span class="font-label-sm text-label-sm text-secondary font-semibold">v2.4</span></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span><input class="w-full h-[38px] pl-10 pr-space-md bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 font-body-sm text-body-sm rounded-lg border-0 shadow-[0_1px_8px_rgba(0,0,0,0.04)] focus:outline-none focus:ring-1 focus:ring-secondary" placeholder="ស្វែងរកកូដទំនិញ SKU, ឈ្មោះ ឬទីតាំង... (Search SKU or item)" type="text"/></div></div><div class="flex items-center gap-space-lg"><button class="flex items-center gap-space-xs px-space-md py-2 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] hover:bg-secondary/90 transition-all" type="button"><span class="material-symbols-outlined text-[18px]">file_upload</span><span>នាំចូល Excel</span></button><div class="relative flex items-center"><button aria-label="Notifications" class="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-on-surface shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span></button></div><div class="flex items-center gap-space-sm pl-space-sm bg-surface-container-lowest py-1 px-space-sm rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] cursor-pointer hover:bg-surface-container-low transition-colors"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><div class="flex items-center gap-space-xs"><span class="font-title-md text-[13px] text-on-surface font-semibold">Sokha Chan</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container-high text-on-primary-fixed-variant">ADMIN</span></div><span class="font-label-sm text-[11px] text-on-surface-variant">អ្នកគ្រប់គ្រងជាន់ខ្ពស់</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<div class="p-space-lg space-y-space-lg max-w-[1720px] mx-auto w-full">
+<!-- Top Context & Header Row -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="space-y-1">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-[15px] text-secondary">shield_lock</span>
+<span>ប្រព័ន្ធសុវត្ថិភាពសហគ្រាស</span>
+<span class="text-outline-variant">•</span>
+<span class="text-secondary font-medium">Security &amp; Access Governance</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">
+          កំណត់ត្រាសវនកម្ម និងប្រវត្តិចូលប្រើប្រាស់ <span class="font-title-md text-title-md text-on-surface-variant font-normal">(Audit &amp; Login Logs)</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl leading-relaxed">
+          កត់ត្រារាល់ការចូលប្រើប្រាស់ប្រព័ន្ធ ការផ្លាស់ប្តូរតួនាទី (Role Switching) ទីតាំង IP ឧបករណ៍ និងសកម្មភាពសុវត្ថិភាពរបស់បុគ្គលិកគ្រប់សាខាឃ្លាំង។
+        </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center flex-wrap gap-space-sm self-start lg:self-center">
+<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">tune</span>
+<span>កំណត់ការជូនដំណឹង (Alert Rules)</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">download</span>
+<span>ទាញយកកំណត់ត្រា (Export CSV)</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary-container">security_update_good</span>
+<span>ត្រួតពិនិត្យសុវត្ថិភាព (Security Scan)</span>
+</button>
+</div>
+</div>
+<!-- KPI / Telemetry 4-Card Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1: Total Logins -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-surface-container-high/40 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">ការចូលសរុបថ្ងៃនេះ (Total Logins)</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">login</span>
+</div>
+</div>
+<div class="my-space-sm">
+<div class="font-metric-number text-metric-number text-primary tracking-tight">184 <span class="font-title-md text-title-md text-on-surface-variant font-normal">ដង</span></div>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="inline-flex items-center text-secondary font-semibold">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12%
+          </span>
+<span class="text-on-surface-variant">ធៀបនឹងម្សិលមិញ (vs yesterday)</span>
+</div>
+</div>
+<!-- Card 2: Successful Logins -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-surface-container-highest/50 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">ការចូលជោគជ័យ (Successful)</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-xs">
+<div class="font-metric-number text-metric-number text-primary tracking-tight">178</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-semibold">96.7% Success Rate</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>ការផ្ទៀងផ្ទាត់ 2FA ដំណើរការល្អ (Secure)</span>
+</div>
+</div>
+<!-- Card 3: Failed / Blocked Attempts -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-error-container/30 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">ការព្យាយាមបរាជ័យ (Failed Attempts)</span>
+<div class="w-9 h-9 rounded-lg bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">gpp_maybe</span>
+</div>
+</div>
+<div class="my-space-sm flex items-baseline gap-space-xs">
+<div class="font-metric-number text-metric-number text-error tracking-tight">6 <span class="font-title-md text-title-md text-on-surface-variant font-normal">ដង</span></div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-semibold">3 IP ជាប់ Block</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-error">
+<span class="material-symbols-outlined text-[15px]">report</span>
+<span>រារាំងដោយស្វ័យប្រវត្តិតាម Firewall Rule</span>
+</div>
+</div>
+<!-- Card 4: Role Switch Sessions -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-tertiary-fixed/30 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">ប្តូរតួនាទី (Role Switching)</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[20px]">published_with_changes</span>
+</div>
+</div>
+<div class="my-space-sm">
+<div class="font-metric-number text-metric-number text-primary tracking-tight">24 <span class="font-title-md text-title-md text-on-surface-variant font-normal">ប្រតិបត្តិការ</span></div>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-primary">schedule</span>
+<span>ការផ្លាស់ប្តូរវេនការងារឃ្លាំង (Shift Handovers)</span>
+</div>
+</div>
+</div>
+<!-- Filter & Search Toolbar Card -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm space-y-space-md">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-space-md items-center">
+<!-- Search Input -->
+<div class="xl:col-span-4 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full h-[38px] pl-10 pr-space-md bg-surface text-on-surface placeholder:text-on-surface-variant/60 font-body-sm text-body-sm rounded-lg focus:outline-none focus:bg-surface-container-low transition-all" placeholder="ស្វែងរកតាម ឈ្មោះអ្នកប្រើ, អ៊ីមែល, អាសយដ្ឋាន IP, ឬឧបករណ៍..." type="text"/>
+</div>
+<!-- Filter 1: Status -->
+<div class="xl:col-span-2">
+<div class="relative">
+<select aria-label="ស្ថានភាព (Status)" class="w-full h-[38px] px-3 pr-8 bg-surface text-on-surface font-body-sm text-body-sm rounded-lg appearance-none focus:outline-none cursor-pointer">
+<option value="">ស្ថានភាព: ទាំងអស់ (All)</option>
+<option value="success">ជោគជ័យ (Successful)</option>
+<option value="failed">បរាជ័យ (Failed)</option>
+<option value="suspicious">ត្រូវរារាំង (Blocked/Suspicious)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Filter 2: Role -->
+<div class="xl:col-span-2">
+<div class="relative">
+<select aria-label="តួនាទី (Role)" class="w-full h-[38px] px-3 pr-8 bg-surface text-on-surface font-body-sm text-body-sm rounded-lg appearance-none focus:outline-none cursor-pointer">
+<option value="">តួនាទី: ទាំងអស់ (All Roles)</option>
+<option value="admin">Super Admin</option>
+<option value="manager">Warehouse Manager</option>
+<option value="staff">Inventory Staff</option>
+<option value="auditor">Compliance Auditor</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Filter 3: Depot Hub -->
+<div class="xl:col-span-2">
+<div class="relative">
+<select aria-label="សាខាឃ្លាំង (Depot Hub)" class="w-full h-[38px] px-3 pr-8 bg-surface text-on-surface font-body-sm text-body-sm rounded-lg appearance-none focus:outline-none cursor-pointer">
+<option value="">សាខា: គ្រប់ឃ្លាំងទាំងអស់</option>
+<option value="pp-a">Phnom Penh Depot A</option>
+<option value="ks-hub">Kampong Som Hub</option>
+<option value="sr-hub">Siem Reap Hub</option>
+<option value="remote">Remote / Mobile Gateway</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Filter 4: Date Range -->
+<div class="xl:col-span-2">
+<div class="relative">
+<select aria-label="កាលបរិច្ឆេទ (Date Range)" class="w-full h-[38px] px-3 pr-8 bg-surface text-on-surface font-body-sm text-body-sm rounded-lg appearance-none focus:outline-none cursor-pointer">
+<option value="today">កាលបរិច្ឆេទ: ថ្ងៃនេះ (Today)</option>
+<option value="7d">៧ ថ្ងៃចុងក្រោយ (Last 7 Days)</option>
+<option value="30d">៣០ ថ្ងៃចុងក្រោយ (Last 30 Days)</option>
+<option value="custom">ចន្លោះកាលបរិច្ឆេទផ្ទាល់ខ្លួន...</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Quick Toggles & Active Filter Chips -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-2 bg-surface-container-lowest">
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high text-primary font-label-sm text-label-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+<span>2FA Enabled Sessions</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">sync_alt</span>
+<span>Role Elevation Events (24)</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">devices</span>
+<span>Scanner Guns Only (Zebra TC52)</span>
+</button>
+</div>
+<!-- Suspicious Only Toggle -->
+<label class="flex items-center gap-space-xs cursor-pointer select-none px-3 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<input class="sr-only peer" id="suspiciousToggle" type="checkbox"/>
+<div class="w-8 h-4 bg-outline-variant peer-checked:bg-error rounded-full relative transition-colors duration-200">
+<div class="w-3 h-3 bg-on-primary rounded-full absolute top-0.5 left-0.5 peer-checked:left-4 transition-all duration-200"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-error">flag</span>
+<span>បង្ហាញតែសកម្មភាពគួរឱ្យសង្ស័យ (Show Suspicious Only)</span>
+</span>
+</label>
+</div>
+</div>
+<!-- Main Content Layout: Table & Real-Time Security Intelligence Split -->
+<div class="grid grid-cols-1 2xl:grid-cols-12 gap-space-lg items-start">
+<!-- Primary Audit Log Table Section (8 cols) -->
+<div class="2xl:col-span-9 bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Table Header Context Bar -->
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-title-md text-title-md text-primary">បញ្ជីកំណត់ត្រាជាក់ស្តែង (Real-Time Access Log Stream)</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container-high text-on-primary-fixed-variant">LIVE SYNC</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span>ធ្វើបច្ចុប្បន្នភាពរៀងរាល់ 10 វិនាទី</span>
+<span class="material-symbols-outlined text-[16px] animate-spin text-secondary">autorenew</span>
+</div>
+</div>
+<!-- Dense High-Clarity Table Wrapper -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="py-3 px-space-md whitespace-nowrap">ពេលវេលា (Timestamp)</th>
+<th class="py-3 px-space-md whitespace-nowrap">អ្នកប្រើប្រាស់ (User)</th>
+<th class="py-3 px-space-md whitespace-nowrap">តួនាទី (Role)</th>
+<th class="py-3 px-space-md whitespace-nowrap">ប្រភេទសកម្មភាព (Event Type)</th>
+<th class="py-3 px-space-md whitespace-nowrap">ទីតាំង &amp; អាសយដ្ឋាន IP</th>
+<th class="py-3 px-space-md whitespace-nowrap">ឧបករណ៍ &amp; OS (Client)</th>
+<th class="py-3 px-space-md whitespace-nowrap">ស្ថានភាព (Status)</th>
+<th class="py-3 px-space-md text-right whitespace-nowrap">សកម្មភាព</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low font-table-data text-table-data text-on-surface">
+<!-- Row 1: Sokha Chan (Super Admin) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-semibold text-primary">14:48:22</span>
+<span class="text-[11px] text-on-surface-variant">24 តុលា 2024</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-semibold text-[12px]">
+                      SC
+                    </div>
+<div class="flex flex-col text-left">
+<span class="font-semibold text-primary">Sokha Chan</span>
+<span class="text-[11px] text-on-surface-variant">sokha.chan@smartstock.kh</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container-high text-on-primary-fixed-variant tracking-wide">
+                    SUPER ADMIN
+                  </span>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+<span class="font-medium text-primary">Direct Sign-In (2FA)</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-medium text-primary">103.216.58.12</span>
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">location_on</span>
+                      Phnom Penh Central Depot
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[17px]">laptop_mac</span>
+<span>Chrome 130 / macOS Sonoma</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-surface-container-high text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>ជោគជ័យ (Success)</span>
+</span>
+</td>
+<td class="py-2.5 px-space-md text-right whitespace-nowrap">
+<button class="px-2 py-1 rounded bg-surface text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all text-[12px] font-medium" onclick="alert('Viewing session details for Sokha Chan')" type="button">
+                    មើលលម្អិត
+                  </button>
+</td>
+</tr>
+<!-- Row 2: Vireak Rith (Warehouse Manager) - Role Switch -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-semibold text-primary">14:32:05</span>
+<span class="text-[11px] text-on-surface-variant">24 តុលា 2024</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-semibold text-[12px]">
+                      VR
+                    </div>
+<div class="flex flex-col text-left">
+<span class="font-semibold text-primary">Vireak Rith</span>
+<span class="text-[11px] text-on-surface-variant">vireak.rith@smartstock.kh</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-secondary-fixed/50 text-secondary tracking-wide">
+                    MANAGER
+                  </span>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">published_with_changes</span>
+<span class="font-medium text-primary">Role Switch: Staff ➔ Manager</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-medium text-primary">119.82.251.88</span>
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">location_on</span>
+                      Kampong Som Hub (Sihanoukville)
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[17px]">desktop_windows</span>
+<span>Edge 129 / Windows 11 Enterprise</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-surface-container-high text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>ជោគជ័យ (Success)</span>
+</span>
+</td>
+<td class="py-2.5 px-space-md text-right whitespace-nowrap">
+<button class="px-2 py-1 rounded bg-surface text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all text-[12px] font-medium" type="button">
+                    មើលលម្អិត
+                  </button>
+</td>
+</tr>
+<!-- Row 3: Thida Mao (Staff - Mobile Scanner) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-semibold text-primary">14:15:40</span>
+<span class="text-[11px] text-on-surface-variant">24 តុលា 2024</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-semibold text-[12px]">
+                      TM
+                    </div>
+<div class="flex flex-col text-left">
+<span class="font-semibold text-primary">Thida Mao</span>
+<span class="text-[11px] text-on-surface-variant">thida.mao@smartstock.kh</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container text-on-surface-variant tracking-wide">
+                    INVENTORY STAFF
+                  </span>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">qr_code_scanner</span>
+<span class="font-medium text-primary">Scanner App Token Sign-In</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-medium text-primary">10.14.20.105 (Intranet)</span>
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">location_on</span>
+                      Depot B - Cold Storage Zone
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[17px]">tablet_android</span>
+<span>Zebra Android Handheld TC52</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-surface-container-high text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>ជោគជ័យ (Success)</span>
+</span>
+</td>
+<td class="py-2.5 px-space-md text-right whitespace-nowrap">
+<button class="px-2 py-1 rounded bg-surface text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all text-[12px] font-medium" type="button">
+                    មើលលម្អិត
+                  </button>
+</td>
+</tr>
+<!-- Row 4: Suspicious / Failed Brute-Force (Red Flag) -->
+<tr class="bg-error-container/20 hover:bg-error-container/30 transition-colors">
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-semibold text-error">13:58:11</span>
+<span class="text-[11px] text-on-surface-variant">24 តុលា 2024</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-error text-on-error flex items-center justify-center font-semibold text-[12px]">
+<span class="material-symbols-outlined text-[16px]">no_accounts</span>
+</div>
+<div class="flex flex-col text-left">
+<span class="font-semibold text-error">Unknown User (root/admin)</span>
+<span class="text-[11px] text-error font-medium">5x Invalid Password Attempts</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-error-container text-on-error-container tracking-wide">
+                    UNAUTHORIZED
+                  </span>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5 text-error">
+<span class="material-symbols-outlined text-[16px]">lock_clock</span>
+<span class="font-semibold">Brute-Force Attack Flagged</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-bold text-error">185.220.101.45</span>
+<span class="text-[11px] text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+                      Tor Exit Node (Foreign/Unknown)
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[17px]">terminal</span>
+<span>Python-Requests / Headless</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-error text-on-error">
+<span class="w-1.5 h-1.5 rounded-full bg-on-error animate-ping"></span>
+<span>ត្រូវរារាំង (IP Blocked)</span>
+</span>
+</td>
+<td class="py-2.5 px-space-md text-right whitespace-nowrap">
+<button class="px-2.5 py-1 rounded bg-error text-on-error hover:bg-error/90 transition-all text-[11px] font-semibold shadow-sm" type="button">
+                    រាយការណ៍ IP
+                  </button>
+</td>
+</tr>
+<!-- Row 5: Kosal An (Auditor) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-semibold text-primary">13:42:19</span>
+<span class="text-[11px] text-on-surface-variant">24 តុលា 2024</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-semibold text-[12px]">
+                      KA
+                    </div>
+<div class="flex flex-col text-left">
+<span class="font-semibold text-primary">Kosal An</span>
+<span class="text-[11px] text-on-surface-variant">kosal.an@pwc-audit.kh</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-tertiary-fixed text-on-tertiary-fixed tracking-wide">
+                    EXTERNAL AUDITOR
+                  </span>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">policy</span>
+<span class="font-medium text-primary">Read-Only Audit Session</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-medium text-primary">203.144.130.4</span>
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">location_on</span>
+                      Phnom Penh Vattanac Tower
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[17px]">laptop</span>
+<span>Firefox 131 / Windows 11 Pro</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-surface-container-high text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>ជោគជ័យ (Success)</span>
+</span>
+</td>
+<td class="py-2.5 px-space-md text-right whitespace-nowrap">
+<button class="px-2 py-1 rounded bg-surface text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all text-[12px] font-medium" type="button">
+                    មើលលម្អិត
+                  </button>
+</td>
+</tr>
+<!-- Row 6: Sovann Leng (Staff - 2FA Re-auth) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-semibold text-primary">12:30:15</span>
+<span class="text-[11px] text-on-surface-variant">24 តុលា 2024</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-semibold text-[12px]">
+                      SL
+                    </div>
+<div class="flex flex-col text-left">
+<span class="font-semibold text-primary">Sovann Leng</span>
+<span class="text-[11px] text-on-surface-variant">sovann.leng@smartstock.kh</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container text-on-surface-variant tracking-wide">
+                    INVENTORY STAFF
+                  </span>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">key</span>
+<span class="font-medium text-primary">2FA Timeout Re-Authentication</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-medium text-primary">103.197.104.22</span>
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">location_on</span>
+                      Siem Reap Regional Hub
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[17px]">laptop_chromebook</span>
+<span>Chrome 128 / ChromeOS Hub Terminal</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-surface-container-high text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>ជោគជ័យ (Success)</span>
+</span>
+</td>
+<td class="py-2.5 px-space-md text-right whitespace-nowrap">
+<button class="px-2 py-1 rounded bg-surface text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-all text-[12px] font-medium" type="button">
+                    មើលលម្អិត
+                  </button>
+</td>
+</tr>
+<!-- Row 7: Piseth Som (Suspended Account Access Denied) -->
+<tr class="bg-surface-container-low/40 hover:bg-surface-container-low transition-colors">
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-semibold text-primary">11:05:48</span>
+<span class="text-[11px] text-on-surface-variant">24 តុលា 2024</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-outline text-surface flex items-center justify-center font-semibold text-[12px]">
+                      PS
+                    </div>
+<div class="flex flex-col text-left">
+<span class="font-semibold text-on-surface line-through decoration-error">Piseth Som</span>
+<span class="text-[11px] text-on-surface-variant">piseth.som@smartstock.kh (Suspended)</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-surface-container text-outline tracking-wide">
+                    FORMER STAFF
+                  </span>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-error">person_off</span>
+<span>Account Deactivated Attempt</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-medium text-primary">116.212.155.67</span>
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-outline">public</span>
+                      ISP Cellcard 4G Mobile
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[17px]">smartphone</span>
+<span>Safari 17 / iOS 17.5 iPhone</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-error-container text-on-error-container">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>បដិសេធ (Access Denied)</span>
+</span>
+</td>
+<td class="py-2.5 px-space-md text-right whitespace-nowrap">
+<button class="px-2 py-1 rounded bg-surface text-on-surface-variant hover:bg-surface-container-high transition-all text-[12px] font-medium" type="button">
+                    ពិនិត្យសិទ្ធិ
+                  </button>
+</td>
+</tr>
+<!-- Row 8: Chanty Nuon (Manager Session Revoked) -->
+<tr class="hover:bg-surface-container-low/70 transition-colors">
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-semibold text-primary">09:12:00</span>
+<span class="text-[11px] text-on-surface-variant">24 តុលា 2024</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-semibold text-[12px]">
+                      CN
+                    </div>
+<div class="flex flex-col text-left">
+<span class="font-semibold text-primary">Chanty Nuon</span>
+<span class="text-[11px] text-on-surface-variant">chanty.nuon@smartstock.kh</span>
+</div>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-secondary-fixed/50 text-secondary tracking-wide">
+                    MANAGER
+                  </span>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-secondary">power_settings_new</span>
+<span>Admin Terminated Session (Shift End)</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-medium text-primary">103.216.58.19</span>
+<span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">location_on</span>
+                      Phnom Penh Central Depot
+                    </span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[17px]">tablet_mac</span>
+<span>iPad Pro / Mobile Safari</span>
+</div>
+</td>
+<td class="py-2.5 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-surface-container text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span>បញ្ចប់វេន (Terminated)</span>
+</span>
+</td>
+<td class="py-2.5 px-space-md text-right whitespace-nowrap">
+<button class="px-2 py-1 rounded bg-surface text-on-surface-variant hover:bg-surface-container-high transition-all text-[12px] font-medium" type="button">
+                    កំណត់ត្រា
+                  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Record Status Footer -->
+<div class="p-space-md bg-surface-container-lowest flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<span>បង្ហាញ</span>
+<span class="font-semibold text-primary">1 ដល់ 8</span>
+<span>នៃ</span>
+<span class="font-semibold text-primary">1,248</span>
+<span>កំណត់ត្រាសរុប (Showing 1-8 of 1,248 logs)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-3 py-1.5 rounded-lg bg-surface text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors disabled:opacity-50" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px] align-middle">chevron_left</span>
+<span>មុន (Prev)</span>
+</button>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary font-semibold text-body-sm" type="button">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface hover:bg-surface-container-low text-on-surface font-semibold text-body-sm" type="button">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface hover:bg-surface-container-low text-on-surface font-semibold text-body-sm" type="button">3</button>
+<span class="px-1 text-on-surface-variant">...</span>
+<button class="w-8 h-8 rounded-lg bg-surface hover:bg-surface-container-low text-on-surface font-semibold text-body-sm" type="button">156</button>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface text-on-surface font-label-md text-label-md hover:bg-surface-container-low transition-colors" type="button">
+<span>បន្ទាប់ (Next)</span>
+<span class="material-symbols-outlined text-[16px] align-middle">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Threat Telemetry & Security Health (3 cols) -->
+<div class="2xl:col-span-3 space-y-space-md">
+<!-- Security Posture Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-title-md text-title-md text-primary">កម្រិតសុវត្ថិភាពប្រព័ន្ធ (Posture)</h2>
+<span class="material-symbols-outlined text-secondary text-[22px]">health_and_safety</span>
+</div>
+<!-- Circular Metric Progress / SVG Indicator -->
+<div class="flex items-center gap-space-md p-space-md rounded-xl bg-surface-container-low">
+<div class="relative w-16 h-16 flex-shrink-0 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-width="3.5"></path>
+<path class="text-secondary stroke-current" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="92, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-title-md text-title-md font-bold text-primary">92%</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-primary">2FA Adoption Rate</span>
+<span class="text-body-sm text-body-sm text-on-surface-variant">114/124 គណនីបានបើកដំណើរការ MFA</span>
+</div>
+</div>
+<!-- Health Metrics List -->
+<div class="space-y-space-sm pt-2">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+                VPN Gateway Requirement
+              </span>
+<span class="font-semibold text-primary">Enforced</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">timer</span>
+                Session Max Timeout
+              </span>
+<span class="font-semibold text-primary">45 នាទី</span>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-error">lock_reset</span>
+                Password Rotation Policy
+              </span>
+<span class="font-semibold text-primary">រៀងរាល់ 90 ថ្ងៃ</span>
+</div>
+</div>
+</div>
+<!-- Geo-Location & IP Activity Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-title-md text-title-md text-primary">ផែនទីភូមិសាស្ត្រនៃការចូល</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Geo-Location Activity</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">public</span>
+</div>
+<!-- Geographic Node Visualizer / Mock Map Preview -->
+<div class="relative w-full h-44 rounded-xl overflow-hidden bg-surface-container-high flex flex-col justify-end p-space-md">
+<div class="absolute inset-0 opacity-20 bg-[radial-gradient(#070235_1px,transparent_1px)] [background-size:12px_12px]"></div>
+<!-- Nodes representing Cambodian Depot Locations -->
+<div class="absolute top-1/2 left-1/3 flex items-center gap-1">
+<span class="w-3 h-3 rounded-full bg-secondary animate-ping absolute"></span>
+<span class="w-3 h-3 rounded-full bg-secondary relative"></span>
+<span class="bg-primary text-on-primary font-label-sm text-[10px] px-1.5 py-0.5 rounded shadow">PP Hub (142)</span>
+</div>
+<div class="absolute bottom-6 left-1/4 flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="bg-primary text-on-primary font-label-sm text-[10px] px-1.5 py-0.5 rounded shadow">Kampong Som (28)</span>
+</div>
+<div class="absolute top-6 right-1/3 flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="bg-primary text-on-primary font-label-sm text-[10px] px-1.5 py-0.5 rounded shadow">Siem Reap (14)</span>
+</div>
+<div class="relative z-10 bg-surface-container-lowest/90 backdrop-blur-md p-space-sm rounded-lg flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Domestic Traffic Only</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">98.4% Normal</span>
+</div>
+</div>
+<!-- Anomalous Logs Feed -->
+<div class="space-y-space-sm pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">ការជូនដំណឹងសង្ស័យថ្មីៗ (Recent Alerts)</span>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-error text-[18px] mt-0.5">report_problem</span>
+<div class="flex flex-col text-left">
+<span class="font-label-md text-label-md font-semibold text-primary">IP 185.220.101.45 (Tor Exit)</span>
+<span class="text-body-sm text-body-sm text-on-surface-variant">ព្យាយាម Login គណនី root ៥ ដងជាប់គ្នា</span>
+<span class="text-[10px] text-error font-semibold mt-1">Status: Auto-Blocked (48 Hours)</span>
+</div>
+</div>
+</div>
+<!-- Quick Action -->
+<button class="w-full py-2 bg-surface text-primary hover:bg-surface-container-high rounded-lg font-label-md text-label-md font-medium transition-colors flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[17px]">security</span>
+<span>កំណត់ Firewall Blacklist</span>
+</button>
+</div>
+<!-- Active Warehouse Super-Admins Card -->
+<div class="p-space-lg rounded-xl bg-primary text-on-primary shadow-sm space-y-space-md relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-primary-container rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary-fixed font-semibold uppercase tracking-wider">សិទ្ធិអ្នកគ្រប់គ្រងកំពូល (Super Admins)</span>
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+</div>
+<div class="space-y-space-xs">
+<h3 class="font-title-lg text-title-lg text-on-primary">Sokha Chan &amp; Sovath Keo</h3>
+<p class="font-body-sm text-body-sm text-surface-variant/80">
+              មានសិទ្ធិកម្រិត root ក្នុងការកែប្រែកំណត់ត្រាសវនកម្ម និងកំណត់ហេតុហិរញ្ញវត្ថុ។
+            </p>
+</div>
+<div class="pt-2">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md font-semibold hover:bg-surface-container-high transition-colors w-full text-center" type="button">
+              ពិនិត្យមើលសិទ្ធិ Root Access
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for suspicious toggle filtering
+  document.getElementById('suspiciousToggle')?.addEventListener('change', function(e) {
+    const isChecked = e.target.checked;
+    const rows = document.querySelectorAll('tbody tr');
+    rows.forEach(row => {
+      const hasErrorBadge = row.querySelector('.bg-error') || row.querySelector('.bg-error-container');
+      if (isChecked) {
+        if (!hasErrorBadge) {
+          row.style.display = 'none';
+        } else {
+          row.style.display = '';
+        }
+      } else {
+        row.style.display = '';
+      }
+    });
+  });
+</script></main></div><script src="../khema-core.js"></script>
+</body></html>

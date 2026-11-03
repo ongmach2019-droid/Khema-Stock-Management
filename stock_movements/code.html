@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+
+<html lang="km"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Kantumruy+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"outline":"#787680","primary":"#070235","tertiary-fixed-dim":"#c3c0ff","on-surface-variant":"#47464f","on-tertiary-fixed":"#100069","on-secondary":"#ffffff","tertiary-fixed":"#e3dfff","surface-bright":"#faf8ff","inverse-surface":"#283044","on-primary":"#ffffff","surface-tint":"#5b598c","surface-dim":"#d2d9f4","secondary":"#00687a","surface-container-high":"#e2e7ff","on-primary-fixed-variant":"#444173","on-tertiary":"#ffffff","surface-container-low":"#f2f3ff","error":"#ba1a1a","background":"#faf8ff","secondary-fixed":"#acedff","on-secondary-container":"#006172","primary-fixed-dim":"#c4c1fb","outline-variant":"#c8c5d0","surface-container-highest":"#dae2fd","surface-container":"#eaedff","on-surface":"#131b2e","error-container":"#ffdad6","surface-container-lowest":"#ffffff","tertiary":"#050039","inverse-primary":"#c4c1fb","on-secondary-fixed-variant":"#004e5c","secondary-container":"#57dffe","tertiary-container":"#14007a","on-error":"#ffffff","on-background":"#131b2e","on-error-container":"#93000a","secondary-fixed-dim":"#4cd7f6","on-secondary-fixed":"#001f26","surface":"#faf8ff","on-tertiary-container":"#7d77ff","surface-variant":"#dae2fd","on-tertiary-fixed-variant":"#372abf","primary-container":"#1e1b4b","on-primary-fixed":"#181445","on-primary-container":"#8683ba","inverse-on-surface":"#eef0ff","primary-fixed":"#e3dfff"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"1rem","gutter-mobile":"0.75rem","gutter":"1.5rem","space-sm":"0.5rem","space-xs":"0.25rem","space-lg":"1.5rem","space-xl":"2rem","margin":"2rem","margin-mobile":"1rem","space-2xl":"3rem"},fontFamily:{"label-md":['Kantumruy Pro', 'Inter', sans-serif],"headline-md":['Kantumruy Pro', 'Inter', sans-serif],"title-md":['Kantumruy Pro', 'Inter', sans-serif],"body-lg":['Kantumruy Pro', 'Inter', sans-serif],"body-md":['Kantumruy Pro', 'Inter', sans-serif],"table-data":['Kantumruy Pro', 'Inter', sans-serif],"display-lg-mobile":['Kantumruy Pro', 'Inter', sans-serif],"label-sm":['Kantumruy Pro', 'Inter', sans-serif],"headline-lg":['Kantumruy Pro', 'Inter', sans-serif],"metric-number":["\"Inter, sans-serif\""],"body-sm":['Kantumruy Pro', 'Inter', sans-serif],"title-lg":['Kantumruy Pro', 'Inter', sans-serif],"display-lg":['Kantumruy Pro', 'Inter', sans-serif]},fontSize:{"label-md":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"500"}],"headline-md":["22px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"title-md":["16px",{lineHeight:"24px",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"400"}],"body-md":["14px",{lineHeight:"22px",fontWeight:"400"}],"table-data":["13px",{lineHeight:"20px",fontWeight:"400"}],"display-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"700"}],"label-sm":["11px",{lineHeight:"16px",letterSpacing:"0.03em",fontWeight:"600"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.015em",fontWeight:"600"}],"metric-number":["30px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}],"title-lg":["18px",{lineHeight:"26px",fontWeight:"600"}],"display-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}]}}}};</script><link rel="stylesheet" href="../khmer-font.css"/>
+</head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-space-lg flex items-center gap-space-sm bg-surface-container-lowest/60 backdrop-blur-md"><div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[22px]">inventory_2</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-primary leading-tight tracking-tight">ស្តុកវៃឆ្លាត</span><span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">SmartStock ERP</span></div></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-on-surface-variant/80 uppercase">ម៉ឺនុយប្រតិបត្តិការ (Navigation)</div></div><nav class="flex flex-col gap-1 px-space-md" data-active-classes="bg-primary-container text-on-primary font-title-md rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><div class="flex flex-col text-left"><span>ផ្ទាំងគ្រប់គ្រងទូទៅ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Dashboard</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="inventory-items" href="#"><span class="material-symbols-outlined text-[20px]">warehouse</span><div class="flex flex-col text-left"><span>ទំនិញក្នុងស្តុក</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Inventory Items</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="stock-movements" href="#"><span class="material-symbols-outlined text-[20px]">sync_alt</span><div class="flex flex-col text-left"><span>ចរន្តស្តុក នាំចូល/បញ្ចេញ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Stock Movements</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="excel-import" href="#"><span class="material-symbols-outlined text-[20px]">upload_file</span><div class="flex flex-col text-left"><span>នាំចូលទិន្នន័យ Excel</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Excel Bulk Import</span></div></a><div class="my-space-xs px-space-sm py-space-xs font-label-sm text-label-sm text-on-surface-variant/80 uppercase">ប្រព័ន្ធគ្រប់គ្រង (Admin)</div><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="roles-and-permissions" href="#"><span class="material-symbols-outlined text-[20px]">admin_panel_settings</span><div class="flex flex-col text-left"><span>ការកំណត់តួនាទី &amp; សិទ្ធិ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">Roles &amp; Permissions</span></div></a><a class="flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-on-surface-variant font-body-md text-body-md hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><div class="flex flex-col text-left"><span>ការកំណត់ប្រព័ន្ធ</span><span class="font-label-sm text-[10px] text-on-surface-variant/70">System Settings</span></div></a></nav></div><div class="p-space-md bg-surface-container-lowest/80 mx-space-md mb-space-md rounded-lg flex items-center justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Hub: Phnom Penh Depot A</span></div><span class="font-label-sm text-label-sm text-secondary font-semibold">v2.4</span></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-xl"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span><input class="w-full h-[38px] pl-10 pr-space-md bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 font-body-sm text-body-sm rounded-lg border-0 shadow-[0_1px_8px_rgba(0,0,0,0.04)] focus:outline-none focus:ring-1 focus:ring-secondary" placeholder="ស្វែងរកកូដទំនិញ SKU, ឈ្មោះ ឬទីតាំង... (Search SKU or item)" type="text"/></div></div><div class="flex items-center gap-space-lg"><button class="flex items-center gap-space-xs px-space-md py-2 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] hover:bg-secondary/90 transition-all" type="button"><span class="material-symbols-outlined text-[18px]">file_upload</span><span>នាំចូល Excel</span></button><div class="relative flex items-center"><button aria-label="Notifications" class="w-9 h-9 rounded-lg bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-on-surface shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-colors relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span></button></div><div class="flex items-center gap-space-sm pl-space-sm bg-surface-container-lowest py-1 px-space-sm rounded-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] cursor-pointer hover:bg-surface-container-low transition-colors"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col text-left"><div class="flex items-center gap-space-xs"><span class="font-title-md text-[13px] text-on-surface font-semibold">Sokha Chan</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-surface-container-high text-on-primary-fixed-variant">ADMIN</span></div><span class="font-label-sm text-[11px] text-on-surface-variant">អ្នកគ្រប់គ្រងជាន់ខ្ពស់</span></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive Script for Filtering & Tabs -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Highlight sidebar active state
+      const navLinks = document.querySelectorAll('aside nav a[data-path="stock-movements"]');
+      navLinks.forEach(link => {
+        link.classList.remove('text-on-surface-variant', 'hover:bg-surface-container-high');
+        link.classList.add('bg-primary-container', 'text-on-primary', 'font-title-md', 'rounded-lg', 'shadow-sm');
+        const sub = link.querySelector('span:last-child');
+        if (sub) sub.classList.remove('text-on-surface-variant/70');
+        if (sub) sub.classList.add('text-secondary-fixed');
+      });
+
+      // Quick tab switcher
+      const tabs = document.querySelectorAll('.filter-tab-btn');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+          tabs.forEach(t => {
+            t.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+            t.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+          });
+          tab.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+          tab.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+        });
+      });
+    });
+
+    function toggleQuickScanModal() {
+      const modal = document.getElementById('quick-scan-drawer');
+      if (modal) {
+        modal.classList.toggle('hidden');
+      }
+    }
+
+    function simulateScan() {
+      const input = document.getElementById('barcode-input-field');
+      const badge = document.getElementById('scan-status-alert');
+      if(input && badge) {
+        input.value = "SKU-885012-9941 (SCG Portland Type 1)";
+        badge.classList.remove('hidden');
+        setTimeout(() => {
+          badge.classList.add('hidden');
+        }, 3500);
+      }
+    }
+  </script>
+<!-- Main Canvas Container -->
+<div class="p-space-lg md:p-space-xl flex flex-col gap-space-lg">
+<!-- 1. Header & Quick Actions -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span>ឃ្លាំងភ្នំពេញកណ្តាល (Hub A)</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>ប្រតិបត្តិការស្តុក</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-secondary font-semibold">កំណត់ត្រាចរន្តស្តុក (Movements Ledger)</span>
+</div>
+<div class="flex items-center gap-space-sm mt-1">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">ចរន្តស្តុក នាំចូល និងបញ្ចេញទំនិញ</h1>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-label-sm text-[11px] font-bold uppercase tracking-wider">Live Ledger</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+          តាមដានរាល់ប្រតិបត្តិការទទួលទំនិញចូល (Inbound / GRN), បញ្ចេញទំនិញ (Outbound / Dispatch) និងផ្ទេររវាងសាខាឃ្លាំង (Inter-Depot Transfer) ក្នុងពេលវេលាជាក់ស្តែង
+        </p>
+</div>
+<!-- Action Buttons Row -->
+<div class="flex flex-wrap items-center gap-space-xs sm:gap-space-sm">
+<!-- New Inbound -->
+<button class="flex items-center gap-space-xs px-space-md py-2.5 bg-primary text-on-primary rounded-lg font-title-md text-[13px] shadow-sm hover:bg-primary-container transition-all" type="button">
+<span class="material-symbols-outlined text-[19px]">move_to_inbox</span>
+<span>+ ប័ណ្ណនាំចូល (GRN)</span>
+</button>
+<!-- New Outbound -->
+<button class="flex items-center gap-space-xs px-space-md py-2.5 bg-secondary text-on-secondary rounded-lg font-title-md text-[13px] shadow-sm hover:opacity-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[19px]">outbox</span>
+<span>+ ប័ណ្ណបញ្ចេញទំនិញ</span>
+</button>
+<!-- Inter-Depot Transfer -->
+<button class="flex items-center gap-space-xs px-space-md py-2.5 bg-surface-container-lowest text-on-surface rounded-lg font-title-md text-[13px] shadow-sm hover:bg-surface-container transition-all" type="button">
+<span class="material-symbols-outlined text-[19px] text-secondary">sync_alt</span>
+<span>ផ្ទេររវាងឃ្លាំង</span>
+</button>
+<!-- Quick Scanner Drawer Toggle -->
+<button class="flex items-center gap-space-xs px-space-md py-2.5 bg-secondary-container text-on-secondary-container rounded-lg font-title-md text-[13px] shadow-sm hover:bg-secondary-fixed transition-all" onclick="toggleQuickScanModal()" type="button">
+<span class="material-symbols-outlined text-[19px]">barcode_scanner</span>
+<span>ស្កេនបន្ទាន់</span>
+</button>
+<!-- Export -->
+<button class="p-2.5 bg-surface-container-lowest text-on-surface-variant hover:text-on-surface rounded-lg shadow-sm hover:bg-surface-container transition-all" title="នាំចេញរបាយការណ៍ CSV/Excel" type="button">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+</div>
+</div>
+<!-- 2. Daily Movement KPIs (Bento Grid) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Card 1: Inbound -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-all">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">នាំចូលថ្ងៃនេះ (Inbound)</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant/70">GRN ទទួលចូលឃ្លាំង</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">download_for_offline</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline justify-between">
+<div class="flex items-baseline gap-1.5">
+<span class="font-metric-number text-metric-number text-primary">1,420</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ឯកតា</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-secondary font-label-sm text-[11px] font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">trending_up</span>+15.2%
+          </span>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-[11px]">
+<span>៨ ប្រតិបត្តិការ (GRN Logs)</span>
+<span class="text-secondary font-medium">Depot A &amp; B</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-secondary"></div>
+</div>
+<!-- Card 2: Outbound -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-all">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">បញ្ចេញថ្ងៃនេះ (Outbound)</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant/70">ការដឹកចេញ និងបញ្ជូន (DO)</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-[22px]">local_shipping</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline justify-between">
+<div class="flex items-baseline gap-1.5">
+<span class="font-metric-number text-metric-number text-primary">984</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ឯកតា</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-[11px] font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">trending_flat</span>ធម្មតា
+          </span>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-[11px]">
+<span>១៤ ការដឹកជញ្ជូន (Dispatched)</span>
+<span class="text-on-primary-fixed-variant font-medium">100% ត្រួតពិនិត្យរួច</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-on-primary-fixed-variant"></div>
+</div>
+<!-- Card 3: Inter-Depot Transfers -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-all">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">ផ្ទេររវាងឃ្លាំង (Transfers)</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant/70">ភ្នំពេញ ↔ ខេត្ត</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">compare_arrows</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline justify-between">
+<div class="flex items-baseline gap-1.5">
+<span class="font-metric-number text-metric-number text-primary">350</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ឯកតា</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px] font-semibold">
+            កំពុងធ្វើដំណើរ
+          </span>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-[11px]">
+<span>២ កញ្ចប់ (PP ➔ Kampong Som)</span>
+<span class="text-secondary font-medium">ETA: 3 ម៉ោង</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-primary"></div>
+</div>
+<!-- Card 4: Inspection / QA Queue -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-all">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">រង់ចាំត្រួតពិនិត្យ (Pending QA)</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant/70">ទាមទារផ្ទៀងផ្ទាត់ Barcode</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[22px]">fact_check</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline justify-between">
+<div class="flex items-baseline gap-1.5">
+<span class="font-metric-number text-metric-number text-primary">3</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ប័ណ្ណទំនិញ</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-error font-label-sm text-[11px] font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>បន្ទាន់ QA
+          </span>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-on-surface-variant font-label-sm text-[11px]">
+<span>Bay Inspection Dock 02</span>
+<span class="text-error font-semibold">ត្រូវផ្ទៀងផ្ទាត់</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-error"></div>
+</div>
+</div>
+<!-- 3. Quick Scanner Banner & Rapid Movement Drawer (Interactive Barcode Station) -->
+<div class="bg-primary-container text-on-primary rounded-xl p-space-md lg:p-space-lg shadow-sm flex flex-col gap-space-md relative overflow-hidden" id="quick-scan-drawer">
+<div class="absolute right-0 top-0 bottom-0 w-96 opacity-10 pointer-events-none flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-[260px] text-on-primary">qr_code_scanner</span>
+</div>
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm z-10">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-on-secondary shadow-sm">
+<span class="material-symbols-outlined text-[22px]">barcode_reader</span>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-on-primary">ស្ថានីយស្កេនបាកូដរហ័ស (Rapid Optical Scanner Station)</h2>
+<p class="font-body-sm text-body-sm text-on-primary-container">ស្កេនបាកូដទំនិញ ឬលេខកូដប័ណ្ណ (Waybill/PO) ដើម្បីបង្កើតចរន្តស្តុកភ្លាមៗ ដោយមិនបាច់វាយបញ្ចូលដោយដៃ</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded bg-surface-container-lowest/15 text-secondary-fixed text-label-sm font-label-sm flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+            ម៉ាស៊ីនស្កេន Zebra DS3678: តភ្ជាប់រួច
+          </span>
+<button class="text-on-primary-container hover:text-on-primary p-1" onclick="toggleQuickScanModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+<!-- Quick Action Input Hub -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-sm items-center z-10 pt-1">
+<!-- Scan Input Field -->
+<div class="md:col-span-5 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-primary-container text-[20px]">qr_code_2</span>
+<input class="w-full h-11 pl-10 pr-space-xl bg-surface-container-lowest text-on-surface rounded-lg font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary placeholder:text-on-surface-variant/60" id="barcode-input-field" placeholder="ស្កេនបាកូដ SKU, ក្រម QR ឬកូដឡូតិ៍ (EAN-13 / GS1)..." type="text"/>
+<button class="absolute right-2.5 top-1/2 -translate-y-1/2 px-2 py-1 rounded bg-surface-container-high text-primary font-label-sm text-[10px] uppercase hover:bg-surface-container-highest transition-colors" onclick="simulateScan()" type="button">
+            តេស្តស្កេន
+          </button>
+</div>
+<!-- Movement Type Selector -->
+<div class="md:col-span-3">
+<select class="w-full h-11 px-space-md bg-surface-container-lowest text-on-surface rounded-lg font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary">
+<option value="inbound">នាំចូល (Inbound - ទទួលទំនិញចូលស្តុក)</option>
+<option value="outbound">បញ្ចេញ (Outbound - ចេញអតិថិជន/ការដ្ឋាន)</option>
+<option value="transfer">ផ្ទេរទីតាំង (Depot / Bin Transfer)</option>
+<option value="adjustment">កែតម្រូវចំនួន (Cycle Count Adjustment)</option>
+</select>
+</div>
+<!-- Quantity Input -->
+<div class="md:col-span-2">
+<input class="w-full h-11 px-space-md bg-surface-container-lowest text-on-surface rounded-lg font-body-sm text-body-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary" min="1" placeholder="បរិមាណ (Qty)" type="number" value="50"/>
+</div>
+<!-- Submit Movement Button -->
+<div class="md:col-span-2">
+<button class="w-full h-11 flex items-center justify-center gap-space-xs bg-secondary text-on-secondary rounded-lg font-title-md text-[13px] shadow-sm hover:opacity-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[19px]">send</span>
+<span>កត់ត្រាភ្លាមៗ</span>
+</button>
+</div>
+</div>
+<!-- Status Toast / Alert inside quick drawer -->
+<div class="hidden z-10 flex items-center justify-between p-space-sm bg-surface-container-lowest/15 backdrop-blur-md rounded-lg text-secondary-fixed font-body-sm text-body-sm" id="scan-status-alert">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">check_circle</span>
+<span>ស្កេនជោគជ័យ: បានរកឃើញទំនិញ SCG Portland Type 1 (SKU-885012-9941) — រួចរាល់ក្នុងការកត់ត្រាចូល Bay A-04</span>
+</div>
+<span class="font-label-sm text-[11px] text-on-primary-container">剛剛 (ទើបតែស្កេន)</span>
+</div>
+</div>
+<!-- 4. Visual Stock Flow & Depot Map Summary (Rich Visual Element) -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+<!-- Live Flow Sankey Visualizer / Depot Throughput -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h3 class="font-title-md text-title-md text-primary">ចលនាលំហូរទំនិញថ្ងៃនេះ (Movement Flow Stream)</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ការប្រៀបធៀបបរិមាណ នាំចូល (Inbound) ទល់នឹង នាំចេញ (Outbound) តាមម៉ោង</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="flex items-center gap-1 font-label-sm text-[11px] text-secondary">
+<span class="w-2.5 h-2.5 rounded-sm bg-secondary"></span> នាំចូល (GRN)
+            </span>
+<span class="flex items-center gap-1 font-label-sm text-[11px] text-on-primary-fixed-variant">
+<span class="w-2.5 h-2.5 rounded-sm bg-on-primary-fixed-variant"></span> នាំចេញ (Dispatch)
+            </span>
+</div>
+</div>
+<!-- Inline SVG Flow / Bar Chart -->
+<div class="py-space-md">
+<svg class="w-full h-36" fill="none" viewbox="0 0 680 140" xmlns="http://www.w3.org/2000/svg">
+<!-- Grid lines -->
+<line class="text-surface-container-high" stroke="currentColor" stroke-dasharray="4 4" x1="0" x2="680" y1="20" y2="20"></line>
+<line class="text-surface-container-high" stroke="currentColor" stroke-dasharray="4 4" x1="0" x2="680" y1="60" y2="60"></line>
+<line class="text-surface-container-high" stroke="currentColor" stroke-dasharray="4 4" x1="0" x2="680" y1="100" y2="100"></line>
+<!-- Bars per 2-hour window -->
+<!-- 08:00 AM -->
+<rect fill="#00687a" height="65" rx="3" width="16" x="30" y="55"></rect>
+<rect fill="#444173" height="45" rx="3" width="16" x="50" y="75"></rect>
+<text fill="#47464f" font-family="Inter" font-size="10" text-anchor="middle" x="48" y="134">08:00</text>
+<!-- 10:00 AM -->
+<rect fill="#00687a" height="90" rx="3" width="16" x="130" y="30"></rect>
+<rect fill="#444173" height="60" rx="3" width="16" x="150" y="60"></rect>
+<text fill="#47464f" font-family="Inter" font-size="10" text-anchor="middle" x="148" y="134">10:00</text>
+<!-- 12:00 PM -->
+<rect fill="#00687a" height="40" rx="3" width="16" x="230" y="80"></rect>
+<rect fill="#444173" height="30" rx="3" width="16" x="250" y="90"></rect>
+<text fill="#47464f" font-family="Inter" font-size="10" text-anchor="middle" x="248" y="134">12:00</text>
+<!-- 02:00 PM (Peak Inbound) -->
+<rect fill="#00687a" height="105" rx="3" width="16" x="330" y="15"></rect>
+<rect fill="#444173" height="75" rx="3" width="16" x="350" y="45"></rect>
+<text fill="#47464f" font-family="Inter" font-size="10" text-anchor="middle" x="348" y="134">14:00</text>
+<!-- 04:00 PM (Current Peak Outbound) -->
+<rect fill="#00687a" height="80" rx="3" width="16" x="430" y="40"></rect>
+<rect fill="#444173" height="95" rx="3" width="16" x="450" y="25"></rect>
+<text fill="#47464f" font-family="Inter" font-size="10" text-anchor="middle" x="448" y="134">16:00</text>
+<!-- 06:00 PM (Expected) -->
+<rect fill="#00687a" height="50" opacity="0.4" rx="3" width="16" x="530" y="70"></rect>
+<rect fill="#444173" height="60" opacity="0.4" rx="3" width="16" x="550" y="60"></rect>
+<text fill="#47464f" font-family="Inter" font-size="10" text-anchor="middle" x="548" y="134">18:00</text>
+<!-- Trend curve -->
+<path d="M 48 55 Q 148 25, 248 80 T 348 15 T 448 30 T 548 65" fill="none" stroke="#57dffe" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-space-xs">
+<span>ម៉ោងកំពូលនាំចេញ: 14:00 - 16:30 (៤៥០ ឯកតា)</span>
+<span class="text-secondary font-semibold">ស្ថិតិប្រចាំថ្ងៃ: ២,៧៥៤ ឯកតាផ្លាស់ទីសរុប</span>
+</div>
+</div>
+<!-- Quick Transfer Hub Route Mini Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h3 class="font-title-md text-title-md text-primary">ផ្លូវដឹកជញ្ជូនសកម្ម (Active Logistics Routes)</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ការផ្ទេររវាង Depot ក្នុងស្រុក</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[22px]">route</span>
+</div>
+<div class="space-y-space-sm my-space-sm">
+<!-- Route 1 -->
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">local_shipping</span>
+<div>
+<div class="font-title-md text-[13px] text-on-surface">ភ្នំពេញ ➔ កំពង់សោម Hub</div>
+<div class="font-label-sm text-[11px] text-on-surface-variant">ឡានលេខ: 3D-8829 | ២០០ បាវស៊ីម៉ង់ត៍</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px] font-semibold">កំពុងធ្វើដំណើរ</span>
+</div>
+<!-- Route 2 -->
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">warehouse</span>
+<div>
+<div class="font-title-md text-[13px] text-on-surface">ភ្នំពេញ ➔ សៀមរាប Hub</div>
+<div class="font-label-sm text-[11px] text-on-surface-variant">ឡានលេខ: 3C-1102 | ១៥០ ធុងថ្នាំពណ៌</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-primary font-label-sm text-[11px] font-semibold">រៀបចំចេញ</span>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container flex items-center justify-between">
+<span class="font-label-sm text-[11px] text-on-surface-variant">ម៉ោងធ្វើដំណើរមធ្យម (Avg Transit)</span>
+<span class="font-label-sm text-[12px] font-bold text-primary">៤ ម៉ោង ៣០ នាទី</span>
+</div>
+</div>
+</div>
+<!-- 5. Filters & Search Control Bar -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<!-- Top Row: Segmented Movement Category Buttons -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-1.5 p-1 bg-surface-container-low rounded-lg">
+<button class="filter-tab-btn px-space-md py-1.5 rounded-md font-title-md text-[12px] bg-primary text-on-primary shadow-sm transition-all" type="button">
+            ប្រតិបត្តិការទាំងអស់ (All Movements)
+          </button>
+<button class="filter-tab-btn px-space-md py-1.5 rounded-md font-title-md text-[12px] bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-all" type="button">
+<span class="text-secondary font-bold mr-1">↓</span> នាំចូល (Inbound / GRN)
+          </button>
+<button class="filter-tab-btn px-space-md py-1.5 rounded-md font-title-md text-[12px] bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-all" type="button">
+<span class="text-on-primary-fixed-variant font-bold mr-1">↑</span> នាំចេញ (Outbound / Dispatch)
+          </button>
+<button class="filter-tab-btn px-space-md py-1.5 rounded-md font-title-md text-[12px] bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-all" type="button">
+<span class="text-primary font-bold mr-1">⇄</span> ផ្ទេរឃ្លាំង (Internal Transfer)
+          </button>
+<button class="filter-tab-btn px-space-md py-1.5 rounded-md font-title-md text-[12px] bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-all" type="button">
+            កែតម្រូវស្តុក (Adjustment)
+          </button>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span>អាប់ដេតស្វ័យប្រវត្តិចុងក្រោយ: <strong>២ នាទីមុន</strong></span>
+</div>
+</div>
+<!-- Second Row: Deep Filters and Search -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-space-sm items-center">
+<!-- Search Field -->
+<div class="lg:col-span-4 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-space-md bg-surface text-on-surface rounded-lg font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary placeholder:text-on-surface-variant/60 shadow-sm" placeholder="ស្វែងរកតាមលេខប័ណ្ណ (TXN ID), កូដ SKU, ឈ្មោះទំនិញ..." type="text"/>
+</div>
+<!-- Filter Warehouse Location -->
+<div class="lg:col-span-3">
+<select class="w-full h-10 px-space-md bg-surface text-on-surface rounded-lg font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary shadow-sm">
+<option value="all">គ្រប់ទីតាំងឃ្លាំង (All Depots &amp; Hubs)</option>
+<option selected="" value="pp-a">Phnom Penh Depot A (កណ្តាល)</option>
+<option value="shv">Kampong Som Port Hub</option>
+<option value="rep">Siem Reap North Depot</option>
+</select>
+</div>
+<!-- Date Filter -->
+<div class="lg:col-span-2">
+<select class="w-full h-10 px-space-md bg-surface text-on-surface rounded-lg font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary shadow-sm">
+<option selected="" value="today">ថ្ងៃនេះ (Today)</option>
+<option value="7days">៧ ថ្ងៃចុងក្រោយ</option>
+<option value="month">ខែនេះ (This Month)</option>
+<option value="custom">ចន្លោះកាលបរិច្ឆេទ...</option>
+</select>
+</div>
+<!-- Status Filter -->
+<div class="lg:col-span-2">
+<select class="w-full h-10 px-space-md bg-surface text-on-surface rounded-lg font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-secondary shadow-sm">
+<option value="all">គ្រប់ស្ថានភាព (All Status)</option>
+<option value="completed">បានបញ្ចប់ (Completed)</option>
+<option value="transit">កំពុងធ្វើដំណើរ (In Transit)</option>
+<option value="pending">រង់ចាំពិនិត្យ (Pending QA)</option>
+</select>
+</div>
+<!-- Reset / Filter button -->
+<div class="lg:col-span-1 flex justify-end">
+<button class="w-full h-10 flex items-center justify-center gap-1 bg-surface-container text-on-surface-variant hover:text-on-surface rounded-lg font-title-md text-[12px] shadow-sm hover:bg-surface-container-high transition-colors" title="កំណត់ចម្រោះឡើងវិញ" type="button">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+<span>កំណត់ឡើងវិញ</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 6. Stock Movement Ledger Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Table Header Status Bar -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-[13px] text-primary font-bold">តារាងកំណត់ត្រាចរន្តចលនាស្តុកជាក់ស្តែង (Stock Movement Ledger)</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-[11px]">បង្ហាញ ៧ នៃ ៤៨០ ប្រតិបត្តិការ</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-[11px] text-on-surface-variant">តម្រៀបតាម: ម៉ោងថ្មីបំផុត</span>
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-[16px]">swap_vert</span>
+</button>
+</div>
+</div>
+<!-- Responsive Table View -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left font-body-sm text-body-sm border-collapse">
+<thead>
+<tr class="bg-surface-container-low/60 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-space-md font-semibold">លេខប័ណ្ណប្រតិបត្តិការ</th>
+<th class="py-3 px-space-md font-semibold">កាលបរិច្ឆេទ &amp; ម៉ោង</th>
+<th class="py-3 px-space-md font-semibold">ប្រភេទចរន្ត</th>
+<th class="py-3 px-space-md font-semibold">ទំនិញ &amp; កូដ SKU</th>
+<th class="py-3 px-space-md font-semibold text-right">បរិមាណ (Qty)</th>
+<th class="py-3 px-space-md font-semibold">ទីតាំងដើម ➔ គោលដៅ</th>
+<th class="py-3 px-space-md font-semibold">ឯកសារយោង (Ref)</th>
+<th class="py-3 px-space-md font-semibold">អ្នកកត់ត្រា</th>
+<th class="py-3 px-space-md font-semibold text-center">ស្ថានភាព</th>
+<th class="py-3 px-space-md font-semibold text-center">សកម្មភាព</th>
+</tr>
+</thead>
+<tbody class="text-on-surface">
+<!-- Row 1: INBOUND SCG CEMENT -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-bold">TXN-IN-2024-0582</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">GRN Receiving Log</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-table-data text-[12px] font-medium">18 តុលា 2024</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">14:24:18 (PP)</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">south_east</span> នាំចូល (INBOUND)
+                </span>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-sm min-w-[200px]">
+<img class="w-9 h-9 rounded object-cover shadow-sm bg-surface-container flex-shrink-0" data-alt="A clean industrial product photograph of heavy-duty Portland cement bags stacked on a standard wooden shipping pallet in an organized modern logistics warehouse with soft cool ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWvJQo6tbDYuhvqOxMf4gvMmdsC43ypgIlYuc_SX8Y42rdJgis32OUoIfumMhLY4eHRrbvVJ9iXGorOhhielIaLmZ9ktLVgYfRGr0a3xTIUMjunbC0Z8NX26yGz8z9ab9-FNivKV5xTk21ObvCGOaLV-LJcNub24Z3JdporXSDh4K8GnWhuLr6t44ejSMAevOEgVOyvaCsQJkDnuxlabXDiwbCvxn8Oe4B_sQFwVk"/>
+<div class="flex flex-col truncate">
+<span class="font-title-md text-[13px] text-on-surface font-semibold truncate">ស៊ីម៉ង់ត៍ SCG Portland Type 1</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-mono">SKU-885012-9941</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-right">
+<div class="inline-flex items-center justify-end font-title-md text-[14px] font-bold text-secondary">
+                  +450 <span class="font-normal text-on-surface-variant text-[11px] ml-1">បាវ</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col text-[12px]">
+<span class="text-on-surface-variant text-[11px]">SCG Cambodia Supplier</span>
+<div class="flex items-center gap-1 font-semibold text-primary">
+<span class="material-symbols-outlined text-[13px] text-secondary">arrow_forward</span>
+<span>Depot A: Bay A-04</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded bg-surface-container font-mono text-[11px] font-medium text-on-surface-variant">PO-2024-8841</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-[10px] font-bold">SC</div>
+<span class="font-body-sm text-[12px]">Sokha Chan</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed/50 text-secondary font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> ទទួលរួចរាល់
+                </span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-primary" title="មើលប័ណ្ណលម្អិត" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-secondary" title="បោះពុម្ពប័ណ្ណ" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: OUTBOUND DEFORMED STEEL BAR -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-bold">TXN-OUT-2024-1104</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">Sales Dispatch Order</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-table-data text-[12px] font-medium">18 តុលា 2024</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">13:50:02 (PP)</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-high text-on-primary-fixed-variant font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">north_east</span> បញ្ចេញ (OUTBOUND)
+                </span>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-sm min-w-[200px]">
+<img class="w-9 h-9 rounded object-cover shadow-sm bg-surface-container flex-shrink-0" data-alt="High precision close-up of ribbed deformed construction steel rebar bundles bundled tightly with steel wire inside a clean, modern staging warehouse under diffused natural roof illumination." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqLRX73FsF6fZ64eNgPPGk0sUoMPA0FUI00zxpQyrbz_cyRCtm-rAjpLRHtL5V6FolLQZxm-dEpBj8PDAcJtxZcp8UiSH0UKSA_SrX2V1sCqv9yMi6yGpScPyJzG9v6H3z_VpU1kCRYQfGOTYPAQeQFGFwtfRzJg2xVw4KyEFw-Ry9Z0u4kX8PzxXY03BbqjTyvzv9iowL9GWJhDAF-Yvdqe-WQCMM4H2TJ2oVuTY"/>
+<div class="flex flex-col truncate">
+<span class="font-title-md text-[13px] text-on-surface font-semibold truncate">ដែកសរសៃ 12mm Deformed Bar</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-mono">SKU-STL-0012-KH</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-right">
+<div class="inline-flex items-center justify-end font-title-md text-[14px] font-bold text-error">
+                  -120 <span class="font-normal text-on-surface-variant text-[11px] ml-1">ដើម</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col text-[12px]">
+<span class="text-on-surface-variant text-[11px]">Depot A: Yard Steel-02</span>
+<div class="flex items-center gap-1 font-semibold text-primary">
+<span class="material-symbols-outlined text-[13px] text-on-primary-fixed-variant">arrow_forward</span>
+<span>OCIC Diamond Island Site</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded bg-surface-container font-mono text-[11px] font-medium text-on-surface-variant">DO-2024-9912</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-sm text-[10px] font-bold">VP</div>
+<span class="font-body-sm text-[12px]">Vannak P.</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-primary-fixed-variant font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[12px]">done_all</span> បញ្ចេញរួច
+                </span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-primary" title="មើលប័ណ្ណលម្អិត" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-secondary" title="បោះពុម្ពប័ណ្ណ" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: INTER-DEPOT TRANSFER DULUX PAINT -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-bold">TXN-TR-2024-0045</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">Depot Transfer Manifest</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-table-data text-[12px] font-medium">18 តុលា 2024</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">11:15:30 (PP)</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">sync_alt</span> ផ្ទេរឃ្លាំង (TRANSFER)
+                </span>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-sm min-w-[200px]">
+<img class="w-9 h-9 rounded object-cover shadow-sm bg-surface-container flex-shrink-0" data-alt="Neat arrangement of premium industrial paint buckets sealed in blue and white containers lined on a clean warehouse rack shelf with barcode labels visible." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCivrajFv363LjeSgmQcA2ALK4m5pB2IRPSsVhn1iN28o8BQRMrhLaDQ-xzfyq7Kn7l2Q_0XqvGzct21zle-W_4lUVhgvkceixGcNjBqx4CJ15ROpr8zvtzK4VBfr2XIIrDcxL0yAtI8f3YUZUIAcVM7DGzh-UOuvr6e64FmfG-gD5Nc2z7eUBUX2INY5TzFCNfSs3-qW1wH8DDUUfPQso6xaOUFr7hRfcW3fA3EnY"/>
+<div class="flex flex-col truncate">
+<span class="font-title-md text-[13px] text-on-surface font-semibold truncate">ថ្នាំលាបជញ្ជាំង Dulux Weathershield</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-mono">SKU-PNT-DLX-18L</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-right">
+<div class="inline-flex items-center justify-end font-title-md text-[14px] font-bold text-primary">
+                  350 <span class="font-normal text-on-surface-variant text-[11px] ml-1">ធុង</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col text-[12px]">
+<span class="text-on-surface-variant text-[11px]">PP Depot A (Bay C-01)</span>
+<div class="flex items-center gap-1 font-semibold text-primary">
+<span class="material-symbols-outlined text-[13px] text-secondary">arrow_forward</span>
+<span>Kampong Som Hub (B-12)</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded bg-surface-container font-mono text-[11px] font-medium text-on-surface-variant">TR-MANIFEST-44</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-label-sm text-[10px] font-bold">BK</div>
+<span class="font-body-sm text-[12px]">Bopha K.</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span> កំពុងដឹកជញ្ជូន
+                </span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-primary" title="មើលប័ណ្ណលម្អិត" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-secondary" title="បោះពុម្ពប័ណ្ណ" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: INBOUND PENDING QA - COPPER CABLE -->
+<tr class="hover:bg-surface-container-low transition-colors bg-error-container/10">
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-error font-bold">TXN-IN-2024-0583</span>
+<span class="font-label-sm text-[10px] text-error/80">QA Hold / Barcode Scan</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-table-data text-[12px] font-medium">18 តុលា 2024</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">10:40:11 (PP)</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">south_east</span> នាំចូល (INBOUND)
+                </span>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-sm min-w-[200px]">
+<div class="w-9 h-9 rounded bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">cable</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="font-title-md text-[13px] text-on-surface font-semibold truncate">ខ្សែកាប Cu/PVC Single 4mm²</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-mono">SKU-CBL-4MM-100M</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-right">
+<div class="inline-flex items-center justify-end font-title-md text-[14px] font-bold text-secondary">
+                  +80 <span class="font-normal text-on-surface-variant text-[11px] ml-1">ដុំ</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col text-[12px]">
+<span class="text-on-surface-variant text-[11px]">Phelps Dodge Supplier</span>
+<div class="flex items-center gap-1 font-semibold text-error">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+<span>Dock 02 (Holding Area)</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded bg-surface-container font-mono text-[11px] font-medium text-on-surface-variant">PO-2024-9102</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-[10px] font-bold">SC</div>
+<span class="font-body-sm text-[12px]">Sokha Chan</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container text-error font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> រង់ចាំពិនិត្យ QA
+                </span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="px-2 py-1 rounded bg-primary text-on-primary font-label-sm text-[11px] hover:bg-primary-container" title="ត្រួតពិនិត្យ និងបញ្ជាក់" type="button">
+                    ផ្ទៀងផ្ទាត់
+                  </button>
+</div>
+</td>
+</tr>
+<!-- Row 5: OUTBOUND PVC PIPES -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-bold">TXN-OUT-2024-1103</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">Direct Customer Pickup</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-table-data text-[12px] font-medium">18 តុលា 2024</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">09:12:45 (PP)</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-high text-on-primary-fixed-variant font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">north_east</span> បញ្ចេញ (OUTBOUND)
+                </span>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-sm min-w-[200px]">
+<div class="w-9 h-9 rounded bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">plumbing</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="font-title-md text-[13px] text-on-surface font-semibold truncate">ទុយោជ័រ PVC Ø114mm Class 8.5</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-mono">SKU-PVC-114-4M</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-right">
+<div class="inline-flex items-center justify-end font-title-md text-[14px] font-bold text-error">
+                  -64 <span class="font-normal text-on-surface-variant text-[11px] ml-1">ដើម</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col text-[12px]">
+<span class="text-on-surface-variant text-[11px]">Depot A: Rack Pipe-01</span>
+<div class="flex items-center gap-1 font-semibold text-primary">
+<span class="material-symbols-outlined text-[13px] text-on-primary-fixed-variant">arrow_forward</span>
+<span>Borey Peng Huoth Grand</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded bg-surface-container font-mono text-[11px] font-medium text-on-surface-variant">DO-2024-9890</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-sm text-[10px] font-bold">VP</div>
+<span class="font-body-sm text-[12px]">Vannak P.</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-primary-fixed-variant font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[12px]">done_all</span> បញ្ចេញរួច
+                </span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-primary" title="មើលប័ណ្ណលម្អិត" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-secondary" title="បោះពុម្ពប័ណ្ណ" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: STOCK ADJUSTMENT GYPSUM BOARD -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-bold">TXN-ADJ-2024-0019</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">Monthly Physical Audit</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-table-data text-[12px] font-medium">18 តុលា 2024</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">08:30:19 (PP)</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container text-on-surface font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">tune</span> កែតម្រូវ (ADJUST)
+                </span>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-sm min-w-[200px]">
+<div class="w-9 h-9 rounded bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="font-title-md text-[13px] text-on-surface font-semibold truncate">បន្ទះហ្គីបស៊ូម Gyproc 9mm</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-mono">SKU-GYP-09-1224</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-right">
+<div class="inline-flex items-center justify-end font-title-md text-[14px] font-bold text-error">
+                  -2 <span class="font-normal text-on-surface-variant text-[11px] ml-1">សន្លឹក (ខូចខាត)</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col text-[12px]">
+<span class="text-on-surface-variant text-[11px]">Bay D-03 Storage</span>
+<div class="flex items-center gap-1 font-semibold text-on-surface-variant">
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+<span>ការខូចខាតប្រចាំខែ (Damaged)</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded bg-surface-container font-mono text-[11px] font-medium text-on-surface-variant">AUDIT-OCT-01</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-sm text-[10px] font-bold">SC</div>
+<span class="font-body-sm text-[12px]">Sokha Chan</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-sm text-[11px] font-semibold">
+                  បានអនុម័ត (Approved)
+                </span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-primary" title="មើលប័ណ្ណលម្អិត" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-secondary" title="បោះពុម្ពប័ណ្ណ" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 7: INBOUND CERAMIC TILES -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-bold">TXN-IN-2024-0581</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">Customs Cleared Inbound</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-table-data text-[12px] font-medium">17 តុលា 2024</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">17:45:00 (PP)</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[14px]">south_east</span> នាំចូល (INBOUND)
+                </span>
+</td>
+<td class="py-3 px-space-md">
+<div class="flex items-center gap-space-sm min-w-[200px]">
+<div class="w-9 h-9 rounded bg-surface-container flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">grid_4x4</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="font-title-md text-[13px] text-on-surface font-semibold truncate">ការ៉ូក្រានីត 60x60cm Royal Polish</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-mono">SKU-TLE-6060-ROY</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-right">
+<div class="inline-flex items-center justify-end font-title-md text-[14px] font-bold text-secondary">
+                  +890 <span class="font-normal text-on-surface-variant text-[11px] ml-1">កេស</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex flex-col text-[12px]">
+<span class="text-on-surface-variant text-[11px]">Cotto Int'l Cargo</span>
+<div class="flex items-center gap-1 font-semibold text-primary">
+<span class="material-symbols-outlined text-[13px] text-secondary">arrow_forward</span>
+<span>Depot A: Bay A-11</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<span class="px-2 py-0.5 rounded bg-surface-container font-mono text-[11px] font-medium text-on-surface-variant">BL-COTTO-8891</span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-high text-primary flex items-center justify-center font-label-sm text-[10px] font-bold">BK</div>
+<span class="font-body-sm text-[12px]">Bopha K.</span>
+</div>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed/50 text-secondary font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> ទទួលរួចរាល់
+                </span>
+</td>
+<td class="py-3 px-space-md whitespace-nowrap text-center">
+<div class="flex items-center justify-center gap-1">
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-primary" title="មើលប័ណ្ណលម្អិត" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded text-on-surface-variant hover:text-secondary" title="បោះពុម្ពប័ណ្ណ" type="button">
+<span class="material-symbols-outlined text-[18px]">print</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination and Record Counter -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant">
+<span>បង្ហាញ <strong>1</strong> ដល់ <strong>7</strong> នៃ <strong>480</strong> ប្រតិបត្តិការចរន្តស្តុក</span>
+<span class="text-outline-variant">|</span>
+<div class="flex items-center gap-1">
+<span>ចំនួនក្នុងមួយទំព័រ:</span>
+<select class="h-7 px-2 bg-surface text-on-surface rounded text-[12px] focus:outline-none">
+<option>10</option>
+<option>25</option>
+<option>50</option>
+<option>100</option>
+</select>
+</div>
+</div>
+<!-- Pagination Controls -->
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high flex items-center justify-center transition-colors disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary text-on-primary font-title-md text-[12px] flex items-center justify-center shadow-sm" type="button">
+            1
+          </button>
+<button class="w-8 h-8 rounded bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-title-md text-[12px] flex items-center justify-center transition-colors" type="button">
+            2
+          </button>
+<button class="w-8 h-8 rounded bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-title-md text-[12px] flex items-center justify-center transition-colors" type="button">
+            3
+          </button>
+<span class="px-1 text-on-surface-variant font-bold">...</span>
+<button class="w-8 h-8 rounded bg-surface-container text-on-surface-variant hover:bg-surface-container-high font-title-md text-[12px] flex items-center justify-center transition-colors" type="button">
+            48
+          </button>
+<button class="w-8 h-8 rounded bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high flex items-center justify-center transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 7. Bottom Summary & Audit Proof Inbound Integration Bar -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Sync Status -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">cloud_sync</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-bold">ប្រព័ន្ធធ្វើសមកាលកម្ម API Live Sync</span>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">
+            ទិន្នន័យត្រូវបានធ្វើសមកាលកម្មដោយផ្ទាល់ជាមួយ Zebra Handheld Terminals និងប្រព័ន្ធគណនេយ្យ ERP Core ដោយពុំមានភាពយឺតយ៉ាវ។
+          </p>
+</div>
+</div>
+<!-- Audit Stamp -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-bold">ប្រព័ន្ធចាក់សោរប័ណ្ណសវនកម្ម (Audit Proof)</span>
+<p class="font-body-sm text-[12px] text-on-surface-variant mt-0.5">
+            រាល់ប័ណ្ណដែលបានចុះហត្ថលេខាទទួលរួច ត្រូវបានការពារដោយ Immutable Timestamp Hash ការពារការកែប្រែទិន្នន័យខុសច្បាប់។
+          </p>
+</div>
+</div>
+<!-- Quick Document Export -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-title-md text-[13px] text-primary font-bold">ទាញយករបាយការណ៍បិទបញ្ជីថ្ងៃនេះ</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Daily Stock Ledger Manifest PDF/Excel</span>
+</div>
+<button class="flex items-center gap-1 px-space-md py-2 rounded-lg bg-primary text-on-primary font-title-md text-[12px] hover:bg-primary-container shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>ទាញយក</span>
+</button>
+</div>
+</div>
+</div>
+</div></main></div><script src="../khema-core.js"></script>
+</body></html>
