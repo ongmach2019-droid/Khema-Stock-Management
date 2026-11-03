@@ -1,11 +1,12 @@
 /**
- * SmartStock ERP · Unified Global Core Engine
- * Handles Navigation, Real Interactivity, All Modals, Khmer Typography & Toast Alerts
+ * SmartStock ERP - Khema Digital Dental Solution Core Engine
+ * Unified Interactivity, Official Purchase Request Form (Version 1.1),
+ * Dynamic Role Switcher, Excel Export/Import, Live Filtering & Toast Alerts.
  */
 (function() {
   'use strict';
 
-  // 12 Modules Directory Definition
+  // 12 Core System Modules
   const MODULES = [
     { id: 'dashboard', dir: 'inventory_dashboard', file: 'code.html', nameKh: 'ផ្ទាំងគ្រប់គ្រងទូទៅ', nameEn: 'Executive Dashboard', icon: 'grid_view', cat: 'ប្រតិបត្តិការ (Operations)' },
     { id: 'inventory-items', dir: 'inventory_items', file: 'code.html', nameKh: 'ទំនិញក្នុងស្តុក', nameEn: 'Inventory Items & Catalog', icon: 'warehouse', cat: 'ប្រតិបត្តិការ (Operations)' },
@@ -21,20 +22,104 @@
     { id: 'login', dir: 'role_login_switch_account', file: 'code.html', nameKh: 'ច្រកចូលប្រព័ន្ធ / ប្តូរតួនាទី', nameEn: 'Role Login & Switch Account', icon: 'switch_account', cat: 'គណនី (Authentication)' }
   ];
 
-  // Helper: Determine URL to a target module relative to the current file
+  // Khema Digital Dental Solution - Departments & Preset Catalog
+  const KHEMA_DEPARTMENTS = [
+    { id: 'molding', nameKh: 'ផ្នែកចាក់ពុម្ព (Molding Dept)' },
+    { id: 'metal', nameKh: 'ផ្នែកឆាបដែក (Metal Grinding Dept)' },
+    { id: 'wax', nameKh: 'ផ្នែកក្រមួន (Wax Dept)' },
+    { id: 'ceramic_grinding', nameKh: 'ផ្នែកឆាបសេរ៉ាមិច (Ceramic Grinding Dept)' },
+    { id: 'ceramic_buildup', nameKh: 'ផ្នែកសេរ៉ាមិចបៀល (Ceramic Build-up Dept)' },
+    { id: 'digital', nameKh: 'ផ្នែកDigital (CAD/CAM Dept)' },
+    { id: 'denture', nameKh: 'ផ្នែកDenture (Denture Dept)' }
+  ];
+
+  const KHEMA_CATALOG = {
+    molding: [
+      { name: 'ម្សៅពុម្ពថ្មបៃតង GC Fuji (Green Stone)', unit: 'ធុង', price: 45.00, supplier: 'Bayon Dental Supply' },
+      { name: 'ម្សៅពុម្ពថ្មលឿង Type 3 Stone', unit: 'ធុង', price: 35.00, supplier: 'RMS Dental Supply' },
+      { name: 'ដីស្អិត Base Wax / Clay', unit: 'ដុំ', price: 3.50, supplier: 'DK Dental Supply' },
+      { name: 'ជ័រ Red Resin Pattern', unit: 'ដប', price: 18.00, supplier: 'Camdent Pro' },
+      { name: 'ម្ជុលចាក់ពុម្ព Dowel Pin (1000pcs)', unit: 'ប្រអប់', price: 22.00, supplier: 'Lay Srue Dental' },
+      { name: 'ទឹក Hardener លាបពុម្ព', unit: 'ដប', price: 12.00, supplier: 'Aone Dental Supply' },
+      { name: 'ស្កុតក្រដាស Paper Tape 24mm', unit: 'ដុំ', price: 1.20, supplier: 'បណ្ណាគារ' },
+      { name: 'ជ័រស្អិត Sticky Wax', unit: 'ប្រអប់', price: 6.50, supplier: 'Camdent Pro' }
+    ],
+    metal: [
+      { name: 'ដែកសេរ៉ាមិច Co-Cr Ceramic Alloy (1kg)', unit: 'ប្រអប់', price: 120.00, supplier: 'RMS Dental Supply' },
+      { name: 'គ្រាប់ខ្សាច់ Sandblast 50um (5kg)', unit: 'ធុង', price: 28.00, supplier: 'Bayon Dental Supply' },
+      { name: 'គ្រាប់ខ្សាច់ Sandblast 110um (5kg)', unit: 'ធុង', price: 28.00, supplier: 'Bayon Dental Supply' },
+      { name: 'ក្បាលឆាបពេជ្រ Diamond Disc/Bur (5pcs)', unit: 'ប្រអប់', price: 15.00, supplier: 'Camdent Pro' },
+      { name: 'ក្បាលខាត់កៅស៊ូ Rubber Wheel (100pcs)', unit: 'ប្រអប់', price: 16.50, supplier: 'DK Dental Supply' },
+      { name: 'ថាសកាត់ដែក Cutting Disc 0.5mm (100pcs)', unit: 'ប្រអប់', price: 25.00, supplier: 'RMS Dental Supply' }
+    ],
+    wax: [
+      { name: 'ក្រមួនបន្ទះ Base Plate Wax (500g)', unit: 'ប្រអប់', price: 8.50, supplier: 'Bayon Dental Supply' },
+      { name: 'ក្រមួនឆ្លាក់ Inlay Wax Blue/Green', unit: 'កំប៉ុង', price: 12.00, supplier: 'Camdent Pro' },
+      { name: 'ក្រមួនបាញ់ Spruing Wax Wire 2.5mm/3.0mm', unit: 'ដុំ', price: 14.00, supplier: 'DK Dental Supply' },
+      { name: 'កូនចានលាយក្រមួន Wax Pot', unit: 'គ្រឿង', price: 25.00, supplier: 'RMS Dental Supply' }
+    ],
+    ceramic_grinding: [
+      { name: 'ក្បាលឆាប Diamond Bur Zirconia Grinder (3pcs)', unit: 'ប្រអប់', price: 32.00, supplier: 'Camdent Pro' },
+      { name: 'ក្បាលខាត់ Ceramic Polisher Fine/Medium (6pcs)', unit: 'ឈុត', price: 24.00, supplier: 'Lay Srue Dental' },
+      { name: 'ថាសកាត់ Zirconia Diamond Disc (5pcs)', unit: 'ប្រអប់', price: 38.00, supplier: 'Bayon Dental Supply' }
+    ],
+    ceramic_buildup: [
+      { name: 'ម្សៅសេរ៉ាមិច Noritake Super Porcelain EX-3 (50g)', unit: 'ដប', price: 48.00, supplier: 'Camdent Pro' },
+      { name: 'ទឹកបៀល Noritake Liquid Form (100ml)', unit: 'ដប', price: 18.00, supplier: 'Camdent Pro' },
+      { name: 'ជក់បៀល Kolinsky Ceramic Brush #6, #8', unit: 'ដើម', price: 26.00, supplier: 'RMS Dental Supply' },
+      { name: 'ថាសលាយម្សៅ Agate Mixing Palette', unit: 'ផ្ទាំង', price: 55.00, supplier: 'Bayon Dental Supply' },
+      { name: 'ថ្នាំពណ៌ Stains & Glaze Kit', unit: 'ឈុត', price: 180.00, supplier: 'Camdent Pro' }
+    ],
+    digital: [
+      { name: 'ដុំ Zirconia Block ST/HT Multilayer 98x14mm', unit: 'ដុំ', price: 65.00, supplier: 'Camdent Pro' },
+      { name: 'ដុំ Zirconia Block ST/HT Multilayer 98x18mm', unit: 'ដុំ', price: 78.00, supplier: 'Camdent Pro' },
+      { name: 'ដុំ Wax Blank CAD/CAM 98x16mm', unit: 'ដុំ', price: 18.00, supplier: 'RMS Dental Supply' },
+      { name: 'ដុំ PMMA Blank A2 98x16mm', unit: 'ដុំ', price: 22.00, supplier: 'Bayon Dental Supply' },
+      { name: 'ក្បាល Milling Bur 0.6mm', unit: 'ដើម', price: 25.00, supplier: 'Camdent Pro' },
+      { name: 'ក្បាល Milling Bur 1.0mm', unit: 'ដើម', price: 25.00, supplier: 'Camdent Pro' },
+      { name: 'ក្បាល Milling Bur 2.0mm', unit: 'ដើម', price: 28.00, supplier: 'Camdent Pro' },
+      { name: 'ទឹកជ្រលក់ពណ៌ Color Liquid 16 Vita Shades', unit: 'ឈុត', price: 210.00, supplier: 'Camdent Pro' },
+      { name: 'ជ័រ 3D Resin Model / Surgical Guide (1kg)', unit: 'ដប', price: 75.00, supplier: 'DK Dental Supply' }
+    ],
+    denture: [
+      { name: 'ធ្មេញជ័រ Acrylic Teeth (ឈុតពេញ)', unit: 'ឈុត', price: 14.00, supplier: 'Lay Srue Dental' },
+      { name: 'ម្សៅដាំជ័រ Acron Cold Cure (1kg)', unit: 'កំប៉ុង', price: 32.00, supplier: 'Bayon Dental Supply' },
+      { name: 'ម្សៅដាំជ័រ Heat Cure Powder (1kg)', unit: 'កំប៉ុង', price: 35.00, supplier: 'RMS Dental Supply' },
+      { name: 'ទឹកដាំជ័រ Liquid Monomer (500ml)', unit: 'ដប', price: 16.00, supplier: 'Bayon Dental Supply' },
+      { name: 'ក្រដាសខាត់ Sandpaper #240, #400, #800', unit: 'កញ្ចប់', price: 6.50, supplier: 'គ្រឿងសំណង់' },
+      { name: 'ម្សៅខាត់កំបោរ Pumice Powder (5kg)', unit: 'ធុង', price: 15.00, supplier: 'DK Dental Supply' }
+    ]
+  };
+
+  // User Profiles Definition
+  const PROFILES = [
+    { name: 'Sokha Chan', role: 'ADMIN', titleKh: 'អ្នកគ្រប់គ្រងជាន់ខ្ពស់', email: 'sokha.chan@smartstock.kh', avatar: 'person' },
+    { name: 'Vireak Rith', role: 'MANAGER', titleKh: 'ប្រធានឃ្លាំងទូទៅ', email: 'vireak.rith@smartstock.kh', avatar: 'engineering' },
+    { name: 'Thida Mao', role: 'STAFF', titleKh: 'បុគ្គលិកបញ្ចេញ/បញ្ចូលស្តុក', email: 'thida.mao@smartstock.kh', avatar: 'badge' },
+    { name: 'Kosal An', role: 'AUDITOR', titleKh: 'អ្នកសវនកម្មទិន្នន័យ', email: 'kosal.an@smartstock.kh', avatar: 'verified_user' }
+  ];
+
+  function getCurrentUser() {
+    try {
+      const saved = localStorage.getItem('khema_current_user');
+      if (saved) return JSON.parse(saved);
+    } catch(e) {}
+    return PROFILES[0];
+  }
+
+  function setCurrentUser(profile) {
+    try {
+      localStorage.setItem('khema_current_user', JSON.stringify(profile));
+    } catch(e) {}
+  }
+
   function getModuleUrl(targetId) {
     const mod = MODULES.find(m => m.id === targetId || m.dir === targetId);
     if (!mod) return '#';
-
     const path = window.location.pathname.replace(/\\/g, '/');
     const isInsideSubfolder = path.includes('/code.html') || 
       MODULES.some(m => path.includes('/' + m.dir + '/'));
-
-    if (isInsideSubfolder) {
-      return `../${mod.dir}/${mod.file}`;
-    } else {
-      return `./${mod.dir}/${mod.file}`;
-    }
+    return isInsideSubfolder ? `../${mod.dir}/${mod.file}` : `./${mod.dir}/${mod.file}`;
   }
 
   function getPortalUrl() {
@@ -45,809 +130,970 @@
   }
 
   // Toast Notification System
-  function showToast(message, type = 'success') {
-    let toast = document.getElementById('khema-global-toast');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.id = 'khema-global-toast';
-      toast.className = 'khema-toast';
-      document.body.appendChild(toast);
+  function showToast(title, message, type = 'info') {
+    let container = document.getElementById('khema-toast-container');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'khema-toast-container';
+      container.className = 'fixed bottom-5 right-5 z-[99999] flex flex-col gap-2 pointer-events-none max-w-sm w-full px-4';
+      document.body.appendChild(container);
     }
 
-    const icon = type === 'success' ? 'check_circle' : (type === 'error' ? 'error' : 'info');
-    const iconColor = type === 'success' ? 'text-emerald-600' : (type === 'error' ? 'text-rose-600' : 'text-secondary');
+    const toast = document.createElement('div');
+    toast.className = 'pointer-events-auto flex items-start gap-3 p-3.5 bg-white border border-slate-200 rounded-xl shadow-xl transition-all duration-300 transform translate-y-3 opacity-0';
 
-    toast.className = `khema-toast ${type} show`;
+    const colors = {
+      success: { border: 'border-emerald-500', text: 'text-emerald-600', icon: 'check_circle' },
+      error: { border: 'border-rose-500', text: 'text-rose-600', icon: 'error' },
+      warning: { border: 'border-amber-500', text: 'text-amber-600', icon: 'warning' },
+      info: { border: 'border-blue-500', text: 'text-blue-600', icon: 'info' }
+    };
+    const c = colors[type] || colors.info;
+
+    toast.classList.add(c.border);
     toast.innerHTML = `
-      <span class="material-symbols-outlined ${iconColor} text-[22px]">${icon}</span>
-      <span class="font-medium text-slate-800">${message}</span>
+      <span class="material-symbols-outlined ${c.text} text-[22px] flex-shrink-0 mt-0.5">${c.icon}</span>
+      <div class="flex-1 min-w-0">
+        <h4 class="text-xs font-bold text-slate-900 leading-snug">${title}</h4>
+        <p class="text-[11px] text-slate-600 mt-0.5 leading-relaxed">${message}</p>
+      </div>
+      <button class="text-slate-400 hover:text-slate-600 p-0.5" onclick="this.parentElement.remove()">
+        <span class="material-symbols-outlined text-[16px]">close</span>
+      </button>
     `;
 
-    clearTimeout(toast._timer);
-    toast._timer = setTimeout(() => {
-      toast.classList.remove('show');
-    }, 3200);
-  }
-  window.khemaToast = showToast;
+    container.appendChild(toast);
+    requestAnimationFrame(() => {
+      toast.classList.remove('translate-y-3', 'opacity-0');
+    });
 
-  // Initialize
-  function init() {
-    setupSidebarNavigation();
-    setupHeaderActions();
-    setupRoleLoginPage();
-    setupDashboardActions();
-    setupInventoryItemsActions();
-    setupStockMovementsActions();
-    setupRequisitionActions();
-    setupStockAdjustmentActions();
-    setupSuppliersActions();
-    setupExcelImportActions();
-    setupRolesPermissionsActions();
-    setupSettingsActions();
-    setupQuickModuleSwitcher();
+    setTimeout(() => {
+      if (toast.parentElement) {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+      }
+    }, 4000);
   }
 
-  // 1. Sidebar Navigation
-  function setupSidebarNavigation() {
+  // Setup Global Module Navigation
+  function setupNavigation() {
     const currentPath = window.location.pathname.replace(/\\/g, '/');
-    
-    // Find matching active module for current page
-    let activeMod = MODULES.find(m => currentPath.includes(m.dir));
-    if (!activeMod && (currentPath.endsWith('/') || currentPath.endsWith('index.html'))) {
-      // Portal page
-    }
+    const currentModule = MODULES.find(m => currentPath.includes('/' + m.dir + '/')) || MODULES[0];
 
-    document.querySelectorAll('nav a, aside nav a').forEach(link => {
-      const dataPath = link.getAttribute('data-path');
-      const href = link.getAttribute('href');
-      let targetMod = null;
+    // Map navigation links
+    document.querySelectorAll('nav a, aside nav a').forEach(a => {
+      const dataPath = a.getAttribute('data-path');
+      const href = a.getAttribute('href');
+      let target = null;
 
       if (dataPath) {
-        targetMod = MODULES.find(m => m.id === dataPath || m.dir === dataPath || dataPath.includes(m.id));
-      }
-      
-      if (!targetMod) {
-        const text = link.innerText.toLowerCase();
-        if (text.includes('dashboard') || text.includes('ផ្ទាំងគ្រប់គ្រង')) targetMod = MODULES.find(m => m.id === 'dashboard');
-        else if (text.includes('item') || text.includes('ទំនិញក្នុងស្តុក')) targetMod = MODULES.find(m => m.id === 'inventory-items');
-        else if (text.includes('movement') || text.includes('ចរន្តស្តុក')) targetMod = MODULES.find(m => m.id === 'stock-movements');
-        else if (text.includes('excel') || text.includes('នាំចូលទិន្នន័យ')) targetMod = MODULES.find(m => m.id === 'excel-import');
-        else if (text.includes('role') || text.includes('តួនាទី')) targetMod = MODULES.find(m => m.id === 'roles-and-permissions');
-        else if (text.includes('setting') || text.includes('កំណត់ប្រព័ន្ធ')) targetMod = MODULES.find(m => m.id === 'settings');
-        else if (text.includes('audit') || text.includes('សវនកម្ម')) targetMod = MODULES.find(m => m.id === 'audit-logs');
+        target = MODULES.find(m => m.id === dataPath || m.dir === dataPath);
+      } else if (href && (href.startsWith('#') || href.startsWith('/'))) {
+        const text = a.textContent.toLowerCase();
+        if (text.includes('dashboard') || text.includes('ទូទៅ')) target = MODULES[0];
+        else if (text.includes('item') || text.includes('ទំនិញ')) target = MODULES[1];
+        else if (text.includes('movement') || text.includes('ចរន្ត')) target = MODULES[2];
+        else if (text.includes('adjust') || text.includes('កែតម្រូវ')) target = MODULES[3];
+        else if (text.includes('requisi') || text.includes('ស្នើសុំ')) target = MODULES[4];
+        else if (text.includes('supplier') || text.includes('ផ្គត់ផ្គង់') || text.includes('po')) target = MODULES[5];
+        else if (text.includes('excel') || text.includes('នាំចូល')) target = MODULES[6];
+        else if (text.includes('role') || text.includes('តួនាទី')) target = MODULES[7];
+        else if (text.includes('audit') || text.includes('សវនកម្ម')) target = MODULES[8];
+        else if (text.includes('security') || text.includes('សុវត្ថិភាព')) target = MODULES[9];
+        else if (text.includes('setting') || text.includes('កំណត់ប្រព័ន្ធ')) target = MODULES[10];
+        else if (text.includes('login') || text.includes('ប្តូរ')) target = MODULES[11];
       }
 
-      if (targetMod) {
-        link.href = getModuleUrl(targetMod.id);
-        
-        // Highlight active link
-        if (activeMod && targetMod.id === activeMod.id) {
-          link.classList.add('bg-primary-container', 'text-on-primary', 'font-title-md', 'rounded-lg', 'shadow-sm');
-          link.classList.remove('text-on-surface-variant');
+      if (target) {
+        a.setAttribute('href', getModuleUrl(target.id));
+        if (target.id === currentModule.id) {
+          a.classList.add('bg-primary-container', 'text-on-primary', 'font-title-md', 'shadow-sm');
+          a.classList.remove('text-on-surface-variant');
         }
       }
     });
 
-    // Make Brand Logo in Sidebar navigate to Portal Home
-    const brand = document.querySelector('aside .h-16');
-    if (brand) {
-      brand.classList.add('cursor-pointer');
-      brand.title = 'ត្រឡប់ទៅកាន់ទំព័រដើម (Back to Portal Home)';
-      brand.addEventListener('click', () => {
+    // Make Logo clickable to portal
+    const logoEl = document.querySelector('aside .h-16, header .h-16');
+    if (logoEl) {
+      logoEl.style.cursor = 'pointer';
+      logoEl.setAttribute('title', 'ទៅកាន់គេហទំព័រដើម (Go to Hub Portal)');
+      logoEl.addEventListener('click', () => {
         window.location.href = getPortalUrl();
       });
     }
   }
 
-  // 2. Header Actions: Search, Excel Import, Notifications, User Dropdown
-  function setupHeaderActions() {
-    // Top Bar Search
-    const searchInputs = document.querySelectorAll('header input[type="text"]');
-    searchInputs.forEach(input => {
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          const query = input.value.trim();
-          if (query) {
-            showToast(`កំពុងស្វែងរកទំនិញ "${query}"...`, 'info');
-            setTimeout(() => {
-              window.location.href = getModuleUrl('inventory-items') + `?search=${encodeURIComponent(query)}`;
-            }, 500);
-          }
+  // Setup User Profile Display & Switcher Dropdown
+  function setupUserMenu() {
+    const userContainer = document.querySelector('header .flex.items-center.gap-space-sm.pl-space-sm, header .cursor-pointer');
+    if (!userContainer) return;
+
+    const user = getCurrentUser();
+    const nameEl = userContainer.querySelector('.font-title-md, .font-semibold');
+    const badgeEl = userContainer.querySelector('.text-\\[10px\\], .bg-surface-container-high');
+    const titleEl = userContainer.querySelector('.font-label-sm, .text-\\[11px\\]');
+
+    if (nameEl) nameEl.textContent = user.name;
+    if (badgeEl) badgeEl.textContent = user.role;
+    if (titleEl) titleEl.textContent = user.titleKh;
+
+    // Dropdown for switching roles
+    const menu = document.createElement('div');
+    menu.id = 'khema-user-dropdown';
+    menu.className = 'hidden absolute top-14 right-6 w-64 bg-white rounded-xl shadow-2xl border border-slate-200 py-2 z-50 animate-in fade-in zoom-in-95 duration-150';
+    menu.innerHTML = `
+      <div class="px-3.5 py-2 border-b border-slate-100">
+        <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">ប្តូរគណនី (Switch Profile)</p>
+        <p class="text-xs font-semibold text-slate-800 mt-0.5">${user.name} (${user.role})</p>
+      </div>
+      <div class="py-1">
+        ${PROFILES.map(p => `
+          <button class="w-full text-left px-3.5 py-2 hover:bg-slate-50 flex items-center justify-between text-xs transition-colors ${p.role === user.role ? 'bg-primary/5 font-semibold text-primary' : 'text-slate-700'}" data-role="${p.role}">
+            <div>
+              <p class="text-xs">${p.name} <span class="text-[10px] px-1 rounded bg-slate-100 text-slate-600">${p.role}</span></p>
+              <p class="text-[10px] text-slate-500">${p.titleKh}</p>
+            </div>
+            ${p.role === user.role ? '<span class="material-symbols-outlined text-[16px] text-primary">check</span>' : ''}
+          </button>
+        `).join('')}
+      </div>
+      <div class="border-t border-slate-100 pt-1 mt-1">
+        <a href="${getModuleUrl('login')}" class="w-full block px-3.5 py-1.5 text-xs text-secondary hover:bg-slate-50 flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">switch_account</span>
+          <span>ទំព័រគ្រប់គ្រងគណនីពេញលេញ</span>
+        </a>
+      </div>
+    `;
+
+    userContainer.style.position = 'relative';
+    document.body.appendChild(menu);
+
+    userContainer.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const rect = userContainer.getBoundingClientRect();
+      menu.style.top = `${rect.bottom + 6}px`;
+      menu.style.left = `${rect.right - 256}px`;
+      menu.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !userContainer.contains(e.target)) {
+        menu.classList.add('hidden');
+      }
+    });
+
+    menu.querySelectorAll('button[data-role]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const role = btn.getAttribute('data-role');
+        const chosen = PROFILES.find(p => p.role === role);
+        if (chosen) {
+          setCurrentUser(chosen);
+          showToast('បានប្តូរតួនាទីជោគជ័យ', `ឥឡូវនេះអ្នកកំពុងប្រើជា ${chosen.name} (${chosen.role})`, 'success');
+          setTimeout(() => window.location.reload(), 400);
         }
       });
     });
+  }
 
-    // Header Excel Import Button
-    document.querySelectorAll('header button').forEach(btn => {
-      if (btn.innerText.includes('នាំចូល Excel') || btn.innerText.includes('Excel')) {
-        btn.addEventListener('click', () => {
-          const modal = document.getElementById('import-modal-backdrop') || document.getElementById('excel-import-modal');
-          if (modal) {
-            modal.classList.remove('hidden');
-          } else {
-            window.location.href = getModuleUrl('excel-import');
-          }
+  // Live Search Across Tables
+  function setupLiveSearch() {
+    const searchInputs = document.querySelectorAll('header input[type="text"], input[placeholder*="ស្វែងរក"]');
+    searchInputs.forEach(input => {
+      input.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        const tables = document.querySelectorAll('table tbody');
+        if (!tables.length) return;
+
+        tables.forEach(tbody => {
+          tbody.querySelectorAll('tr').forEach(row => {
+            const text = row.textContent.toLowerCase();
+            if (!query || text.includes(query)) {
+              row.style.display = '';
+            } else {
+              row.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  }
+
+  // Export Table to UTF-8 CSV with Khmer support
+  function setupExcelExport() {
+    document.querySelectorAll('button').forEach(btn => {
+      const t = btn.textContent.toLowerCase();
+      if ((t.includes('excel') && t.includes('នាំចេញ')) || t.includes('download excel') || t.includes('export') || btn.id === 'btnExport') {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          exportActiveTableToCSV();
+        });
+      }
+    });
+  }
+
+  function exportActiveTableToCSV() {
+    const table = document.querySelector('table');
+    if (!table) {
+      showToast('ទិន្នន័យ', 'មិនមានតារាងទិន្នន័យនៅលើទំព័រនេះទេ', 'warning');
+      return;
+    }
+
+    let csvContent = '\uFEFF'; // UTF-8 BOM for Microsoft Excel Khmer readability
+    const rows = table.querySelectorAll('tr');
+
+    rows.forEach(row => {
+      if (row.style.display === 'none') return;
+      const cols = row.querySelectorAll('th, td');
+      const rowData = [];
+      cols.forEach(col => {
+        if (col.querySelector('button') && col.textContent.trim().length < 5) return;
+        let text = col.innerText.replace(/"/g, '""').replace(/\r?\n|\r/g, ' ').trim();
+        rowData.push(`"${text}"`);
+      });
+      if (rowData.length > 0) {
+        csvContent += rowData.join(',') + '\r\n';
+      }
+    });
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const filename = `Khema_Export_${new Date().toISOString().slice(0, 10)}.csv`;
+    link.href = URL.createObjectURL(blob);
+    link.setAttribute('download', filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast('នាំចេញជោគជ័យ', `បានរក្សាទុកឯកសារ: ${filename}`, 'success');
+  }
+
+  // Quick Excel Import Modal
+  function setupExcelImportModal() {
+    document.querySelectorAll('button').forEach(btn => {
+      const t = btn.textContent.toLowerCase();
+      if ((t.includes('excel') && t.includes('នាំចូល')) || t.includes('quick import') || btn.id === 'open-import-modal') {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openImportModal();
+        });
+      }
+    });
+  }
+
+  function openImportModal() {
+    let modal = document.getElementById('khema-import-dialog');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'khema-import-dialog';
+      modal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-primary/40 backdrop-blur-sm p-4';
+      modal.innerHTML = `
+        <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-lg w-full p-6 animate-in fade-in zoom-in-95 duration-150">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">upload_file</span>
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-slate-900">នាំចូលទិន្នន័យ Excel / CSV</h3>
+                <p class="text-[11px] text-slate-500">ជ្រើសរើសឯកសារទិន្នន័យសម្ភារៈ ឬបញ្ជីស្តុក</p>
+              </div>
+            </div>
+            <button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-slate-100 text-slate-400 hover:text-slate-600" onclick="document.getElementById('khema-import-dialog').classList.add('hidden')">
+              <span class="material-symbols-outlined text-[18px]">close</span>
+            </button>
+          </div>
+          <div class="my-5 border-2 border-dashed border-slate-200 hover:border-secondary rounded-xl p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-colors bg-slate-50/50">
+            <input type="file" id="khema-file-input" accept=".csv, .xlsx, .xls" class="hidden"/>
+            <span class="material-symbols-outlined text-secondary text-[40px] mb-2">cloud_upload</span>
+            <p class="text-xs font-semibold text-slate-800">ចុចទីនេះ ឬទម្លាក់ឯកសារ Excel/CSV មកទីនេះ</p>
+            <p class="text-[10px] text-slate-400 mt-1">គាំទ្រទម្រង់ .xlsx, .xls, .csv (UTF-8)</p>
+          </div>
+          <div class="flex justify-end gap-2 pt-2 border-t border-slate-100">
+            <button class="px-4 py-2 text-xs font-medium rounded-lg text-slate-600 hover:bg-slate-100" onclick="document.getElementById('khema-import-dialog').classList.add('hidden')">បោះបង់</button>
+            <button id="khema-btn-confirm-import" class="px-4 py-2 text-xs font-semibold rounded-lg bg-secondary text-white hover:bg-secondary/90 shadow-sm flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[16px]">check</span>
+              <span>ចាប់ផ្តើមនាំចូល (Start Import)</span>
+            </button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(modal);
+
+      const dropArea = modal.querySelector('.border-dashed');
+      const fileInput = modal.querySelector('#khema-file-input');
+      dropArea.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+          dropArea.querySelector('p.font-semibold').textContent = `ឯកសារ: ${fileInput.files[0].name}`;
+        }
+      });
+
+      modal.querySelector('#khema-btn-confirm-import').addEventListener('click', () => {
+        modal.classList.add('hidden');
+        showToast('ដំណើរការជោគជ័យ', 'ទិន្នន័យ Excel ត្រូវបានត្រួតពិនិត្យ និងបញ្ចូលទៅក្នុងប្រព័ន្ធ SmartStock ដោយជោគជ័យ', 'success');
+      });
+    }
+    modal.classList.remove('hidden');
+  }
+
+  // =========================================================================
+  // KHEMA DIGITAL DENTAL SOLUTION - OFFICIAL PURCHASE REQUEST (VERSION 1.1)
+  // =========================================================================
+  function setupOfficialPurchaseRequestModal() {
+    let modal = document.getElementById('khema-official-pr-modal');
+    if (modal) return;
+
+    modal = document.createElement('div');
+    modal.id = 'khema-official-pr-modal';
+    modal.className = 'fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm p-3 md:p-6 overflow-y-auto';
+
+    modal.innerHTML = `
+      <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-5xl w-full max-h-[94vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+        <!-- Action Control Top Header (Hidden in Print) -->
+        <div class="px-6 py-3.5 bg-slate-900 text-white flex items-center justify-between no-print">
+          <div class="flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-amber-400 text-[22px]">verified</span>
+            <div>
+              <h2 class="text-xs font-bold tracking-wide uppercase">KHEMA DIGITAL DENTAL SOLUTION</h2>
+              <p class="text-[11px] text-slate-300">ទម្រង់ផ្លូវការប័ណ្ណស្នើសុំទិញទំនិញ · PURCHASE REQUEST FORM (Version 1.1)</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="pr-btn-print" class="px-3.5 py-1.5 bg-secondary text-white hover:bg-secondary/90 rounded-lg text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all">
+              <span class="material-symbols-outlined text-[16px]">print</span>
+              <span>បោះពុម្ពប័ណ្ណ (Print / PDF)</span>
+            </button>
+            <button id="pr-btn-close" class="w-8 h-8 rounded-lg flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors">
+              <span class="material-symbols-outlined text-[20px]">close</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Printable Document Canvas -->
+        <div class="p-6 md:p-8 overflow-y-auto max-h-[calc(94vh-65px)] bg-white text-slate-900" id="khema-pr-print-area">
+          <!-- Document Header -->
+          <div class="border-b-2 border-slate-900 pb-4 mb-4">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center font-bold text-xl shadow-md flex-shrink-0">
+                  <span>ខ</span>
+                </div>
+                <div>
+                  <h1 class="text-base md:text-lg font-black text-primary tracking-tight leading-snug">KHEMA DIGITAL DENTAL SOLUTION (ខេមរា)</h1>
+                  <h2 class="text-sm md:text-base font-bold text-slate-800">ប័ណ្ណស្នើសុំទិញទំនិញ / PURCHASE REQUEST</h2>
+                </div>
+              </div>
+              <div class="text-right flex flex-col items-end">
+                <span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-300 text-[11px] font-bold text-slate-700 uppercase">Version 1.1</span>
+                <span class="text-xs font-mono font-semibold text-secondary mt-1" id="pr-doc-id">PR-2026-11-089</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Document Meta Details Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 p-3.5 bg-slate-50 border border-slate-200 rounded-xl mb-4">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">ថ្ងៃស្នើសុំ (Request Date):</label>
+              <input type="date" id="pr-date" class="w-full h-8 px-2.5 text-xs bg-white border border-slate-300 rounded-lg font-medium"/>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">ផ្នែកស្នើសុំ (Department): *</label>
+              <select id="pr-dept-select" class="w-full h-8 px-2 text-xs bg-white border border-slate-300 rounded-lg font-medium">
+                ${KHEMA_DEPARTMENTS.map(d => `<option value="${d.id}">${d.nameKh}</option>`).join('')}
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">អ្នកស្នើសុំ (Requested by):</label>
+              <input type="text" id="pr-requester" class="w-full h-8 px-2.5 text-xs bg-white border border-slate-300 rounded-lg font-medium" value="Sokha Chan (ADMIN)"/>
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-1">ស្ថានភាពប័ណ្ណ (Status):</label>
+              <div class="h-8 px-2.5 bg-amber-50 border border-amber-300 rounded-lg flex items-center justify-between text-xs font-bold text-amber-700">
+                <span>កំពុងត្រួតពិនិត្យ (Pending)</span>
+                <span class="material-symbols-outlined text-[16px]">hourglass_top</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fast Catalog Quick-Picker Toolbar (No-Print) -->
+          <div class="p-3 bg-blue-50/70 border border-blue-200 rounded-xl mb-4 flex flex-col md:flex-row md:items-center justify-between gap-3 no-print">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary text-[20px]">library_add</span>
+              <div>
+                <p class="text-xs font-bold text-slate-900">ជ្រើសរើសមុខទំនិញគំរូតាមផ្នែក (Pick from Department Catalog)</p>
+                <p class="text-[10px] text-slate-600">ជ្រើសរើសមុខទំនិញធ្មេញពិតប្រាកដដើម្បីបញ្ចូលដោយស្វ័យប្រវត្តិ</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <select id="pr-catalog-picker" class="h-8 px-2.5 text-xs bg-white border border-blue-300 rounded-lg max-w-xs"></select>
+              <button id="pr-btn-add-catalog" class="px-3 h-8 bg-primary text-white hover:bg-primary/90 text-xs font-semibold rounded-lg flex items-center gap-1 shadow-sm transition-colors">
+                <span class="material-symbols-outlined text-[16px]">add</span>
+                <span>បញ្ចូល</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Items Table -->
+          <div class="border border-slate-300 rounded-xl overflow-hidden mb-4 shadow-sm">
+            <table class="w-full text-left text-xs border-collapse" id="pr-items-table">
+              <thead>
+                <tr class="bg-slate-100 text-slate-800 font-bold border-b border-slate-300">
+                  <th class="py-2.5 px-2 text-center w-10 border-r border-slate-300">ល.រ</th>
+                  <th class="py-2.5 px-3 border-r border-slate-300">ឈ្មោះសម្ភារៈ (Item Description)</th>
+                  <th class="py-2.5 px-2 text-center w-20 border-r border-slate-300">ចំនួនស្នើសុំ</th>
+                  <th class="py-2.5 px-2 text-center w-16 border-r border-slate-300">ខ្នាត</th>
+                  <th class="py-2.5 px-2 text-center w-20 border-r border-slate-300">ចំនួនអនុម័ត</th>
+                  <th class="py-2.5 px-2 text-right w-24 border-r border-slate-300">តម្លៃរាយ ($)</th>
+                  <th class="py-2.5 px-2 text-right w-24 border-r border-slate-300">សរុប ($)</th>
+                  <th class="py-2.5 px-3 border-r border-slate-300">អ្នកផ្គត់ផ្គង់ (Supplier)</th>
+                  <th class="py-2.5 px-3 border-r border-slate-300">សម្គាល់</th>
+                  <th class="py-2.5 px-2 text-center w-10 no-print">លុប</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200" id="pr-table-body">
+                <!-- Dynamically Populated Rows -->
+              </tbody>
+              <tfoot>
+                <tr class="bg-slate-50 font-bold border-t-2 border-slate-300">
+                  <td colspan="6" class="py-2.5 px-4 text-right text-xs text-slate-700">សរុបរួម (Grand Total USD):</td>
+                  <td class="py-2.5 px-2 text-right text-sm font-black text-primary font-mono" id="pr-grand-total-usd">$0.00</td>
+                  <td colspan="3" class="py-2.5 px-3 text-xs text-slate-500">
+                    ស្មើប្រមាណ: <span id="pr-grand-total-khr" class="font-bold text-secondary">0 ៛</span>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+
+          <!-- Add Manual Row Button (No-print) -->
+          <div class="flex justify-between items-center mb-6 no-print">
+            <button id="pr-btn-add-row" class="px-3.5 py-1.5 border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-semibold rounded-lg flex items-center gap-1.5 transition-colors">
+              <span class="material-symbols-outlined text-[16px] text-primary">add_circle</span>
+              <span>+ បន្ថែមជួរថ្មី (Add Row)</span>
+            </button>
+            <span class="text-[11px] text-slate-500">* អត្រាប្តូរប្រាក់គិតជាមធ្យម 4,100 KHR / 1 USD</span>
+          </div>
+
+          <!-- 5-Level Approval Signatures Section -->
+          <div class="border border-slate-300 rounded-xl p-4 bg-slate-50/60 mb-5">
+            <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-3 text-center border-b border-slate-200 pb-2">
+              ហត្ថលេខា និងការអនុម័តតាមឋានានុក្រម (Hierarchical Approval Signatures)
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+              <!-- Sign 1: Originator -->
+              <div class="bg-white p-2.5 border border-slate-200 rounded-lg flex flex-col justify-between text-center relative sign-box" id="sign-originator">
+                <div>
+                  <p class="text-[11px] font-bold text-slate-900">អ្នកស្នើសុំ</p>
+                  <p class="text-[9px] text-slate-500 uppercase">Originator</p>
+                </div>
+                <div class="h-16 flex items-center justify-center my-1 sign-stamp-area">
+                  <span class="text-[10px] text-slate-400 italic">មិនទាន់ចុះហត្ថលេខា</span>
+                </div>
+                <div>
+                  <button class="w-full py-1 text-[10px] font-semibold bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 border border-slate-200 rounded text-slate-700 transition-colors no-print btn-sign">ចុចចុះហត្ថលេខា</button>
+                  <p class="text-[10px] font-medium text-slate-700 mt-1 border-t border-slate-100 pt-0.5 sign-name">ឈ្មោះ: ....................</p>
+                  <p class="text-[9px] text-slate-400 sign-date">កាលបរិច្ឆេទ: .../.../2026</p>
+                </div>
+              </div>
+
+              <!-- Sign 2: Checked By -->
+              <div class="bg-white p-2.5 border border-slate-200 rounded-lg flex flex-col justify-between text-center relative sign-box" id="sign-checker">
+                <div>
+                  <p class="text-[11px] font-bold text-slate-900">អ្នកត្រួតពិនិត្យ</p>
+                  <p class="text-[9px] text-slate-500 uppercase">Checked By</p>
+                </div>
+                <div class="h-16 flex items-center justify-center my-1 sign-stamp-area">
+                  <span class="text-[10px] text-slate-400 italic">មិនទាន់ចុះហត្ថលេខា</span>
+                </div>
+                <div>
+                  <button class="w-full py-1 text-[10px] font-semibold bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 border border-slate-200 rounded text-slate-700 transition-colors no-print btn-sign">ចុចចុះហត្ថលេខា</button>
+                  <p class="text-[10px] font-medium text-slate-700 mt-1 border-t border-slate-100 pt-0.5 sign-name">ឈ្មោះ: ....................</p>
+                  <p class="text-[9px] text-slate-400 sign-date">កាលបរិច្ឆេទ: .../.../2026</p>
+                </div>
+              </div>
+
+              <!-- Sign 3: Approved By -->
+              <div class="bg-white p-2.5 border border-slate-200 rounded-lg flex flex-col justify-between text-center relative sign-box" id="sign-approver">
+                <div>
+                  <p class="text-[11px] font-bold text-slate-900">អ្នកសម្រេច</p>
+                  <p class="text-[9px] text-slate-500 uppercase">Approved By</p>
+                </div>
+                <div class="h-16 flex items-center justify-center my-1 sign-stamp-area">
+                  <span class="text-[10px] text-slate-400 italic">មិនទាន់ចុះហត្ថលេខា</span>
+                </div>
+                <div>
+                  <button class="w-full py-1 text-[10px] font-semibold bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 border border-slate-200 rounded text-slate-700 transition-colors no-print btn-sign">ចុចចុះហត្ថលេខា</button>
+                  <p class="text-[10px] font-medium text-slate-700 mt-1 border-t border-slate-100 pt-0.5 sign-name">ឈ្មោះ: ....................</p>
+                  <p class="text-[9px] text-slate-400 sign-date">កាលបរិច្ឆេទ: .../.../2026</p>
+                </div>
+              </div>
+
+              <!-- Sign 4: General Manager -->
+              <div class="bg-white p-2.5 border border-slate-200 rounded-lg flex flex-col justify-between text-center relative sign-box" id="sign-gm">
+                <div>
+                  <p class="text-[11px] font-bold text-slate-900">ប្រធានគ្រប់គ្រងទូទៅ</p>
+                  <p class="text-[9px] text-slate-500 uppercase">General Manager</p>
+                </div>
+                <div class="h-16 flex items-center justify-center my-1 sign-stamp-area">
+                  <span class="text-[10px] text-slate-400 italic">មិនទាន់ចុះហត្ថលេខា</span>
+                </div>
+                <div>
+                  <button class="w-full py-1 text-[10px] font-semibold bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 border border-slate-200 rounded text-slate-700 transition-colors no-print btn-sign">ចុចចុះហត្ថលេខា</button>
+                  <p class="text-[10px] font-medium text-slate-700 mt-1 border-t border-slate-100 pt-0.5 sign-name">ឈ្មោះ: ....................</p>
+                  <p class="text-[9px] text-slate-400 sign-date">កាលបរិច្ឆេទ: .../.../2026</p>
+                </div>
+              </div>
+
+              <!-- Sign 5: Purchase Officer -->
+              <div class="bg-white p-2.5 border border-slate-200 rounded-lg flex flex-col justify-between text-center relative sign-box" id="sign-purchaser">
+                <div>
+                  <p class="text-[11px] font-bold text-slate-900">អ្នកទិញទំនិញ</p>
+                  <p class="text-[9px] text-slate-500 uppercase">Purchase Officer</p>
+                </div>
+                <div class="h-16 flex items-center justify-center my-1 sign-stamp-area">
+                  <span class="text-[10px] text-slate-400 italic">មិនទាន់ចុះហត្ថលេខា</span>
+                </div>
+                <div>
+                  <button class="w-full py-1 text-[10px] font-semibold bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 border border-slate-200 rounded text-slate-700 transition-colors no-print btn-sign">ចុចចុះហត្ថលេខា</button>
+                  <p class="text-[10px] font-medium text-slate-700 mt-1 border-t border-slate-100 pt-0.5 sign-name">ឈ្មោះ: ....................</p>
+                  <p class="text-[9px] text-slate-400 sign-date">កាលបរិច្ឆេទ: .../.../2026</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Official Document Note (Version 1.1 Mandatory Disclaimer) -->
+          <div class="p-3 bg-amber-50 border border-amber-300 rounded-xl text-[11px] text-amber-900 leading-relaxed font-medium">
+            <span class="font-bold">បញ្ជាក់៖</span> រាល់ការស្នើសុំទិញសម្ភារៈ នឹងទទួលបានក្នុងរយៈពេលចន្លោះពី ៣ថ្ងៃ ទៅ មួយសប្តាហ៍ ឬ ទៅតាមអីវ៉ាន់ជាក់ស្តែង មានក្នុងស្រុក ឬ ក្រៅស្រុក។
+          </div>
+        </div>
+
+        <!-- Document Bottom Action Toolbar (No-Print) -->
+        <div class="px-6 py-3.5 bg-slate-100 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 no-print">
+          <div class="flex items-center gap-2 text-xs text-slate-500">
+            <span class="material-symbols-outlined text-[18px] text-emerald-600">cloud_done</span>
+            <span>ប្រព័ន្ធត្រៀមរក្សាទុកទៅក្នុងបញ្ជីស្នើសុំ និងកំណត់ត្រាស្តុកទូទៅ</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="pr-btn-cancel" class="px-4 py-2 text-xs font-semibold rounded-lg text-slate-600 hover:bg-slate-200 transition-colors">បោះបង់</button>
+            <button id="pr-btn-submit" class="px-5 py-2 text-xs font-bold rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white shadow-md flex items-center gap-1.5 transition-all">
+              <span class="material-symbols-outlined text-[18px]">send</span>
+              <span>រក្សាទុក & បញ្ជូនប័ណ្ណស្នើសុំ (Submit Request)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    // Attach Event Handlers
+    const closeBtn = modal.querySelector('#pr-btn-close');
+    const cancelBtn = modal.querySelector('#pr-btn-cancel');
+    const printBtn = modal.querySelector('#pr-btn-print');
+    const submitBtn = modal.querySelector('#pr-btn-submit');
+    const addRowBtn = modal.querySelector('#pr-btn-add-row');
+    const deptSelect = modal.querySelector('#pr-dept-select');
+    const catalogPicker = modal.querySelector('#pr-catalog-picker');
+    const addCatalogBtn = modal.querySelector('#pr-btn-add-catalog');
+    const tbody = modal.querySelector('#pr-table-body');
+    const dateInput = modal.querySelector('#pr-date');
+
+    // Default Date to today
+    dateInput.value = new Date().toISOString().slice(0, 10);
+
+    const closeModal = () => modal.classList.add('hidden');
+    closeBtn.addEventListener('click', closeModal);
+    cancelBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Populate Catalog items based on Department
+    function updateCatalogPicker() {
+      const deptId = deptSelect.value;
+      const items = KHEMA_CATALOG[deptId] || [];
+      catalogPicker.innerHTML = items.map((it, idx) => `
+        <option value="${idx}">${it.name} (${it.unit}) - $${it.price.toFixed(2)}</option>
+      `).join('');
+    }
+
+    deptSelect.addEventListener('change', () => {
+      updateCatalogPicker();
+    });
+    updateCatalogPicker();
+
+    // Add Row Helper
+    let rowCounter = 0;
+    function addTableRow(data = {}) {
+      rowCounter++;
+      const tr = document.createElement('tr');
+      tr.className = 'hover:bg-slate-50 transition-colors text-slate-800';
+      const itemDesc = data.name || '';
+      const qtyReq = data.qtyReq !== undefined ? data.qtyReq : 1;
+      const unit = data.unit || 'ប្រអប់';
+      const qtyAppr = data.qtyAppr !== undefined ? data.qtyAppr : qtyReq;
+      const price = data.price !== undefined ? data.price : 0.00;
+      const supplier = data.supplier || 'Camdent Pro';
+      const remark = data.remark || 'ទំនិញស្តុកបន្ទាន់';
+
+      tr.innerHTML = `
+        <td class="py-2 px-2 text-center text-slate-500 font-mono border-r border-slate-200 row-idx">${rowCounter}</td>
+        <td class="py-2 px-2 border-r border-slate-200">
+          <input type="text" class="w-full px-2 py-1 bg-transparent border-0 focus:ring-1 focus:ring-secondary rounded text-xs font-medium input-name" value="${itemDesc}" placeholder="បញ្ចូលឈ្មោះសម្ភារៈ..."/>
+        </td>
+        <td class="py-2 px-2 border-r border-slate-200">
+          <input type="number" min="1" class="w-full px-1.5 py-1 text-center bg-transparent border-0 focus:ring-1 focus:ring-secondary rounded text-xs font-semibold input-qty" value="${qtyReq}"/>
+        </td>
+        <td class="py-2 px-2 border-r border-slate-200">
+          <input type="text" class="w-full px-1 py-1 text-center bg-transparent border-0 focus:ring-1 focus:ring-secondary rounded text-xs input-unit" value="${unit}"/>
+        </td>
+        <td class="py-2 px-2 border-r border-slate-200">
+          <input type="number" min="0" class="w-full px-1.5 py-1 text-center bg-transparent border-0 focus:ring-1 focus:ring-secondary rounded text-xs font-semibold input-qty-appr" value="${qtyAppr}"/>
+        </td>
+        <td class="py-2 px-2 border-r border-slate-200">
+          <input type="number" step="0.01" min="0" class="w-full px-1.5 py-1 text-right bg-transparent border-0 focus:ring-1 focus:ring-secondary rounded text-xs font-mono font-semibold input-price" value="${price.toFixed(2)}"/>
+        </td>
+        <td class="py-2 px-2 border-r border-slate-200 text-right font-mono font-bold text-slate-900 row-total">$0.00</td>
+        <td class="py-2 px-2 border-r border-slate-200">
+          <input type="text" class="w-full px-1.5 py-1 bg-transparent border-0 focus:ring-1 focus:ring-secondary rounded text-xs input-supplier" value="${supplier}"/>
+        </td>
+        <td class="py-2 px-2 border-r border-slate-200">
+          <input type="text" class="w-full px-1.5 py-1 bg-transparent border-0 focus:ring-1 focus:ring-secondary rounded text-xs input-remark" value="${remark}"/>
+        </td>
+        <td class="py-2 px-2 text-center no-print">
+          <button class="text-slate-400 hover:text-rose-600 p-1 rounded hover:bg-rose-50 transition-colors btn-del-row" title="លុបជួរ">
+            <span class="material-symbols-outlined text-[16px]">delete</span>
+          </button>
+        </td>
+      `;
+
+      tbody.appendChild(tr);
+
+      // Bind dynamic calculations
+      const qtyInput = tr.querySelector('.input-qty');
+      const priceInput = tr.querySelector('.input-price');
+      const delBtn = tr.querySelector('.btn-del-row');
+
+      const calcRow = () => {
+        const q = parseFloat(qtyInput.value) || 0;
+        const p = parseFloat(priceInput.value) || 0;
+        const tot = q * p;
+        tr.querySelector('.row-total').textContent = `$${tot.toFixed(2)}`;
+        calcGrandTotal();
+      };
+
+      qtyInput.addEventListener('input', calcRow);
+      priceInput.addEventListener('input', calcRow);
+      delBtn.addEventListener('click', () => {
+        tr.remove();
+        refreshRowIndexes();
+        calcGrandTotal();
+      });
+
+      calcRow();
+    }
+
+    function refreshRowIndexes() {
+      tbody.querySelectorAll('tr').forEach((tr, i) => {
+        tr.querySelector('.row-idx').textContent = (i + 1);
+      });
+      rowCounter = tbody.querySelectorAll('tr').length;
+    }
+
+    function calcGrandTotal() {
+      let sum = 0;
+      tbody.querySelectorAll('.row-total').forEach(el => {
+        const val = parseFloat(el.textContent.replace('$', '')) || 0;
+        sum += val;
+      });
+      modal.querySelector('#pr-grand-total-usd').textContent = `$${sum.toFixed(2)}`;
+      const khr = Math.round(sum * 4100);
+      modal.querySelector('#pr-grand-total-khr').textContent = `${khr.toLocaleString()} ៛`;
+    }
+
+    // Add row from button
+    addRowBtn.addEventListener('click', () => {
+      addTableRow();
+    });
+
+    // Add preset item from catalog
+    addCatalogBtn.addEventListener('click', () => {
+      const deptId = deptSelect.value;
+      const idx = parseInt(catalogPicker.value);
+      const item = (KHEMA_CATALOG[deptId] || [])[idx];
+      if (item) {
+        addTableRow({
+          name: item.name,
+          unit: item.unit,
+          price: item.price,
+          supplier: item.supplier,
+          qtyReq: 1,
+          remark: 'ស្នើសុំប្រចាំខែ'
+        });
+        showToast('បានបន្ថែមមុខទំនិញ', `បានបញ្ចូល ${item.name} ទៅក្នុងប័ណ្ណស្នើសុំ`, 'info');
+      }
+    });
+
+    // Populate initial default 4 rows from Molding & Digital departments
+    const defaultMolding = KHEMA_CATALOG.molding[0];
+    const defaultDigital = KHEMA_CATALOG.digital[0];
+    const defaultMetal = KHEMA_CATALOG.metal[0];
+    const defaultBuildup = KHEMA_CATALOG.ceramic_buildup[0];
+
+    addTableRow({ name: defaultMolding.name, unit: defaultMolding.unit, price: defaultMolding.price, supplier: defaultMolding.supplier, qtyReq: 2, remark: 'ប្រញាប់' });
+    addTableRow({ name: defaultDigital.name, unit: defaultDigital.unit, price: defaultDigital.price, supplier: defaultDigital.supplier, qtyReq: 3, remark: 'ស្តុកបន្ទាន់' });
+    addTableRow({ name: defaultMetal.name, unit: defaultMetal.unit, price: defaultMetal.price, supplier: defaultMetal.supplier, qtyReq: 1, remark: 'ធម្មតា' });
+    addTableRow({ name: defaultBuildup.name, unit: defaultBuildup.unit, price: defaultBuildup.price, supplier: defaultBuildup.supplier, qtyReq: 2, remark: 'ស្នើសុំប្រចាំខែ' });
+
+    // Interactive Digital Signature Stamp System
+    modal.querySelectorAll('.sign-box').forEach(box => {
+      const btn = box.querySelector('.btn-sign');
+      const stampArea = box.querySelector('.sign-stamp-area');
+      const nameEl = box.querySelector('.sign-name');
+      const dateEl = box.querySelector('.sign-date');
+
+      btn.addEventListener('click', () => {
+        const user = getCurrentUser();
+        const now = new Date();
+        const dateStr = now.toLocaleDateString('en-GB') + ' ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        stampArea.innerHTML = `
+          <div class="px-2 py-1 bg-emerald-50 border-2 border-emerald-600 rounded-lg text-emerald-800 flex flex-col items-center justify-center shadow-inner animate-in zoom-in-75 duration-150">
+            <div class="flex items-center gap-1 font-black text-[10px] text-emerald-700 uppercase tracking-wider">
+              <span class="material-symbols-outlined text-[14px]">verified</span>
+              <span>APPROVED</span>
+            </div>
+            <p class="text-[9px] font-bold text-slate-800 leading-tight">${user.name}</p>
+            <p class="text-[8px] text-emerald-600 font-mono">${dateStr}</p>
+          </div>
+        `;
+
+        nameEl.textContent = `ឈ្មោះ: ${user.name}`;
+        dateEl.textContent = `កាលបរិច្ឆេទ: ${now.toLocaleDateString('en-GB')}`;
+        btn.textContent = 'បានចុះហត្ថលេខា ✓';
+        btn.disabled = true;
+        btn.className = 'w-full py-1 text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 rounded cursor-default no-print';
+
+        showToast('ចុះហត្ថលេខាជោគជ័យ', `${user.name} បានអនុម័ត និងចុះហត្ថលេខាលើប័ណ្ណស្នើសុំ`, 'success');
+      });
+    });
+
+    // Print Handling with High-Res Layout
+    printBtn.addEventListener('click', () => {
+      window.print();
+    });
+
+    // Save & Submit Handling
+    submitBtn.addEventListener('click', () => {
+      const docId = modal.querySelector('#pr-doc-id').textContent;
+      const grandTotal = modal.querySelector('#pr-grand-total-usd').textContent;
+      const dept = deptSelect.options[deptSelect.selectedIndex].text;
+
+      // Save to localStorage
+      try {
+        const savedPRs = JSON.parse(localStorage.getItem('khema_saved_prs') || '[]');
+        savedPRs.unshift({
+          id: docId,
+          date: dateInput.value,
+          dept: dept,
+          requester: modal.querySelector('#pr-requester').value,
+          total: grandTotal,
+          status: 'បានបញ្ជូន (Submitted)',
+          createdAt: new Date().toISOString()
+        });
+        localStorage.setItem('khema_saved_prs', JSON.stringify(savedPRs));
+      } catch(e) {}
+
+      modal.classList.add('hidden');
+      showToast('រក្សាទុកប័ណ្ណស្នើសុំជោគជ័យ', `ប័ណ្ណ ${docId} ចំនួនទឹកប្រាក់ ${grandTotal} ត្រូវបានបញ្ជូនទៅកាន់ផ្នែកលទ្ធកម្ម និងអ្នកអនុម័ត`, 'success');
+    });
+  }
+
+  function openPurchaseRequestModal() {
+    setupOfficialPurchaseRequestModal();
+    const modal = document.getElementById('khema-official-pr-modal');
+    if (modal) {
+      modal.classList.remove('hidden');
+    }
+  }
+
+  // Hook all Purchase Request / Requisition buttons across all 12 modules
+  function setupRequisitionTriggers() {
+    document.querySelectorAll('button').forEach(btn => {
+      const text = btn.textContent.toLowerCase();
+      if (
+        btn.id === 'btnNewReq' ||
+        text.includes('ស្នើសុំទំនិញថ្មី') ||
+        text.includes('new requisition') ||
+        text.includes('បង្កើតប័ណ្ណស្នើសុំ') ||
+        text.includes('បង្កើតប័ណ្ណបញ្ជាទិញថ្មី') ||
+        (text.includes('កត់ត្រាទំនិញចេញ') && text.includes('stock out'))
+      ) {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openPurchaseRequestModal();
         });
       }
     });
 
-    // Notification Bell
-    const notifBtns = document.querySelectorAll('header button[aria-label="Notifications"], header button:has(.material-symbols-outlined:contains("notifications"))');
-    notifBtns.forEach(btn => {
+    // Stock In buttons
+    document.querySelectorAll('button').forEach(btn => {
+      const text = btn.textContent.toLowerCase();
+      if (text.includes('កត់ត្រាទំនិញចូល') || text.includes('stock in')) {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          showStockInPrompt();
+        });
+      }
+    });
+
+    // Table Approval & Rejection buttons
+    document.querySelectorAll('button#btnApproveRequisition, button:has(.material-symbols-outlined:contains("check_circle"))').forEach(btn => {
       btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleNotificationsPanel(btn);
-      });
-    });
-
-    // User Profile in Header
-    const userProfiles = document.querySelectorAll('header .cursor-pointer:has(.material-symbols-outlined:contains("person")), header div.flex.items-center.gap-space-sm.pl-space-sm');
-    userProfiles.forEach(prof => {
-      prof.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleUserDropdown(prof);
-      });
-    });
-
-    // Sync saved user name if available
-    const savedName = localStorage.getItem('khema_user_name');
-    const savedRole = localStorage.getItem('khema_user_role');
-    if (savedName) {
-      document.querySelectorAll('header span.text-on-surface.font-semibold, header span.font-title-md.text-\\[13px\\]').forEach(el => {
-        el.innerText = savedName;
-      });
-    }
-    if (savedRole) {
-      document.querySelectorAll('header span.bg-surface-container-high').forEach(el => {
-        el.innerText = savedRole;
-      });
-    }
-  }
-
-  // Notifications Flyout
-  function toggleNotificationsPanel(btn) {
-    let panel = document.getElementById('khema-notif-panel');
-    if (panel) {
-      panel.remove();
-      return;
-    }
-
-    panel = document.createElement('div');
-    panel.id = 'khema-notif-panel';
-    panel.className = 'fixed top-16 right-20 z-50 w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden animate-in fade-in zoom-in-95 duration-150';
-    panel.innerHTML = `
-      <div class="px-4 py-3 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <span class="material-symbols-outlined text-[19px] text-primary">notifications_active</span>
-          <span class="font-bold text-xs text-primary">ការជូនដំណឹងថ្មី (4)</span>
-        </div>
-        <button id="mark-notifs-read" class="text-[11px] text-secondary font-semibold hover:underline">សម្គាល់ថាបានអាន</button>
-      </div>
-      <div class="divide-y divide-slate-100 max-h-80 overflow-y-auto">
-        <div class="p-3 hover:bg-slate-50 transition-colors cursor-pointer">
-          <div class="flex items-start gap-2.5">
-            <span class="w-2 h-2 rounded-full bg-rose-500 mt-1.5 flex-shrink-0"></span>
-            <div>
-              <p class="text-xs font-bold text-slate-800">ស្តុកទាប: Paracetamol 500mg</p>
-              <p class="text-[11px] text-slate-500">នៅសល់តែ 42 ប្រអប់ (ទាបជាងកម្រិតសុវត្ថិភាព 100)</p>
-              <span class="text-[10px] text-slate-400 mt-1 inline-block">10 នាទីមុន</span>
-            </div>
-          </div>
-        </div>
-        <div class="p-3 hover:bg-slate-50 transition-colors cursor-pointer">
-          <div class="flex items-start gap-2.5">
-            <span class="w-2 h-2 rounded-full bg-indigo-500 mt-1.5 flex-shrink-0"></span>
-            <div>
-              <p class="text-xs font-bold text-slate-800">ប័ណ្ណស្នើសុំថ្មី #REQ-2026-104</p>
-              <p class="text-[11px] text-slate-500">ពីផ្នែកសង្គ្រោះបន្ទាន់ (Emergency Room) រង់ចាំអនុម័ត</p>
-              <span class="text-[10px] text-slate-400 mt-1 inline-block">35 នាទីមុន</span>
-            </div>
-          </div>
-        </div>
-        <div class="p-3 hover:bg-slate-50 transition-colors cursor-pointer">
-          <div class="flex items-start gap-2.5">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0"></span>
-            <div>
-              <p class="text-xs font-bold text-slate-800">បានទទួលទំនិញចូលស្តុក</p>
-              <p class="text-[11px] text-slate-500">ប័ណ្ណ PO-2026-089 ចំនួន 500 ប្រអប់ត្រូវបានបញ្ចូល</p>
-              <span class="text-[10px] text-slate-400 mt-1 inline-block">1 ម៉ោងមុន</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="p-2 bg-slate-50 border-t border-slate-200 text-center">
-        <a href="${getModuleUrl('audit-logs')}" class="text-[11px] text-primary font-bold hover:underline">មើលកំណត់ត្រាទាំងអស់ (View All)</a>
-      </div>
-    `;
-
-    document.body.appendChild(panel);
-
-    panel.querySelector('#mark-notifs-read').addEventListener('click', () => {
-      showToast('បានសម្គាល់ការជូនដំណឹងទាំងអស់ថាបានអានរួច!');
-      panel.remove();
-    });
-
-    const closeHandler = (e) => {
-      if (!panel.contains(e.target)) {
-        panel.remove();
-        document.removeEventListener('click', closeHandler);
-      }
-    };
-    setTimeout(() => document.addEventListener('click', closeHandler), 10);
-  }
-
-  // User Profile Dropdown
-  function toggleUserDropdown(prof) {
-    let dropdown = document.getElementById('khema-user-dropdown');
-    if (dropdown) {
-      dropdown.remove();
-      return;
-    }
-
-    const currentName = localStorage.getItem('khema_user_name') || 'Sokha Chan';
-    const currentRole = localStorage.getItem('khema_user_role') || 'SUPER ADMIN';
-
-    dropdown = document.createElement('div');
-    dropdown.id = 'khema-user-dropdown';
-    dropdown.className = 'fixed top-16 right-6 z-50 w-64 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden animate-in fade-in zoom-in-95 duration-150';
-    dropdown.innerHTML = `
-      <div class="p-4 bg-slate-50 border-b border-slate-200">
-        <p class="text-xs font-bold text-primary">${currentName}</p>
-        <span class="inline-block mt-0.5 px-2 py-0.5 rounded text-[10px] font-bold bg-primary text-on-primary">${currentRole}</span>
-        <p class="text-[11px] text-slate-500 mt-1">Phnom Penh Central Hub Depot A</p>
-      </div>
-      <div class="p-1.5 flex flex-col gap-0.5">
-        <a href="${getModuleUrl('login')}" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-100 transition-colors">
-          <span class="material-symbols-outlined text-[18px] text-secondary">switch_account</span>
-          <span>ផ្លាស់ប្តូរតួនាទី (Switch Role)</span>
-        </a>
-        <a href="${getModuleUrl('settings')}" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-100 transition-colors">
-          <span class="material-symbols-outlined text-[18px] text-slate-500">settings</span>
-          <span>ការកំណត់ប្រព័ន្ធ (Settings)</span>
-        </a>
-        <a href="${getPortalUrl()}" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-100 transition-colors">
-          <span class="material-symbols-outlined text-[18px] text-primary">apps</span>
-          <span>ទំព័រដើម (Portal Home)</span>
-        </a>
-        <div class="border-t border-slate-100 my-1"></div>
-        <button id="khema-signout-btn" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-rose-600 hover:bg-rose-50 transition-colors w-full text-left">
-          <span class="material-symbols-outlined text-[18px]">logout</span>
-          <span>ចាកចេញ (Sign Out)</span>
-        </button>
-      </div>
-    `;
-
-    document.body.appendChild(dropdown);
-
-    dropdown.querySelector('#khema-signout-btn').addEventListener('click', () => {
-      showToast('បានចាកចេញពីប្រព័ន្ធដោយជោគជ័យ!', 'info');
-      setTimeout(() => {
-        window.location.href = getModuleUrl('login');
-      }, 600);
-    });
-
-    const closeHandler = (e) => {
-      if (!dropdown.contains(e.target)) {
-        dropdown.remove();
-        document.removeEventListener('click', closeHandler);
-      }
-    };
-    setTimeout(() => document.addEventListener('click', closeHandler), 10);
-  }
-
-  // 3. Role Login & Switch Account Page (Image 2)
-  function setupRoleLoginPage() {
-    const isLoginPage = window.location.pathname.includes('role_login_switch_account') || 
-                        window.location.pathname.includes('login');
-    if (!isLoginPage) return;
-
-    // Role definitions
-    const roles = {
-      admin: { name: 'Sokha Chan', title: 'អ្នកគ្រប់គ្រងជាន់ខ្ពស់', role: 'Admin', badge: 'ADMIN', badgeClass: 'bg-primary-container text-on-primary', email: 'sokha.chan@smartstock.kh', hub: 'pp-a', icon: 'shield_person' },
-      manager: { name: 'Vireak Rith', title: 'ប្រធានឃ្លាំងកណ្តាល', role: 'Warehouse Manager', badge: 'MANAGER', badgeClass: 'bg-secondary-fixed text-on-secondary-fixed', email: 'vireak.rith@smartstock.kh', hub: 'pp-a', icon: 'warehouse' },
-      staff: { name: 'Thida Mao', title: 'បុគ្គលិកប្រតិបត្តិការ', role: 'Warehouse Operator', badge: 'STAFF', badgeClass: 'bg-indigo-100 text-indigo-800', email: 'thida.mao@smartstock.kh', hub: 'sr-a', icon: 'inventory' },
-      auditor: { name: 'Kosal An', title: 'សវនករខាងក្រៅ', role: 'External Auditor', badge: 'AUDITOR', badgeClass: 'bg-surface-container text-on-surface-variant', email: 'kosal.an@smartstock.kh', hub: 'pp-a', icon: 'policy' }
-    };
-
-    window.selectRole = function(roleKey) {
-      const p = roles[roleKey];
-      if (!p) return;
-
-      document.querySelectorAll('.role-card').forEach(c => c.classList.remove('ring-2', 'ring-primary'));
-      const activeCard = document.getElementById(`role-card-${roleKey}`);
-      if (activeCard) activeCard.classList.add('ring-2', 'ring-primary');
-
-      const nameEl = document.getElementById('selected-user-name');
-      const emailEl = document.getElementById('selected-user-email');
-      const badgeEl = document.getElementById('selected-user-badge');
-      const iconEl = document.getElementById('selected-role-icon');
-      const inputUsername = document.getElementById('input-username');
-      const selectHub = document.getElementById('select-hub');
-      const inputPass = document.getElementById('input-password');
-
-      if (nameEl) nameEl.innerText = p.name;
-      if (emailEl) emailEl.innerText = p.email;
-      if (badgeEl) {
-        badgeEl.innerText = p.badge;
-        badgeEl.className = `px-1.5 py-0.5 rounded text-[10px] font-semibold ${p.badgeClass}`;
-      }
-      if (iconEl) iconEl.innerText = p.icon;
-      if (inputUsername) inputUsername.value = p.email;
-      if (selectHub) selectHub.value = p.hub;
-      if (inputPass) inputPass.value = '••••••••••••';
-
-      localStorage.setItem('khema_user_name', p.name);
-      localStorage.setItem('khema_user_role', p.badge);
-      showToast(`បានជ្រើសរើសតួនាទី: ${p.name} (${p.badge})`, 'info');
-    };
-
-    // Password visibility toggle
-    window.togglePasswordVisibility = function() {
-      const input = document.getElementById('input-password');
-      const icon = document.getElementById('password-toggle-icon');
-      if (!input) return;
-      if (input.type === 'password') {
-        input.type = 'text';
-        if (icon) icon.innerText = 'visibility_off';
-      } else {
-        input.type = 'password';
-        if (icon) icon.innerText = 'visibility';
-      }
-    };
-
-    // Mode Switcher (Direct Sign In vs Shift Switch)
-    window.switchLoginMode = function(mode) {
-      const directBtn = document.getElementById('tab-direct-btn');
-      const switchBtn = document.getElementById('tab-switch-btn');
-      const btnText = document.getElementById('btn-text');
-
-      if (mode === 'direct') {
-        if (directBtn) directBtn.className = "py-2 text-center rounded-md font-title-md text-[13px] bg-surface-container-lowest text-primary shadow-sm transition-all";
-        if (switchBtn) switchBtn.className = "py-2 text-center rounded-md font-title-md text-[13px] text-on-surface-variant hover:text-on-surface transition-all";
-        if (btnText) btnText.innerText = "ចូលប្រព័ន្ធ (Sign In to SmartStock)";
-      } else {
-        if (switchBtn) switchBtn.className = "py-2 text-center rounded-md font-title-md text-[13px] bg-surface-container-lowest text-primary shadow-sm transition-all";
-        if (directBtn) directBtn.className = "py-2 text-center rounded-md font-title-md text-[13px] text-on-surface-variant hover:text-on-surface transition-all";
-        if (btnText) btnText.innerText = "ផ្លាស់ប្តូរវេនភ្លាមៗ (Switch Active Shift)";
-      }
-    };
-
-    // Forgot Password
-    const forgotLinks = document.querySelectorAll('a:contains("ភ្លេចពាក្យសម្ងាត់"), span:contains("ភ្លេចពាក្យសម្ងាត់")');
-    forgotLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
         e.preventDefault();
-        showToast('តំណភ្ជាប់សម្រាប់កំណត់ពាក្យសម្ងាត់ឡើងវិញត្រូវបានផ្ញើទៅអ៊ីមែលរបស់អ្នក!', 'info');
+        showToast('អនុម័តរួចរាល់', 'ប័ណ្ណស្នើសុំត្រូវបានអនុម័ត និងបញ្ជូនបន្តទៅកាន់ប្រធានឃ្លាំង', 'success');
+        updateRowStatus(btn, 'បានអនុម័ត (Approved)', 'bg-emerald-100 text-emerald-800');
       });
     });
 
-    // Primary Sign In Button
-    const submitBtn = document.getElementById('submit-login-btn');
-    if (submitBtn) {
-      submitBtn.addEventListener('click', (e) => {
+    document.querySelectorAll('button#btnRejectRequisition, button:has(.material-symbols-outlined:contains("cancel"))').forEach(btn => {
+      btn.addEventListener('click', (e) => {
         e.preventDefault();
-        const originalContent = submitBtn.innerHTML;
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = `<span class="material-symbols-outlined text-[20px] animate-spin">refresh</span><span>កំពុងផ្ទៀងផ្ទាត់... (Authenticating)</span>`;
+        showToast('បដិសេធ', 'ប័ណ្ណស្នើសុំត្រូវបានបដិសេធ', 'error');
+        updateRowStatus(btn, 'បដិសេធ (Rejected)', 'bg-rose-100 text-rose-800');
+      });
+    });
 
+    // Notification bell button
+    const notifBtn = document.querySelector('button[aria-label="Notifications"]');
+    if (notifBtn) {
+      notifBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleNotificationsDropdown(notifBtn);
+      });
+    }
+
+    // Warehouse sync button
+    const syncBtn = document.querySelector('button[aria-label="Warehouse Sync"]');
+    if (syncBtn) {
+      syncBtn.addEventListener('click', () => {
+        const icon = syncBtn.querySelector('.material-symbols-outlined');
+        if (icon) icon.classList.add('animate-spin');
         setTimeout(() => {
-          submitBtn.innerHTML = `<span class="material-symbols-outlined text-[20px]">check_circle</span><span>ជោគជ័យ! កំពុងបញ្ជូន...</span>`;
-          submitBtn.classList.add('bg-emerald-700');
-          showToast('ចូលប្រព័ន្ធជោគជ័យ! សូមស្វាគមន៍មកកាន់ SmartStock ERP');
-
-          setTimeout(() => {
-            window.location.href = getModuleUrl('dashboard');
-          }, 800);
+          if (icon) icon.classList.remove('animate-spin');
+          showToast('សមកាលកម្មទិន្នន័យ', 'ទិន្នន័យឃ្លាំងកណ្តាលភ្នំពេញ (Hub Terminal 01) ត្រូវបាន Sync ជោគជ័យ', 'success');
         }, 800);
       });
     }
   }
 
-  // 4. Dashboard Actions
-  function setupDashboardActions() {
-    const isDash = window.location.pathname.includes('inventory_dashboard') || 
-                   window.location.pathname.includes('dashboard');
-    if (!isDash) return;
-
-    // "កត់ត្រាទំនិញចូល (Stock In)" Quick Button
-    document.querySelectorAll('button:contains("កត់ត្រាទំនិញចូល"), button:contains("Stock In")').forEach(btn => {
-      btn.addEventListener('click', () => {
-        openQuickStockModal('in');
-      });
-    });
-
-    // "កត់ត្រាទំនិញចេញ (Stock Out)" Quick Button
-    document.querySelectorAll('button:contains("កត់ត្រាទំនិញចេញ"), button:contains("Stock Out")').forEach(btn => {
-      btn.addEventListener('click', () => {
-        openQuickStockModal('out');
-      });
-    });
-  }
-
-  // Quick Stock Modal (Stock In / Stock Out)
-  function openQuickStockModal(mode) {
-    const isStockIn = mode === 'in';
-    const title = isStockIn ? 'កត់ត្រាទំនិញចូលស្តុក (Stock In Entry)' : 'កត់ត្រាទំនិញចេញពីស្តុក (Stock Out Entry)';
-    const btnColor = isStockIn ? 'bg-secondary' : 'bg-primary';
-
-    const modal = document.createElement('div');
-    modal.className = 'fixed inset-0 z-[99999] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4';
-    modal.innerHTML = `
-      <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 animate-in fade-in zoom-in-95 duration-150">
-        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-lg ${btnColor} text-white flex items-center justify-center">
-              <span class="material-symbols-outlined text-[20px]">${isStockIn ? 'add_box' : 'indeterminate_check_box'}</span>
-            </div>
-            <h3 class="font-bold text-base text-primary">${title}</h3>
-          </div>
-          <button class="close-modal text-slate-400 hover:text-slate-600">
-            <span class="material-symbols-outlined text-[22px]">close</span>
-          </button>
-        </div>
-        <form id="quick-stock-form" class="mt-4 flex flex-col gap-3">
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">កូដទំនិញ / ឈ្មោះ (SKU or Item)</label>
-            <input type="text" required placeholder="ឧទាហរណ៍: SKU-MED-001 (Paracetamol)" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-secondary focus:outline-none"/>
-          </div>
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">បរិមាណ (Quantity)</label>
-              <input type="number" required min="1" placeholder="100" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-secondary focus:outline-none"/>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">ឃ្លាំងស្តុក (Warehouse)</label>
-              <select class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-secondary focus:outline-none">
-                <option>Phnom Penh Depot A</option>
-                <option>Sihanoukville Hub</option>
-                <option>Siem Reap Depot</option>
-              </select>
-            </div>
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">${isStockIn ? 'អ្នកផ្គត់ផ្គង់ / លេខ PO' : 'ដេប៉ាតឺម៉ង់ទទួល / មូលហេតុ'}</label>
-            <input type="text" placeholder="${isStockIn ? 'ឧ. Mega Lifesciences (PO-2026-092)' : 'ឧ. Emergency Department (ICU)'}" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-secondary focus:outline-none"/>
-          </div>
-          <div class="flex items-center justify-end gap-2 mt-4 pt-3 border-t border-slate-200">
-            <button type="button" class="close-modal px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100">បោះបង់</button>
-            <button type="submit" class="px-5 py-2 rounded-lg text-xs font-bold text-white ${btnColor} hover:opacity-95 shadow-sm">កត់ត្រាទិន្នន័យ (Submit)</button>
-          </div>
-        </form>
-      </div>
-    `;
-
-    document.body.appendChild(modal);
-
-    modal.querySelectorAll('.close-modal').forEach(b => b.addEventListener('click', () => modal.remove()));
-    modal.querySelector('#quick-stock-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      modal.remove();
-      showToast(isStockIn ? 'បានកត់ត្រាទំនិញចូលស្តុកដោយជោគជ័យ!' : 'បានកត់ត្រាទំនិញចេញពីស្តុកដោយជោគជ័យ!');
-    });
-  }
-
-  // 5. Inventory Items Master List
-  function setupInventoryItemsActions() {
-    const isItems = window.location.pathname.includes('inventory_items') || 
-                    window.location.pathname.includes('inventory-items');
-    if (!isItems) return;
-
-    // Export CSV Button
-    document.querySelectorAll('button:contains("នាំចេញ"), button:contains("CSV")').forEach(btn => {
-      btn.addEventListener('click', () => {
-        downloadSampleInventoryCSV();
-      });
-    });
-
-    // Add New Item Button
-    document.querySelectorAll('button:contains("បន្ថែមទំនិញថ្មី"), button:contains("Add")').forEach(btn => {
-      btn.addEventListener('click', () => {
-        openAddItemModal();
-      });
-    });
-
-    // Live search filter in items page
-    const searchInput = document.querySelector('input[placeholder*="ស្វែងរក"]');
-    if (searchInput) {
-      searchInput.addEventListener('input', (e) => {
-        const q = e.target.value.toLowerCase().trim();
-        document.querySelectorAll('table tbody tr').forEach(row => {
-          const text = row.innerText.toLowerCase();
-          if (text.includes(q)) {
-            row.style.display = '';
-          } else {
-            row.style.display = 'none';
-          }
-        });
-      });
+  function updateRowStatus(btn, text, classList) {
+    const tr = btn.closest('tr');
+    if (!tr) return;
+    const badge = tr.querySelector('.rounded-full, .px-2\\.5, .px-2, span[class*="rounded"]');
+    if (badge) {
+      badge.textContent = text;
+      badge.className = `px-2.5 py-0.5 rounded-full text-xs font-bold ${classList}`;
     }
   }
 
-  function downloadSampleInventoryCSV() {
-    const csvContent = "data:text/csv;charset=utf-8," + 
-      "SKU,Item Name (Khmer),Item Name (English),Category,Quantity,Unit,Min Stock,Unit Price (USD),Warehouse\n" +
-      "MED-001,ប៉ារ៉ាសេតាម៉ុល 500mg,Paracetamol 500mg Tablets,ថ្នាំពេទ្យ,1250,ប្រអប់,100,2.50,Phnom Penh Depot A\n" +
-      "MED-002,អាម៉ុកស៊ីស៊ីលីន 500mg,Amoxicillin 500mg Capsules,ថ្នាំពេទ្យ,840,ប្រអប់,50,4.20,Phnom Penh Depot A\n" +
-      "MED-003,ស្រោមដៃវេជ្ជសាស្ត្រ M,Medical Gloves Nitrile Size M,សម្ភារៈពេទ្យ,3500,ប្រអប់,500,6.00,Phnom Penh Depot A\n" +
-      "MED-004,ម៉ាស់ពេទ្យ 3 ស្រទាប់,Surgical Face Mask 3-Ply,សម្ភារៈពេទ្យ,5200,ប្រអប់,1000,1.80,Phnom Penh Depot A\n" +
-      "MED-005,ទឹកសម្លាប់មេរោគ 500ml,Hand Sanitizer Gel 500ml,សម្ភារៈអនាម័យ,450,ដប,100,3.50,Sihanoukville Hub\n" +
-      "MED-006,បង់រុំរបួស 10cm,Sterile Gauze Bandage 10cm,សម្ភារៈពេទ្យ,1100,ដុំ,200,0.80,Phnom Penh Depot A";
-
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "khema_inventory_items.csv");
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    showToast("បានទាញយកឯកសារបញ្ជីទំនិញ khema_inventory_items.csv រួចរាល់!");
+  function showStockInPrompt() {
+    const item = prompt('បញ្ចូលឈ្មោះទំនិញចូលស្តុក (Enter Stock-In Item):', 'ម្សៅពុម្ពថ្មបៃតង GC Fuji');
+    if (!item) return;
+    const qty = prompt('បញ្ចូលចំនួន (Quantity):', '10');
+    if (!qty) return;
+    showToast('កត់ត្រាទំនិញចូលជោគជ័យ', `បានកត់ត្រាការនាំចូល ${item} ចំនួន ${qty} ឯកតា ទៅក្នុងឃ្លាំង Phnom Penh Depot A`, 'success');
   }
 
-  function openAddItemModal() {
-    const modal = document.createElement('div');
-    modal.className = 'fixed inset-0 z-[99999] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4';
-    modal.innerHTML = `
-      <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 animate-in fade-in zoom-in-95 duration-150">
-        <div class="flex items-center justify-between pb-4 border-b border-slate-200">
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center">
-              <span class="material-symbols-outlined text-[20px]">add_box</span>
-            </div>
-            <h3 class="font-bold text-base text-primary">បន្ថែមទំនិញថ្មីក្នុងស្តុក (Add New Item)</h3>
-          </div>
-          <button class="close-modal text-slate-400 hover:text-slate-600">
-            <span class="material-symbols-outlined text-[22px]">close</span>
-          </button>
+  function toggleNotificationsDropdown(anchor) {
+    let dropdown = document.getElementById('khema-notif-dropdown');
+    if (!dropdown) {
+      dropdown = document.createElement('div');
+      dropdown.id = 'khema-notif-dropdown';
+      dropdown.className = 'fixed z-50 w-80 bg-white rounded-xl shadow-2xl border border-slate-200 py-3 animate-in fade-in zoom-in-95 duration-150';
+      dropdown.innerHTML = `
+        <div class="px-4 pb-2 border-b border-slate-100 flex items-center justify-between">
+          <h4 class="text-xs font-bold text-slate-800">ការជូនដំណឹង (Notifications)</h4>
+          <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-secondary text-white font-bold">3 ថ្មី</span>
         </div>
-        <form id="add-item-form" class="mt-4 flex flex-col gap-3">
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">កូដទំនិញ (SKU)</label>
-              <input type="text" required placeholder="SKU-MED-999" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-secondary focus:outline-none"/>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">ប្រភេទ (Category)</label>
-              <select class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-secondary focus:outline-none">
-                <option>ថ្នាំពេទ្យ (Pharmaceuticals)</option>
-                <option>សម្ភារៈពេទ្យ (Medical Supplies)</option>
-                <option>ឧបករណ៍ (Equipment)</option>
-                <option>សម្ភារៈការិយាល័យ (Office Supplies)</option>
-              </select>
-            </div>
+        <div class="divide-y divide-slate-100 text-xs">
+          <div class="p-3 hover:bg-slate-50 cursor-pointer">
+            <p class="font-bold text-slate-900">ប័ណ្ណស្នើសុំថ្មី: PR-2026-11-089</p>
+            <p class="text-[11px] text-slate-500 mt-0.5">ផ្នែកDigital បានស្នើសុំ Zirconia Block និង Milling Bur</p>
+            <span class="text-[10px] text-amber-600 font-semibold mt-1 inline-block">រង់ចាំការអនុម័ត · 10 នាទីមុន</span>
           </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">ឈ្មោះទំនិញជាភាសាខ្មែរ</label>
-            <input type="text" required placeholder="ឧ. ថ្នាំបន្តក់ភ្នែក អង់ទីប៊ីយ៉ូទិក" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-secondary focus:outline-none"/>
+          <div class="p-3 hover:bg-slate-50 cursor-pointer">
+            <p class="font-bold text-slate-900">ទំនិញជិតអស់ពីស្តុក (Low Stock Alert)</p>
+            <p class="text-[11px] text-slate-500 mt-0.5">ម្សៅពុម្ពថ្មបៃតង GC Fuji នៅសល់ត្រឹមតែ ៤ ធុង</p>
+            <span class="text-[10px] text-rose-600 font-semibold mt-1 inline-block">បន្ទាន់ · 35 នាទីមុន</span>
           </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-700 mb-1">Item Name (English)</label>
-            <input type="text" placeholder="Antibiotic Eye Drops 10ml" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-secondary focus:outline-none"/>
+          <div class="p-3 hover:bg-slate-50 cursor-pointer">
+            <p class="font-bold text-slate-900">ទំនិញដឹកជញ្ជូនចូលឃ្លាំង (PO Delivered)</p>
+            <p class="text-[11px] text-slate-500 mt-0.5">Bayon Dental Supply បានដឹកទំនិញ PO-8840 មកដល់ Depot A</p>
+            <span class="text-[10px] text-emerald-600 font-semibold mt-1 inline-block">បានបញ្ចប់ · 2 ម៉ោងមុន</span>
           </div>
-          <div class="grid grid-cols-3 gap-3">
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">ចំនួនស្តុក (Qty)</label>
-              <input type="number" required min="1" placeholder="100" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-secondary focus:outline-none"/>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">ឯកតា (UOM)</label>
-              <input type="text" placeholder="ដប / ប្រអប់" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-secondary focus:outline-none"/>
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">តម្លៃឯកតា ($)</label>
-              <input type="number" step="0.01" placeholder="3.50" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-secondary focus:outline-none"/>
-            </div>
-          </div>
-          <div class="flex items-center justify-end gap-2 mt-4 pt-3 border-t border-slate-200">
-            <button type="button" class="close-modal px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:bg-slate-100">បោះបង់</button>
-            <button type="submit" class="px-5 py-2 rounded-lg text-xs font-bold text-white bg-primary hover:bg-primary-container shadow-sm">រក្សាទុកទំនិញ (Save Item)</button>
-          </div>
-        </form>
-      </div>
-    `;
+        </div>
+        <div class="pt-2 px-4 border-t border-slate-100 text-center">
+          <a href="#" onclick="window.khemaOpenPR(); return false;" class="text-[11px] text-secondary font-bold hover:underline">បើកប័ណ្ណស្នើសុំទិញទំនិញថ្មី (Open PR Form)</a>
+        </div>
+      `;
+      document.body.appendChild(dropdown);
 
-    document.body.appendChild(modal);
-    modal.querySelectorAll('.close-modal').forEach(b => b.addEventListener('click', () => modal.remove()));
-    modal.querySelector('#add-item-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      modal.remove();
-      showToast('ទំនិញថ្មីត្រូវបានបញ្ចូលទៅក្នុងប្រព័ន្ធដោយជោគជ័យ!');
-    });
-  }
-
-  // 6. Stock Movements Actions
-  function setupStockMovementsActions() {
-    const isMov = window.location.pathname.includes('stock_movements') || 
-                  window.location.pathname.includes('stock-movements');
-    if (!isMov) return;
-
-    document.querySelectorAll('button:contains("នាំចេញ"), button:contains("របាយការណ៍")').forEach(btn => {
-      btn.addEventListener('click', () => {
-        showToast('កំពុងទាញយកកំណត់ត្រាចរន្តស្តុក (Exporting CSV)...');
-        setTimeout(() => downloadSampleInventoryCSV(), 600);
-      });
-    });
-  }
-
-  // 7. Material Requisition & Approval Actions
-  function setupRequisitionActions() {
-    const isReq = window.location.pathname.includes('material_requisition_multi_level_approval') || 
-                  window.location.pathname.includes('requisition');
-    if (!isReq) return;
-
-    // Approve buttons
-    document.querySelectorAll('button:contains("អនុម័ត"), button:contains("Approve")').forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.innerHTML = `<span class="material-symbols-outlined text-[16px]">check_circle</span><span>បានអនុម័តរួច</span>`;
-        btn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-600 text-white flex items-center gap-1';
-        showToast('ប័ណ្ណស្នើសុំត្រូវបានអនុម័តជាស្ថាពរ!');
-      });
-    });
-
-    // Reject buttons
-    document.querySelectorAll('button:contains("បដិសេធ"), button:contains("Reject")').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const reason = prompt('សូមបញ្ចូលមូលហេតុបដិសេធ (Rejection Reason):');
-        if (reason) {
-          btn.innerHTML = `<span class="material-symbols-outlined text-[16px]">cancel</span><span>បានបដិសេធ</span>`;
-          btn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold bg-rose-600 text-white flex items-center gap-1';
-          showToast(`ប័ណ្ណស្នើសុំត្រូវបានបដិសេធ (មូលហេតុ: ${reason})`, 'error');
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target) && !anchor.contains(e.target)) {
+          dropdown.classList.add('hidden');
         }
       });
-    });
+    }
 
-    // Print
-    document.querySelectorAll('button:contains("បោះពុម្ព"), button:contains("Print")').forEach(btn => {
-      btn.addEventListener('click', () => window.print());
-    });
+    const rect = anchor.getBoundingClientRect();
+    dropdown.style.top = `${rect.bottom + 8}px`;
+    dropdown.style.left = `${Math.max(10, rect.right - 320)}px`;
+    dropdown.classList.toggle('hidden');
   }
 
-  // 8. Stock Adjustment Actions
-  function setupStockAdjustmentActions() {
-    const isAdj = window.location.pathname.includes('stock_adjustment') || 
-                  window.location.pathname.includes('stock-adjustments');
-    if (!isAdj) return;
-
-    document.querySelectorAll('button:contains("រក្សាទុក"), button:contains("Save")').forEach(btn => {
-      btn.addEventListener('click', () => {
-        showToast('សេចក្តីព្រាងរាប់ស្តុកត្រូវបានរក្សាទុក!');
-      });
-    });
-
-    document.querySelectorAll('button:contains("អនុម័ត"), button:contains("Approve")').forEach(btn => {
-      btn.addEventListener('click', () => {
-        showToast('ការកែតម្រូវស្តុកជាក់ស្តែងត្រូវបានអនុម័ត និងធ្វើបច្ចុប្បន្នភាពរួចរាល់!');
-      });
-    });
-
-    document.querySelectorAll('button:contains("បោះពុម្ព"), button:contains("Print")').forEach(btn => {
-      btn.addEventListener('click', () => window.print());
-    });
-  }
-
-  // 9. Suppliers & Purchase Orders
-  function setupSuppliersActions() {
-    const isSup = window.location.pathname.includes('suppliers_purchase_orders') || 
-                  window.location.pathname.includes('suppliers');
-    if (!isSup) return;
-
-    document.querySelectorAll('button:contains("បង្កើតការបញ្ជាទិញ"), button:contains("Create PO")').forEach(btn => {
-      btn.addEventListener('click', () => {
-        showToast('ទម្រង់បង្កើតប័ណ្ណ PO ថ្មីត្រូវបានបើកដំណើរការ!', 'info');
-      });
-    });
-
-    document.querySelectorAll('button:contains("ផ្ញើ PO"), button:contains("Send")').forEach(btn => {
-      btn.addEventListener('click', () => {
-        showToast('ប័ណ្ណបញ្ជាទិញ PO ត្រូវបានផ្ញើទៅកាន់អ្នកផ្គត់ផ្គង់តាមអ៊ីមែលរួចរាល់!');
-      });
-    });
-  }
-
-  // 10. Excel Import Actions
-  function setupExcelImportActions() {
-    const isImp = window.location.pathname.includes('excel_excel_import') || 
-                  window.location.pathname.includes('excel-import');
-    if (!isImp) return;
-
-    // Download template
-    document.querySelectorAll('button:contains("ទម្រង់គំរូ"), a:contains("ទម្រង់គំរូ"), button:contains("Template")').forEach(el => {
-      el.addEventListener('click', (e) => {
-        e.preventDefault();
-        downloadSampleInventoryCSV();
-      });
-    });
-
-    // Start Import
-    document.querySelectorAll('button:contains("ចាប់ផ្តើមនាំចូល"), button:contains("Start Import")').forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.disabled = true;
-        btn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span><span>កំពុងវិភាគទិន្នន័យ (45%)...</span>`;
-        setTimeout(() => {
-          btn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span><span>កំពុងនាំចូលទិន្នន័យ (85%)...</span>`;
-          setTimeout(() => {
-            btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">check_circle</span><span>នាំចូលជោគជ័យ 100%!</span>`;
-            btn.className = 'px-6 py-2.5 rounded-lg text-xs font-bold text-white bg-emerald-600 flex items-center gap-1.5';
-            showToast('បាននាំចូលទិន្នន័យទំនិញ 240 ជួរដោយជោគជ័យ!');
-          }, 600);
-        }, 600);
-      });
-    });
-  }
-
-  // 11. Roles & Permissions Actions
-  function setupRolesPermissionsActions() {
-    const isRole = window.location.pathname.includes('roles_permissions') || 
-                   window.location.pathname.includes('roles-and-permissions');
-    if (!isRole) return;
-
-    document.querySelectorAll('button:contains("រក្សាទុក"), button:contains("Save")').forEach(btn => {
-      btn.addEventListener('click', () => {
-        showToast('ការកំណត់សិទ្ធិ និងតួនាទីត្រូវបានរក្សាទុកដោយជោគជ័យ!');
-      });
-    });
-  }
-
-  // 12. Settings Actions
-  function setupSettingsActions() {
-    const isSet = window.location.pathname.includes('system_warehouse_settings') || 
-                  window.location.pathname.includes('settings');
-    if (!isSet) return;
-
-    document.querySelectorAll('button:contains("រក្សាទុក"), button:contains("Save")').forEach(btn => {
-      btn.addEventListener('click', () => {
-        showToast('ការកំណត់ប្រព័ន្ធ និងឃ្លាំងស្តុកត្រូវបានធ្វើបច្ចុប្បន្នភាព!');
-      });
-    });
-  }
-
-  // 13. Floating Quick Switcher (Ctrl+K)
+  // Floating Quick Module Switcher & Keyboard Shortcut (Ctrl+K)
   function setupQuickModuleSwitcher() {
-    if (document.getElementById('khema-quick-switcher-btn')) return;
+    if (document.getElementById('khema-quick-switcher')) return;
 
-    const btn = document.createElement('div');
+    const btn = document.createElement('button');
     btn.id = 'khema-quick-switcher-btn';
-    btn.className = 'fixed bottom-5 right-5 z-[9999] flex items-center gap-2 px-4 py-2.5 bg-primary text-on-primary rounded-full shadow-2xl hover:bg-primary-container transition-all cursor-pointer font-title-md text-[13px] border border-white/20 select-none backdrop-blur-md';
+    btn.className = 'fixed bottom-5 right-5 z-40 px-3.5 py-2.5 rounded-full bg-primary text-white shadow-xl hover:bg-primary/90 flex items-center gap-2 text-xs font-semibold cursor-pointer border border-white/20 transition-all hover:scale-105 no-print';
     btn.innerHTML = `
-      <span class="material-symbols-outlined text-[19px] text-secondary-container animate-pulse">apps</span>
-      <span class="font-bold">ម៉ូឌុលទាំងអស់ (12 Modules)</span>
-      <span class="text-[10px] px-1.5 py-0.5 rounded bg-white/10 text-on-primary ml-1 hidden sm:inline">Ctrl+K</span>
+      <span class="material-symbols-outlined text-[18px]">apps</span>
+      <span>ម៉ូឌុលទាំងអស់ (12 Modules)</span>
+      <span class="px-1.5 py-0.5 text-[10px] bg-white/20 rounded font-mono">Ctrl+K</span>
     `;
 
     const modal = document.createElement('div');
-    modal.id = 'khema-quick-switcher-modal';
-    modal.className = 'fixed inset-0 z-[10000] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 hidden';
+    modal.id = 'khema-quick-switcher';
+    modal.className = 'fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4 no-print';
 
-    const categories = {};
-    MODULES.forEach(m => {
-      if (!categories[m.cat]) categories[m.cat] = [];
-      categories[m.cat].push(m);
-    });
-
+    const categories = [...new Set(MODULES.map(m => m.cat))];
     let catHtml = '';
-    for (const [catName, list] of Object.entries(categories)) {
+
+    categories.forEach(cat => {
+      const mods = MODULES.filter(m => m.cat === cat);
       catHtml += `
         <div class="mb-4">
-          <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider px-2 mb-2 flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-            <span>${catName}</span>
-          </div>
+          <p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 px-1">${cat}</p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            ${list.map(mod => `
-              <a href="${getModuleUrl(mod.id)}" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 bg-slate-50 transition-all text-slate-800 group border border-transparent hover:border-secondary/30">
-                <div class="w-9 h-9 rounded-lg bg-slate-200 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors flex-shrink-0">
-                  <span class="material-symbols-outlined text-[20px]">${mod.icon}</span>
+            ${mods.map(m => `
+              <a href="${getModuleUrl(m.id)}" class="p-2.5 rounded-xl border border-slate-200 hover:border-secondary hover:bg-slate-50 transition-all flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-lg bg-slate-100 group-hover:bg-secondary group-hover:text-white flex items-center justify-center text-primary transition-colors">
+                  <span class="material-symbols-outlined text-[20px]">${m.icon}</span>
                 </div>
-                <div class="flex flex-col min-w-0">
-                  <span class="text-xs font-bold text-primary truncate">${mod.nameKh}</span>
-                  <span class="text-[11px] text-slate-500 truncate">${mod.nameEn}</span>
+                <div class="min-w-0 flex-1">
+                  <h4 class="text-xs font-bold text-slate-900 truncate">${m.nameKh}</h4>
+                  <p class="text-[10px] text-slate-500 truncate">${m.nameEn}</p>
                 </div>
               </a>
             `).join('')}
           </div>
         </div>
       `;
-    }
+    });
 
     modal.innerHTML = `
       <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-2xl w-full max-h-[88vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-150">
@@ -858,10 +1104,14 @@
             </div>
             <div>
               <h3 class="text-sm font-bold text-primary">ជ្រើសរើសម៉ូឌុលប្រព័ន្ធ (Switch ERP Module)</h3>
-              <p class="text-[11px] text-slate-500">SmartStock ERP · Khema Stock Management</p>
+              <p class="text-[11px] text-slate-500">SmartStock ERP · Khema Digital Dental Solution</p>
             </div>
           </div>
           <div class="flex items-center gap-2">
+            <button onclick="window.khemaOpenPR()" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-amber-500 hover:bg-amber-600 text-white flex items-center gap-1 shadow-sm">
+              <span class="material-symbols-outlined text-[16px]">receipt_long</span>
+              <span>ប័ណ្ណស្នើសុំ PR 1.1</span>
+            </button>
             <a href="${getPortalUrl()}" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-slate-200 text-primary hover:bg-slate-300">ទំព័រដើម (Portal)</a>
             <button id="close-quick-switcher" class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-slate-200 text-slate-500">
               <span class="material-symbols-outlined text-[20px]">close</span>
@@ -894,7 +1144,61 @@
     });
   }
 
-  // Safe document ready loader
+  // Inject High-Fidelity Print Style
+  function injectPrintStyle() {
+    if (document.getElementById('khema-print-css')) return;
+    const style = document.createElement('style');
+    style.id = 'khema-print-css';
+    style.textContent = `
+      @media print {
+        body * { visibility: hidden !important; }
+        #khema-official-pr-modal,
+        #khema-official-pr-modal #khema-pr-print-area,
+        #khema-official-pr-modal #khema-pr-print-area * {
+          visibility: visible !important;
+        }
+        #khema-official-pr-modal {
+          position: absolute !important;
+          left: 0 !important;
+          top: 0 !important;
+          width: 100% !important;
+          height: auto !important;
+          padding: 0 !important;
+          background: white !important;
+          display: block !important;
+        }
+        #khema-official-pr-modal > div {
+          max-width: 100% !important;
+          width: 100% !important;
+          border: none !important;
+          box-shadow: none !important;
+        }
+        .no-print { display: none !important; }
+        @page {
+          size: A4 portrait;
+          margin: 12mm 10mm;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Expose Global Helper
+  window.khemaOpenPR = openPurchaseRequestModal;
+
+  // Initialize
+  function init() {
+    injectPrintStyle();
+    setupNavigation();
+    setupUserMenu();
+    setupLiveSearch();
+    setupExcelExport();
+    setupExcelImportModal();
+    setupRequisitionTriggers();
+    setupQuickModuleSwitcher();
+    setupOfficialPurchaseRequestModal();
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
